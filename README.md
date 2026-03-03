@@ -1,7 +1,6 @@
 # Project Title (C)
 
-> **Short description**: One sentence about what this project does and why it exists.  
-> *(Students: Replace this block with your own description.)*
+> **Short description**: This project reads and writes a file according to instructions.
 
 ---
 
