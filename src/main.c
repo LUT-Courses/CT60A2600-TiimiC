@@ -18,6 +18,7 @@ void kysyTiedostoNimi(char aTiedostoNimi[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku);
 void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku);
+void tyhjennäTiedosto(SUKUNIMI *pAlku);
 int valikko();
 
 int main(void) {
@@ -37,7 +38,7 @@ int main(void) {
         } else if (iValinta == 3) {
             kirjoitaTiedostoLoppuAlku(pAlku); 
         } else if (iValinta == 4) {
-            // tyhjennä tiedosto
+            tyhjennäTiedosto(pAlku);
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
@@ -175,7 +176,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
 
     printf("Anna tiedoston nimi: ");
     scanf("%s", aTiedostoNimi);
-    
+
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui");
@@ -190,5 +191,22 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
     }
 
     fclose(Tiedosto);
+    return;
+}
+
+void tyhjennäTiedosto(SUKUNIMI *pAlku) {
+    char aTiedostoNimi[20];
+    FILE *Tiedosto = NULL;
+
+    printf("Anna tyhjennettävän tiedoston nimi: ");
+    scanf("%s", aTiedostoNimi);
+
+    Tiedosto = fopen(aTiedostoNimi, "w");
+    if (Tiedosto == NULL) {
+        perror("Tiedoston avaaminen epäonnistui");
+        return;
+    }
+    fclose(Tiedosto);
+    printf("Tiedosto '%s' tyhjennetty.\n\n", aTiedostoNimi);
     return;
 }
