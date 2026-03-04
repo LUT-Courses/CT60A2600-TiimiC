@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "hello.h"
 
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
@@ -32,9 +33,19 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
     return;
 }
 
-int lueTiedosto() {
+int lueTiedosto(char aTiedostoNimi[]) {
 
 
+}
+
+SUKUNIMI* varaaMuisti() {
+    SUKUNIMI *pUusi = NULL;
+
+    // muistin varauksen virheen käsittely
+    if ((pUusi = (SUKUNIMI*)malloc(sizeof(SUKUNIMI))) == NULL) {
+        perror("Muistin varaus epäonnistui, lopetetaan");
+        exit(0);
+    }
 }
 
 
