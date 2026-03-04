@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hello_2ec_0',['hello.c',['../hello_8c.html',1,'']]],
-  ['hello_2eh_1',['hello.h',['../hello_8h.html',1,'']]],
-  ['hello_5fmessage_2',['hello_message',['../hello_8c.html#a69c4be268d3f5dee2b70ff4885687aaf',1,'hello_message(void):&#160;hello.c'],['../hello_8h.html#a69c4be268d3f5dee2b70ff4885687aaf',1,'hello_message(void):&#160;hello.c']]]
+  ['kirjoitatiedostoalkuloppu_0',['kirjoitaTiedostoAlkuLoppu',['../main_8c.html#ae52c744969dd1b3760faae40d1deb3a5',1,'main.c']]],
+  ['kirjoitatiedostoloppualku_1',['kirjoitaTiedostoLoppuAlku',['../main_8c.html#a09a2a76f58b6132e85890df3dcba04bc',1,'main.c']]],
+  ['kysytiedostonimi_2',['kysyTiedostoNimi',['../main_8c.html#a74500bf08ebef2994492693cae10a45b',1,'main.c']]]
 ];

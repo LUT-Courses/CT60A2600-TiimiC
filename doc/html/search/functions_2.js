@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['luetiedosto_0',['lueTiedosto',['../main_8c.html#a54d4a9ee0a55ea13a24b9afea0918b04',1,'main.c']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
 ];
