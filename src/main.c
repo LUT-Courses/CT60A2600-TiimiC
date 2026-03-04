@@ -31,6 +31,8 @@ int main(void) {
         if (iValinta == 1) {
             kysyTiedostoNimi(aTiedostoNimi);
             pAlku = lueTiedosto(aTiedostoNimi);
+            printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 2) {
             tulostaAlkuLoppu(pAlku); //väliaike debug
         } else if (iValinta == 3) {
