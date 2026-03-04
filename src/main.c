@@ -162,7 +162,7 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
-        perror("Tiedoston avaaminen epäonnistui");
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
         exit(0);
     }
 
@@ -182,7 +182,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
-        perror("Tiedoston avaaminen epäonnistui");
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
         exit(0);
     }
     while ( (ptr != NULL) && (ptr->pSeuraava != NULL) ) {
@@ -203,8 +203,8 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
-        perror("Tiedoston avaaminen epäonnistui");
-        return;
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
     }
     fclose(Tiedosto);
     return;
