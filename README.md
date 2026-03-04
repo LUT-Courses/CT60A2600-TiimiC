@@ -1,4 +1,4 @@
-# Project Title (C)
+# C-project (C)
 
 > **Short description**: This project reads and writes a file according to instructions.
 
@@ -18,11 +18,18 @@
 ├── test/                 # Test sources (e.g., Unity/CMocka) + fixtures
 │   ├── test_main.c
 │   └── fixtures/
-├── data/                 # Input datasets / sample inputs (no secrets)
-│   ├── sample-input.txt
+├── data/
+│   ├── miehet_2025.txt
+│   ├── naiset_2025.txt
+│   ├── sukunimet_2025.txt
+│   ├── verkko_iso_lyhenteilla.txt
+│   ├── verkko_iso.txt
+│   ├── verkko_pieni.txt
 │   └── README.md         # Describe data sources and formats
 └── doc/                  # Documentation (design notes, Doxygen config)
-    └── design.md
+    ├── readme.md
+    ├── html/
+    └── config
 ```
 
 > **Notes**
@@ -60,44 +67,10 @@ make test
 
 # Memory check
 make memcheck
+
+# Clean
+make clean
 ```
-
----
-
-## 🧭 How to Use This Template (Students)
-
-### 1) Use this template
-
-### 2) Personalize the Project
-
-- Rename the project in this README.
-- Fill in the description, inputs/outputs, and known issues.
-- Replace sample files in `src/` and `test/` with your implementation.
-- **Modify** this README as your project evolves.
-
-### 3) Branching & Commits (Recommended Workflow)
-
-```bash
-# Create a feature branch
-git checkout -b feature/<short-name>
-# Work & commit small, focused changes
-git add .
-git commit -m "feat: short description"
-# Push and open a Pull Request (PR)
-git push -u origin feature/<short-name>
-```
-
-
-### 4) Give the TA Access to Your Fork
-
-> **Required for grading.** Add the TA as a **collaborator** to *your forked repository*.
-
-1. On GitHub, open **Settings → Collaborators** (or **Settings → Collaborators and teams**).
-2. Click **Add people**, enter the TA's GitHub username (IlKaLUT), choose **Write** access (or as instructed), and **Add**.
-3. If the repo is **private**, ensure the TA accepts the email invite.
-4. (Optional) If your course uses an organization, you may instead add the TA via **Manage access** or your course team. Follow the course's instructions if they differ.
-
-> Also share the **repository URL** and, if required, the **commit/tag** of the submitted version.
 
 ---
 
@@ -157,5 +130,5 @@ git push origin v0.1.0
 
 ## 📄 License
 
-> *(Choose a license or keep the repository private if unsure.)*
+> *Private*
 
