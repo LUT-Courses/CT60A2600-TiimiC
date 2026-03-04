@@ -16,10 +16,8 @@ SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
-void tulostaAlkuLoppu(SUKUNIMI *pAlku);
-void tulostaLoppuAlku(SUKUNIMI *pAlku);
-void kirjoitaTiedostoAlkuLoppu();
-void kirjoitaTiedostoLoppuAlku();
+void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku);
+void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku);
 int valikko();
 
 int main(void) {
@@ -35,9 +33,9 @@ int main(void) {
             printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
             printf("\n");
         } else if (iValinta == 2) {
-            tulostaAlkuLoppu(pAlku); //väliaike debug
+            kirjoitaTiedostoAlkuLoppu(pAlku); 
         } else if (iValinta == 3) {
-            tulostaLoppuAlku(pAlku); //väliaikane debug
+            kirjoitaTiedostoLoppuAlku(pAlku); 
         } else if (iValinta == 4) {
             // tyhjennä tiedosto
         } else if (iValinta == 0) {
@@ -147,11 +145,14 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
     return (pAlku);
 }
 
-void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
+void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
+    char aTiedostoNimi[20];
     FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
+    printf("Anna tiedoston nimi: ");
+    scanf("%s", aTiedostoNimi);
 
-    Tiedosto = fopen("alku_loppu.txt", "w");
+    Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui");
         return;
@@ -167,11 +168,15 @@ void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
 }
 // Kulkee ensin listan loppuun ja sitten tulostaa
 // nimet kulkien alkuun
-void tulostaLoppuAlku(SUKUNIMI *pAlku) {
+void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
+    char aTiedostoNimi[20];
     FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
 
-    Tiedosto = fopen("loppu_alku.txt", "w");
+    printf("Anna tiedoston nimi: ");
+    scanf("%s", aTiedostoNimi);
+    
+    Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui");
         return;
@@ -183,6 +188,7 @@ void tulostaLoppuAlku(SUKUNIMI *pAlku) {
         fprintf(Tiedosto, "%s|%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pEdellinen;
     }
+
     fclose(Tiedosto);
     return;
 }
