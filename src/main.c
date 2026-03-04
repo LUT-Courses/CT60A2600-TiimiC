@@ -15,6 +15,8 @@ SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
 int lueTiedosto();
+void kirjoitaTiedostoAlkuLoppu();
+void kirjoitaTiedostoLoppuAlku();
 
 int main(void) {
     char aTiedostoNimi[20];
