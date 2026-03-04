@@ -149,8 +149,8 @@ git push origin v0.1.0
 
 ## 👤 Author & Course
 
-- **Authors**: Your Name 
-- **Course**: Course Name
+- **Authors**: Eemil Lahti, Henri Penttinen, Sachin Nautiyal
+- **Course**: CT60A2600 Ohjelmakehitys C-kielellä
 - **Institution**: LUT University
 
 ---

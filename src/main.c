@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "hello.h"
 
+#define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
 #define MAX_NIMET 23156 // 1 yli jotta nullikka mahtuu
 
@@ -36,7 +37,8 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
 }
 
 int lueTiedosto(char aTiedostoNimi[]) {
-
+    FILE* Tiedosto = NULL;
+    char aRivi[LEN_RIVI];
 
 }
 
