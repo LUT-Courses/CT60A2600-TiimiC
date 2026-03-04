@@ -148,23 +148,41 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
 }
 
 void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
+    FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
+
+    Tiedosto = fopen("alku_loppu.txt", "w");
+    if (Tiedosto == NULL) {
+        perror("Tiedoston avaaminen epäonnistui");
+        return;
+    }
+
     while (ptr != NULL) {
-        printf("%s|%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s|%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pSeuraava;
     }
+
+    fclose(Tiedosto);
     return;
 }
 // Kulkee ensin listan loppuun ja sitten tulostaa
 // nimet kulkien alkuun
 void tulostaLoppuAlku(SUKUNIMI *pAlku) {
+    FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
+
+    Tiedosto = fopen("loppu_alku.txt", "w");
+    if (Tiedosto == NULL) {
+        perror("Tiedoston avaaminen epäonnistui");
+        return;
+    }
     while ( (ptr != NULL) && (ptr->pSeuraava != NULL) ) {
         ptr = ptr->pSeuraava;
     }
     while (ptr != NULL) {
-        printf("%s|%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s|%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pEdellinen;
     }
+    fclose(Tiedosto);
     return;
 }
