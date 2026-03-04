@@ -26,14 +26,25 @@ int main(void) {
     char aTiedostoNimi[20];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
-    iValinta = valikko();
-
-    kysyTiedostoNimi(aTiedostoNimi);
-    pAlku = lueTiedosto(aTiedostoNimi);
-
-    tulostaAlkuLoppu(pAlku);
-    tulostaLoppuAlku(pAlku);
-
+    do {
+        iValinta = valikko();
+        if (iValinta == 1) {
+            kysyTiedostoNimi(aTiedostoNimi);
+            pAlku = lueTiedosto(aTiedostoNimi);
+        } else if (iValinta == 2) {
+            tulostaAlkuLoppu(pAlku); //väliaike debug
+        } else if (iValinta == 3) {
+            tulostaLoppuAlku(pAlku); //väliaikane debug
+        } else if (iValinta == 4) {
+            // tyhjennä tiedosto
+        } else if (iValinta == 0) {
+            printf("Lopetetaan\n");
+        } else {
+            printf("Tuntematon valinta\n");
+            printf("\n");
+        }
+    } while (iValinta != 0);
+    
     pAlku = vapautaMuisti(pAlku);
     printf("Muisti vapautettu.\n");
     printf("Kiitos ohjelman käytöstä.\n");
