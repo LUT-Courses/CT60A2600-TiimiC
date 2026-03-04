@@ -15,12 +15,13 @@ typedef struct sukunimi {
 SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
-int lueTiedosto();
+int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
 
 int main(void) {
     char aTiedostoNimi[20];
+    char aSukunimet[MAX_NIMET];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
 
@@ -36,9 +37,27 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
     return;
 }
 
-int lueTiedosto(char aTiedostoNimi[]) {
+int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]) {
     FILE* Tiedosto = NULL;
+    SUKUNIMI *pUusi = NULL;
     char aRivi[LEN_RIVI];
+    char *p1 = NULL; // ptr sukunimelle tiedostosta
+
+    if ( (Tiedosto = fopen(aTiedostoNimi, "r")) == NULL ) {
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
+    }
+
+    // Luetaan otsikkorivi pois
+    fgets(aRivi, LEN_RIVI, Tiedosto);
+    while (fgets(aRivi, LEN_RIVI, Tiedosto) != NULL) {
+        if ((p1 = strtok(aRivi, ";")) == NULL) {
+            printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
+            exit(0);
+        }
+        pUusi = varaaMuisti();
+    }
+
 
 }
 
