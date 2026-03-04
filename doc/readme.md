@@ -1,1 +1,1 @@
-Avaa "index.html" tiedosto "html" kansiosta
+Avaa selaimessa "index.html" tiedosto "html" kansiosta
