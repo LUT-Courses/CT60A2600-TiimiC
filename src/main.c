@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "hello.h"
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
@@ -22,13 +23,12 @@ void kirjoitaTiedostoLoppuAlku();
 
 int main(void) {
     char aTiedostoNimi[20];
-    int iLuetutRivit = 0;
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
     kysyTiedostoNimi(aTiedostoNimi);
     pAlku = lueTiedosto(aTiedostoNimi);
 
-    tulostaAlkuLoppu();
+    tulostaAlkuLoppu(pAlku);
 
     vapautaMuisti(pAlku);
     printf("%s\n", hello_message());
@@ -46,7 +46,6 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
 // Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
 // Palauttaa osoittimen listan alkuu pAlku
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
-    int iLuetutRivit = 0;
     FILE* Tiedosto = NULL;
     SUKUNIMI *pAlku = NULL;
     SUKUNIMI *pUusi = NULL;
