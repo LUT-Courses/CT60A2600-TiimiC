@@ -55,8 +55,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
         exit(0);
     }
 
-    // Luetaan otsikkorivi pois
-    fgets(aRivi, LEN_RIVI, Tiedosto);
+    fgets(aRivi, LEN_RIVI, Tiedosto); // Luetaan otsikkorivi pois
     while (fgets(aRivi, LEN_RIVI, Tiedosto) != NULL) {
         if ((p1 = strtok(aRivi, ";")) == NULL) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
@@ -66,11 +65,19 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
             pUusi = varaaMuisti();
             strcpy(pUusi->aSukunimi, p1);
             pUusi->pSeuraava = NULL;
+            pUusi->pEdellinen = NULL;
+            pViimeisin = pUusi;
+            pAlku = pViimeisin;
         } else {
-
+            pUusi = varaaMuisti();
+            strcpy(pUusi->aSukunimi, p1);
+            pViimeisin->pSeuraava = pUusi;
+            pUusi->pEdellinen = pViimeisin;
+            pUusi->pSeuraava = NULL;
+            pViimeisin = pUusi;
         }
     }
-
+    fclose(Tiedosto);
     return (pAlku);
 }
 
