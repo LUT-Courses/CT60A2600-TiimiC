@@ -22,6 +22,7 @@ void kirjoitaTiedostoLoppuAlku();
 int main(void) {
     char aTiedostoNimi[20];
     char aSukunimet[MAX_NIMET];
+    int iLuetutRivit = 0;
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
 
@@ -38,6 +39,7 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
 }
 
 int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]) {
+    int iLuetutRivit = 0;
     FILE* Tiedosto = NULL;
     SUKUNIMI *pUusi = NULL;
     char aRivi[LEN_RIVI];
@@ -56,9 +58,10 @@ int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]) {
             exit(0);
         }
         pUusi = varaaMuisti();
+        strcpy(pUusi->aSukunimi, p1);
     }
 
-
+    return (iLuetutRivit);
 }
 
 // Varaa muisti uudelle structille (SUKUNIMI)
