@@ -19,10 +19,17 @@
 │   ├── test_main.c
 │   └── fixtures/
 ├── data/                 # Input datasets / sample inputs (no secrets)
-│   ├── sample-input.txt
+│   ├── miehet_2025.txt
+│   ├── naiset_2025.txt
+│   ├── sukunimet_2025.txt
+│   ├── verkko_iso_lyhenteilla.txt
+│   ├── verkko_iso.txt
+│   ├── verkko_pieni.txt
 │   └── README.md         # Describe data sources and formats
 └── doc/                  # Documentation (design notes, Doxygen config)
-    └── design.md
+    ├── readme.md
+    ├── html/
+    └── config
 ```
 
 > **Notes**
