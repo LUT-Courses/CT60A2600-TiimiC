@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "hello.h"
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
@@ -30,9 +29,9 @@ int main(void) {
 
     tulostaAlkuLoppu(pAlku);
 
-    vapautaMuisti(pAlku);
-    printf("%s\n", hello_message());
-    printf("Terve testi\n");
+    pAlku = vapautaMuisti(pAlku);
+    printf("Muisti vapautettu.\n");
+    printf("Kiitos ohjelman käytöstä.\n");
     return 0;
 }
 
