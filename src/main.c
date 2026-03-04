@@ -7,6 +7,7 @@
 
 typedef struct sukunimi {
     char aSukunimi[LEN_SUKUNIMI];
+    int iMaara;
     struct sukunimi *pSeuraava;
     struct sukunimi *pEdellinen;
 } SUKUNIMI;
@@ -82,6 +83,8 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     SUKUNIMI *pViimeisin = NULL;
     char aRivi[LEN_RIVI];
     char *p1 = NULL; // ptr sukunimelle tiedostosta
+    char *p2 = NULL; // ptr määrälle tiedostosta
+    int iMaara = 0;
 
     if ( (Tiedosto = fopen(aTiedostoNimi, "r")) == NULL ) {
         perror("Tiedoston avaaminen epäonnistui, lopetetaan");
@@ -94,9 +97,15 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
             exit(0);
         }
+        if ((p2 = strtok(NULL, ";\n")) == NULL) {
+            printf("Riviltä '%s' puuttuu määrä, lopetetaan.\n", p1);
+            exit(0);
+        }
+        iMaara = atoi(p2);
         if (pViimeisin == NULL) {
             pUusi = varaaMuisti();
             strcpy(pUusi->aSukunimi, p1);
+            pUusi->iMaara = iMaara;
             pUusi->pSeuraava = NULL;
             pUusi->pEdellinen = NULL;
             pViimeisin = pUusi;
@@ -104,6 +113,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
         } else {
             pUusi = varaaMuisti();
             strcpy(pUusi->aSukunimi, p1);
+            pUusi->iMaara = iMaara;
             pViimeisin->pSeuraava = pUusi;
             pUusi->pEdellinen = pViimeisin;
             pUusi->pSeuraava = NULL;
@@ -140,7 +150,7 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
 void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
     SUKUNIMI *ptr = pAlku;
     while (ptr != NULL) {
-        printf("Henkilön sukunimi '%s'\n", ptr->aSukunimi);
+        printf("%s|%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pSeuraava;
     }
     return;
@@ -153,7 +163,7 @@ void tulostaLoppuAlku(SUKUNIMI *pAlku) {
         ptr = ptr->pSeuraava;
     }
     while (ptr != NULL) {
-        printf("Henkilön sukunimi '%s'\n", ptr->aSukunimi);
+        printf("%s|%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pEdellinen;
     }
     return;
