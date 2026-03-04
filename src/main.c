@@ -38,6 +38,7 @@ int lueTiedosto(char aTiedostoNimi[]) {
 
 }
 
+// Varaa muisti uudelle structille (SUKUNIMI)
 SUKUNIMI* varaaMuisti() {
     SUKUNIMI *pUusi = NULL;
 
@@ -46,6 +47,18 @@ SUKUNIMI* varaaMuisti() {
         perror("Muistin varaus epäonnistui, lopetetaan");
         exit(0);
     }
+    return (pUusi);
+}
+
+// Vapauta muisti käymällä linked-list läpi alusta loppuun
+SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
+    SUKUNIMI *ptr = pAlku;
+    while (ptr != NULL) {
+        pAlku = ptr->pSeuraava;
+        free(ptr);
+        ptr = pAlku;
+    }
+    return (pAlku);
 }
 
 
