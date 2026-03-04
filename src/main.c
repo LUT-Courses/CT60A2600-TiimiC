@@ -19,10 +19,14 @@ void tulostaAlkuLoppu(SUKUNIMI *pAlku);
 void tulostaLoppuAlku(SUKUNIMI *pAlku);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
+int valikko();
 
 int main(void) {
+    int iValinta = 0;
     char aTiedostoNimi[20];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
+
+    iValinta = valikko();
 
     kysyTiedostoNimi(aTiedostoNimi);
     pAlku = lueTiedosto(aTiedostoNimi);
@@ -34,6 +38,18 @@ int main(void) {
     printf("Muisti vapautettu.\n");
     printf("Kiitos ohjelman käytöstä.\n");
     return 0;
+}
+int valikko() {
+    int iValinta = 0;
+    printf("1) Lue tiedosto\n");
+    printf("2) Kirjoita tiedostoon nimet alusta loppuun\n");
+    printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
+    printf("4) Tyhjennä tiedosto\n");
+    printf("0) Lopeta\n");
+    printf("\n");
+    printf("Anna valintasi: ");
+    scanf("%d", &iValinta);
+    return iValinta;
 }
 
 // Muuttujaparametri main funktiosta johon asetetaan tiedoston nimi 
