@@ -16,6 +16,7 @@ SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
+void tulostaAlkuLoppu(SUKUNIMI *pAlku);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
 
@@ -27,6 +28,9 @@ int main(void) {
     kysyTiedostoNimi(aTiedostoNimi);
     pAlku = lueTiedosto(aTiedostoNimi);
 
+    tulostaAlkuLoppu();
+
+    vapautaMuisti(pAlku);
     printf("%s\n", hello_message());
     printf("Terve testi\n");
     return 0;
@@ -104,4 +108,12 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
     return (pAlku);
 }
 
+void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
+    SUKUNIMI *ptr = pAlku;
+    while (ptr != NULL) {
+        printf("Henkilön sukunimi '%s'\n", ptr->aSukunimi);
+        ptr = ptr->pSeuraava;
+    }
+    return;
+}
 
