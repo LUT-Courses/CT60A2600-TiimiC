@@ -15,7 +15,7 @@ typedef struct sukunimi {
 SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
-int lueTiedosto(char aTiedostoNimi[]);
+SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
 
@@ -24,7 +24,8 @@ int main(void) {
     int iLuetutRivit = 0;
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
-
+    kysyTiedostoNimi(aTiedostoNimi);
+    pAlku = lueTiedosto(aTiedostoNimi);
 
     printf("%s\n", hello_message());
     printf("Terve testi\n");
@@ -38,10 +39,12 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
 }
 
 // Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
-// Samalla pointteri seuraavaan ja edelliseen sukunimi structiin.
-int lueTiedosto(char aTiedostoNimi[]) {
+// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
+// Palauttaa osoittimen listan alkuu pAlku
+SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     int iLuetutRivit = 0;
     FILE* Tiedosto = NULL;
+    SUKUNIMI *pAlku = NULL;
     SUKUNIMI *pUusi = NULL;
     SUKUNIMI *pViimeisin = NULL;
     char aRivi[LEN_RIVI];
@@ -59,12 +62,16 @@ int lueTiedosto(char aTiedostoNimi[]) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
             exit(0);
         }
-        if (pViimeisin == NULL) 
-        pUusi = varaaMuisti();
-        strcpy(pUusi->aSukunimi, p1);
+        if (pViimeisin == NULL) {
+            pUusi = varaaMuisti();
+            strcpy(pUusi->aSukunimi, p1);
+            pUusi->pSeuraava = NULL;
+        } else {
+
+        }
     }
 
-    return (iLuetutRivit);
+    return (pAlku);
 }
 
 // Varaa muisti uudelle structille (SUKUNIMI)
