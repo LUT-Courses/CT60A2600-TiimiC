@@ -6,7 +6,7 @@ test:
 	gcc -std=c99 -pedantic -Wall -Isrc test/test_hello.c src/hello.c -o bin/tests
 	./bin/tests
 
-memtest:
+memcheck:
 	valgrind --leak-check=full ./bin/app
 
 clean:
