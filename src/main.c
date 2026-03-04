@@ -14,31 +14,40 @@ typedef struct sukunimi {
 
 SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
-void kysyTiedostoNimi(char aTiedostoNimi[]);
+void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
-void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku);
-void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku);
-void tyhjennaTiedosto();
+void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]);
+void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]);
+void tyhjennaTiedosto(char aTiedostoNimi[]);
 int valikko();
 
 int main(void) {
-    int iValinta = 0;
+    int iValinta = -1;
     char aTiedostoNimi[20];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
     do {
         iValinta = valikko();
         if (iValinta == 1) {
-            kysyTiedostoNimi(aTiedostoNimi);
+            kysyTiedostoNimi(aTiedostoNimi, "Anna luettavan tiedoston nimi: ");
             pAlku = lueTiedosto(aTiedostoNimi);
             printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
             printf("\n");
         } else if (iValinta == 2) {
-            kirjoitaTiedostoAlkuLoppu(pAlku); 
+            kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
+            kirjoitaTiedostoAlkuLoppu(pAlku, aTiedostoNimi);
+            printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 3) {
-            kirjoitaTiedostoLoppuAlku(pAlku); 
+            kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
+            kirjoitaTiedostoLoppuAlku(pAlku, aTiedostoNimi); 
+            printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 4) {
-            tyhjennaTiedosto();
+            kysyTiedostoNimi(aTiedostoNimi, "Anna tyhjennettävän tiedoston nimi: ");
+            tyhjennaTiedosto(aTiedostoNimi);
+            printf("Tiedosto '%s' tyhjennetty\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
@@ -65,9 +74,9 @@ int valikko() {
     return iValinta;
 }
 
-/// Muuttujaparametri main funktiosta johon asetetaan tiedoston nimi 
-void kysyTiedostoNimi(char aTiedostoNimi[]) {
-    printf("Anna luettavan tiedoston nimi: ");
+/// Muuttujaparametri ja syöte main funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
+void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
+    printf("%s", aSyote);
     scanf("%s", aTiedostoNimi);
     return;
 }
@@ -147,12 +156,9 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
 }
 
 /// Kirjoittaa tiedostoon kulkemalla listan alusta loppuun
-void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
-    char aTiedostoNimi[20];
+void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
     FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
-    printf("Anna tiedoston nimi: ");
-    scanf("%s", aTiedostoNimi);
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
@@ -170,13 +176,9 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
 }
 /// Kulkee ensin listan loppuun ja sitten kirjoittaa
 /// nimet kulkien alkuun
-void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
-    char aTiedostoNimi[20];
+void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
     FILE *Tiedosto = NULL;
     SUKUNIMI *ptr = pAlku;
-
-    printf("Anna tiedoston nimi: ");
-    scanf("%s", aTiedostoNimi);
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
@@ -196,12 +198,8 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
 }
 
 /// Tyhjentää tiedoston
-void tyhjennaTiedosto() {
-    char aTiedostoNimi[20];
+void tyhjennaTiedosto(char aTiedostoNimi[]) {
     FILE *Tiedosto = NULL;
-
-    printf("Anna tyhjennettävän tiedoston nimi: ");
-    scanf("%s", aTiedostoNimi);
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
@@ -209,6 +207,5 @@ void tyhjennaTiedosto() {
         return;
     }
     fclose(Tiedosto);
-    printf("Tiedosto '%s' tyhjennetty.\n\n", aTiedostoNimi);
     return;
 }
