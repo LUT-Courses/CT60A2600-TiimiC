@@ -15,13 +15,12 @@ typedef struct sukunimi {
 SUKUNIMI* varaaMuisti();
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
-int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]);
+int lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
 
 int main(void) {
     char aTiedostoNimi[20];
-    char aSukunimet[MAX_NIMET];
     int iLuetutRivit = 0;
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
@@ -38,10 +37,13 @@ void kysyTiedostoNimi(char aTiedostoNimi[]) {
     return;
 }
 
-int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]) {
+// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
+// Samalla pointteri seuraavaan ja edelliseen sukunimi structiin.
+int lueTiedosto(char aTiedostoNimi[]) {
     int iLuetutRivit = 0;
     FILE* Tiedosto = NULL;
     SUKUNIMI *pUusi = NULL;
+    SUKUNIMI *pViimeisin = NULL;
     char aRivi[LEN_RIVI];
     char *p1 = NULL; // ptr sukunimelle tiedostosta
 
@@ -57,6 +59,7 @@ int lueTiedosto(char aTiedostoNimi[], char aSukunimet[]) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
             exit(0);
         }
+        if (pViimeisin == NULL) 
         pUusi = varaaMuisti();
         strcpy(pUusi->aSukunimi, p1);
     }
