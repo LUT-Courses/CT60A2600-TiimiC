@@ -4,7 +4,6 @@
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
-#define MAX_NIMET 23156 // 1 yli jotta nullikka mahtuu
 
 typedef struct sukunimi {
     char aSukunimi[LEN_SUKUNIMI];
@@ -17,6 +16,7 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void tulostaAlkuLoppu(SUKUNIMI *pAlku);
+void tulostaLoppuAlku(SUKUNIMI *pAlku);
 void kirjoitaTiedostoAlkuLoppu();
 void kirjoitaTiedostoLoppuAlku();
 
@@ -28,6 +28,7 @@ int main(void) {
     pAlku = lueTiedosto(aTiedostoNimi);
 
     tulostaAlkuLoppu(pAlku);
+    tulostaLoppuAlku(pAlku);
 
     pAlku = vapautaMuisti(pAlku);
     printf("Muisti vapautettu.\n");
@@ -35,6 +36,7 @@ int main(void) {
     return 0;
 }
 
+// Muuttujaparametri main funktiosta johon asetetaan tiedoston nimi 
 void kysyTiedostoNimi(char aTiedostoNimi[]) {
     printf("Anna luettavan tiedoston nimi: ");
     scanf("%s", aTiedostoNimi);
@@ -114,4 +116,16 @@ void tulostaAlkuLoppu(SUKUNIMI *pAlku) {
     }
     return;
 }
-
+// Kulkee ensin listan loppuun ja sitten tulostaa
+// nimet kulkien alkuun
+void tulostaLoppuAlku(SUKUNIMI *pAlku) {
+    SUKUNIMI *ptr = pAlku;
+    while ( (ptr != NULL) && (ptr->pSeuraava != NULL) ) {
+        ptr = ptr->pSeuraava;
+    }
+    while (ptr != NULL) {
+        printf("Henkilön sukunimi '%s'\n", ptr->aSukunimi);
+        ptr = ptr->pEdellinen;
+    }
+    return;
+}
