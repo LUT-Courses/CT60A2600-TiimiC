@@ -10,6 +10,8 @@ typedef struct sukunimi {
     struct sukunimi *pEdellinen;
 } SUKUNIMI;
 
+SUKUNIMI* varaaMuisti();
+SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
 int lueTiedosto();
 
 int main(void) {
