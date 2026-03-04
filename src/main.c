@@ -18,7 +18,7 @@ void kysyTiedostoNimi(char aTiedostoNimi[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku);
 void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku);
-void tyhjennäTiedosto(SUKUNIMI *pAlku);
+void tyhjennaTiedosto();
 int valikko();
 
 int main(void) {
@@ -38,7 +38,7 @@ int main(void) {
         } else if (iValinta == 3) {
             kirjoitaTiedostoLoppuAlku(pAlku); 
         } else if (iValinta == 4) {
-            tyhjennäTiedosto(pAlku);
+            tyhjennaTiedosto();
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
@@ -65,16 +65,16 @@ int valikko() {
     return iValinta;
 }
 
-// Muuttujaparametri main funktiosta johon asetetaan tiedoston nimi 
+/// Muuttujaparametri main funktiosta johon asetetaan tiedoston nimi 
 void kysyTiedostoNimi(char aTiedostoNimi[]) {
     printf("Anna luettavan tiedoston nimi: ");
     scanf("%s", aTiedostoNimi);
     return;
 }
 
-// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
-// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
-// Palauttaa osoittimen listan alkuu pAlku
+/// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
+/// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
+/// Palauttaa osoittimen listan alkuu pAlku
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
     SUKUNIMI *pAlku = NULL;
@@ -123,7 +123,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     return (pAlku);
 }
 
-// Varaa muisti uudelle structille (SUKUNIMI)
+/// Varaa muisti uudelle structille (SUKUNIMI)
 SUKUNIMI* varaaMuisti() {
     SUKUNIMI *pUusi = NULL;
 
@@ -135,7 +135,7 @@ SUKUNIMI* varaaMuisti() {
     return (pUusi);
 }
 
-// Vapauta muisti käymällä linked-list läpi alusta loppuun
+/// Vapauttaa muistin käymällä linked-list läpi alusta loppuun
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
     SUKUNIMI *ptr = pAlku;
     while (ptr != NULL) {
@@ -146,6 +146,7 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
     return (pAlku);
 }
 
+/// Kirjoittaa tiedostoon kulkemalla listan alusta loppuun
 void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
     char aTiedostoNimi[20];
     FILE *Tiedosto = NULL;
@@ -156,7 +157,7 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui");
-        return;
+        exit(0);
     }
 
     while (ptr != NULL) {
@@ -167,8 +168,8 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku) {
     fclose(Tiedosto);
     return;
 }
-// Kulkee ensin listan loppuun ja sitten tulostaa
-// nimet kulkien alkuun
+/// Kulkee ensin listan loppuun ja sitten kirjoittaa
+/// nimet kulkien alkuun
 void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
     char aTiedostoNimi[20];
     FILE *Tiedosto = NULL;
@@ -180,7 +181,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
         perror("Tiedoston avaaminen epäonnistui");
-        return;
+        exit(0);
     }
     while ( (ptr != NULL) && (ptr->pSeuraava != NULL) ) {
         ptr = ptr->pSeuraava;
@@ -194,7 +195,8 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku) {
     return;
 }
 
-void tyhjennäTiedosto(SUKUNIMI *pAlku) {
+/// Tyhjentää tiedoston
+void tyhjennaTiedosto() {
     char aTiedostoNimi[20];
     FILE *Tiedosto = NULL;
 
