@@ -10,9 +10,7 @@
 .
 ├── Makefile              # Build targets: build, run, test, clean, etc.
 ├── src/                  # C source files and headers
-│   ├── main.c
-│   ├── module.c
-│   └── module.h
+│   └── main.c
 ├── bin/                  # Compiled binaries (output of build)
 │   └── app               # Example executable name
 ├── test/                 # Test sources (e.g., Unity/CMocka) + fixtures
