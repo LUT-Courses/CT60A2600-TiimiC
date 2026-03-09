@@ -2,7 +2,7 @@
 all:
 	gcc src/linkedlist.c -o bin/linkedlist.o -c -std=c99 -pedantic -Wall -g 
 	gcc src/main.c -o bin/main.o -c -std=c99 -pedantic -Wall -g
-	gcc main.o linkedlist.o -o bin/app
+	gcc bin/main.o bin/linkedlist.o -o bin/app
 
 test:
 	gcc -std=c99 -pedantic -Wall -Isrc test/test_hello.c src/hello.c -o bin/tests
