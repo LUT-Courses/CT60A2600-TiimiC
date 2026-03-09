@@ -167,7 +167,7 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
     }
 
     while (ptr != NULL) {
-        fprintf(Tiedosto, "%s|%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s,%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pSeuraava;
     }
 
@@ -189,7 +189,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
         ptr = ptr->pSeuraava;
     }
     while (ptr != NULL) {
-        fprintf(Tiedosto, "%s|%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s,%d\n", ptr->aSukunimi, ptr->iMaara);
         ptr = ptr->pEdellinen;
     }
 
