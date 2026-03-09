@@ -3,9 +3,6 @@
 #include <string.h>
 #include "linkedlist.h"
 
-#define LEN_RIVI 40 // max rivi pituus tiedostossa
-#define LEN_SUKUNIMI 30 // max sukunimi pituus
-
 int valikko();
 
 int main(void) {
