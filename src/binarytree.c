@@ -69,13 +69,25 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     }
     if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) {
         pJuuri->pVasenChild = lisaaPuuhun(pJuuri->pVasenChild, pUusi);
-    } else if ( (strcmp(pJuuri->aSukunimi, pUusi->aSukunimi) > 0 )||(strcmp(pJuuri->aSukunimi, pUusi->aSukunimi) == 0 ) )  { // duplikaatit oikealle
+    } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
     }
-    return pJuuri;
+    return (pJuuri);
 }
 
-void tulostaPuu(BTREENODE *pJuuri) {
+BTREENODE* vapautaMuisti(BTREENODE *pJuuri) {
 
+    return (pJuuri);
+}
+
+/// @brief Tulostetaan puu rekursiivisesti depth-first tyylillä
+/// @param pJuuri 
+void tulostaPuu(BTREENODE *pJuuri) {
+    if (pJuuri == NULL) {
+        return;
+    }
+    tulostaPuu(pJuuri->pVasenChild);
+    printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    tulostaPuu(pJuuri->pOikeaChild);
     return;
 }
