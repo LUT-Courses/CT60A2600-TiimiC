@@ -7,22 +7,22 @@
 int paaValikko(void);
 
 int main(void) {
-    int pvalinta = -1;
+    int ivalinta = -1;
 
     do
     {
-      pvalinta = paaValikko();
-        if (pvalinta == 1) {
+      ivalinta = paaValikko();
+        if (ivalinta == 1) {
             linkedlistValikko();
-        } else if (pvalinta == 2) {
+        } else if (ivalinta == 2) {
             binaaripuuValikko();
-        } else if (pvalinta == 0) {
+        } else if (ivalinta == 0) {
             printf("Lopetetaan\n");
         } else {
             printf("Tuntematon valinta\n");
             printf("\n");
         }
-    } while (pvalinta != 0);
+    } while (ivalinta != 0);
 
     return 0;
 }
