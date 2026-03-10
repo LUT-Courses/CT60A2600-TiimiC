@@ -30,7 +30,8 @@ int binaaripuuValikko(void) {
         } else if (iValinta == 4) {
 
         } else if (iValinta == 5) {
-        
+            tulostaPuu(pJuuri);
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
