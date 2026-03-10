@@ -14,8 +14,5 @@ BTREENODE* varaaMuisti(void);
 BTREENODE* vapautaMuisti(BTREENODE *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 BTREENODE* lueTiedosto(char aTiedostoNimi[]);
-void kirjoitaTiedostoAlkuLoppu(BTREENODE *pAlku, char aTiedostoNimi[]);
-void kirjoitaTiedostoLoppuAlku(BTREENODE *pAlku, char aTiedostoNimi[]);
-void tyhjennaTiedosto(char aTiedostoNimi[]);
 
 #endif // BINARYTREE_H
