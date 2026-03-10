@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include "binaaripuuValikko.h"
 
-#define LEN_RIVI 40 // max rivi pituus tiedostossa
-#define LEN_SUKUNIMI 30 
-
 //1 Syvyyshaku
 //2 Leveyshaku
 //3 Tulosta
