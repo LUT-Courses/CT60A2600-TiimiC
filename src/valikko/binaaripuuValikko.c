@@ -20,7 +20,9 @@ int binaaripuuValikko(void) {
         iValinta = valikko();
         if (iValinta == 1) {
             kysyTiedostoNimi(aTiedostoNimi, "Anna luettavan tiedoston nimi: ");
-            lueTiedosto(aTiedostoNimi);
+            pJuuri = lueTiedosto(aTiedostoNimi);
+            printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 2) {
             
         } else if (iValinta == 3) {
