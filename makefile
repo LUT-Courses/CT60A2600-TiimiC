@@ -20,3 +20,8 @@ memcheck:
 clean:
 	rm -f bin/app bin/test
 	rm -f bin/*.o
+
+docs:
+	doxygen doc/Doxyfile
+	@echo '[InternetShortcut]' > Dokumentaatio.url
+	@echo 'URL=doc/html/index.html' >> doc/Dokumentaatio.url
