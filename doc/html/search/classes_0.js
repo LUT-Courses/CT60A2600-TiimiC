@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sukunimi_0',['sukunimi',['../structsukunimi.html',1,'']]]
+  ['btreenode_0',['btreeNode',['../structbtreeNode.html',1,'']]]
 ];

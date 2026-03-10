@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tyhjennatiedosto_0',['tyhjennaTiedosto',['../main_8c.html#a89168600b76d2d8444d4ad67965d6a29',1,'main.c']]]
+  ['sukunimi_0',['sukunimi',['../structsukunimi.html',1,'sukunimi'],['../linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58',1,'SUKUNIMI:&#160;linkedlist.h']]]
 ];
