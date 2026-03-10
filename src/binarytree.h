@@ -10,7 +10,7 @@ typedef struct btreeNode {
     struct btreeNode *pOikeaChild; // pointteri oikeaan lapseen
 } BTREENODE;
 
-BTREENODE* varaaMuisti();
+BTREENODE* varaaMuisti(void);
 BTREENODE* vapautaMuisti(BTREENODE *pAlku);
 void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 BTREENODE* lueTiedosto(char aTiedostoNimi[]);
