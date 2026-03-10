@@ -37,7 +37,9 @@ static int valikko(void) {
     int iValinta = 0;
     printf("1) Lue tiedosto\n");
     printf("2) Kirjoita tiedosto syvyydellä\n");
-    printf("3)\n");
+    printf("3) Syvyyshaku arvon mukaan sekä kirjoita käyty polku tiedostoon\n");
+    printf("4) Leveyshaku nimen mukaan sekä kirjoita käyty polku tiedostoon\n");
+    printf("5) Tulosta puu syvyyden mukaan\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
