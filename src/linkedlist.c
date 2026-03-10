@@ -6,7 +6,7 @@
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
 
-/// Muuttujaparametri ja syöte main funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
+/// Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
 void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
     printf("%s", aSyote);
     scanf("%s", aTiedostoNimi);
