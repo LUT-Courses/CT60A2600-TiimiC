@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../binarytree.h"
 #include "binaaripuuValikko.h"
 
 //1 Syvyyshaku
@@ -30,7 +31,7 @@ int binaaripuuValikko(void) {
 
     return 0;
     
-    
+
 }
 
 static int valikko(void) {
