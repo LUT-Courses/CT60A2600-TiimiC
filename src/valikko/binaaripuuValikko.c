@@ -1,6 +1,48 @@
 #include <stdio.h>
 #include "binaaripuuValikko.h"
 
+#define LEN_RIVI 40 // max rivi pituus tiedostossa
+#define LEN_SUKUNIMI 30 
+
+//1 Syvyyshaku
+//2 Leveyshaku
+//3 Tulosta
+//0 Lopeta
+
+static int valikko(void);
+
 int binaaripuuValikko(void) {
+    int iValinta = -1;
+    char aTiedostoNimi[20];
     
+    
+    do {
+        iValinta = valikko();
+        if (iValinta == 1) {
+            
+        } else if (iValinta == 2) {
+            
+        } else if (iValinta == 3) {
+            
+        } else if (iValinta == 0) {
+            
+        } else {
+            
+        }
+    } while (iValinta != 0);
+
+    return 0;
+    
+    
+}
+
+static int valikko(void) {
+    int iValinta = 0;
+    printf("1) Lue tiedosto\n");
+    printf("2) Kirjoita tiedosto syvyydellä\n");
+    printf("3)\n");
+    printf("0) Lopeta\n");
+    printf("Anna valintasi: ");
+    scanf("%d", &iValinta);
+    return iValinta;
 }
