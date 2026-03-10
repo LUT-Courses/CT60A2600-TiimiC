@@ -3,6 +3,13 @@
 #include <string.h>
 #include "binarytree.h"
 
+/// Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
+void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
+    printf("%s", aSyote);
+    scanf("%s", aTiedostoNimi);
+    return;
+}
+
 /// Varaa muisti uudelle structille (BTREENODE)
 BTREENODE* varaaMuisti() {
     BTREENODE *pUusi = NULL;
