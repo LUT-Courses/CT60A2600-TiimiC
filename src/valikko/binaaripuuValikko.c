@@ -31,6 +31,7 @@ int binaaripuuValikko(void) {
             printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
+            printf("Lopetetaan\n");
         } else {
             printf("Tuntematon valinta\n");
             printf("\n");
