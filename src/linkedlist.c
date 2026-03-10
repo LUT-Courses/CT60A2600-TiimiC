@@ -6,12 +6,8 @@
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
 
-/// Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
-void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
-    printf("%s", aSyote);
-    scanf("%s", aTiedostoNimi);
-    return;
-}
+/// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
+static SUKUNIMI* varaaMuisti(void);
 
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
@@ -64,8 +60,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     return (pAlku);
 }
 
-/// Varaa muisti uudelle structille (SUKUNIMI)
-SUKUNIMI* varaaMuisti() {
+static SUKUNIMI* varaaMuisti() {
     SUKUNIMI *pUusi = NULL;
 
     // muistin varauksen virheen käsittely

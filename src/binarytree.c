@@ -5,29 +5,13 @@
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 
-// rekursiivinen apufunktio puuhun lisäykseen pJuuri muu
+/// @brief Rekursiivinen apufunktio puuhun lisäykseen
 static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
-/// Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi
-void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
-    printf("%s", aSyote);
-    scanf("%s", aTiedostoNimi);
-    return;
-}
+/// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
+static BTREENODE* varaaMuisti(void);
 
-/// Varaa muisti uudelle structille (BTREENODE)
-BTREENODE* varaaMuisti() {
-    BTREENODE *pUusi = NULL;
-
-    // muistin varauksen virheen käsittely
-    if ((pUusi = (BTREENODE*)malloc(sizeof(BTREENODE))) == NULL) {
-        perror("Muistin varaus epäonnistui, lopetetaan");
-        exit(0);
-    }
-    return (pUusi);
-}
-
-BTREENODE* lueTiedosto(char aTiedostoNimi[]) {
+BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
     BTREENODE *pJuuri = NULL;
     BTREENODE *pUusi = NULL;
@@ -75,19 +59,30 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     return (pJuuri);
 }
 
-BTREENODE* vapautaMuisti(BTREENODE *pJuuri) {
+static BTREENODE* varaaMuisti() {
+    BTREENODE *pUusi = NULL;
+
+    // muistin varauksen virheen käsittely
+    if ((pUusi = (BTREENODE*)malloc(sizeof(BTREENODE))) == NULL) {
+        perror("Muistin varaus epäonnistui, lopetetaan");
+        exit(0);
+    }
+    return (pUusi);
+}
+
+BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri) {
 
     return (pJuuri);
 }
 
 /// @brief Tulostetaan puu rekursiivisesti depth-first tyylillä
 /// @param pJuuri 
-void tulostaPuu(BTREENODE *pJuuri) {
+void btree_tulostaPuu(BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return;
     }
-    tulostaPuu(pJuuri->pVasenChild);
+    btree_tulostaPuu(pJuuri->pVasenChild);
     printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
-    tulostaPuu(pJuuri->pOikeaChild);
+    btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
 }

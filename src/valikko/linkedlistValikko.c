@@ -7,14 +7,16 @@
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
 
+/// @brief Apufunktio joka tulostaa toiminnot ja antaa käyttäjän valita (0-5)
 static int valikko(void);
+
+/// @brief Apufunktio yksinkertaistamaan. Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi.
+static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 
 int linkedlistValikko(void) {
     int iValinta = -1;
     char aTiedostoNimi[20];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
-
-
 
     do {
         iValinta = valikko();
@@ -63,4 +65,10 @@ static int valikko(void) {
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
     return iValinta;
+}
+
+static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
+    printf("%s", aSyote);
+    scanf("%s", aTiedostoNimi);
+    return;
 }

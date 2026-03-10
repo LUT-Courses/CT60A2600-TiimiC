@@ -10,9 +10,7 @@ typedef struct sukunimi {
     struct sukunimi *pEdellinen;
 } SUKUNIMI;
 
-SUKUNIMI* varaaMuisti(void);
 SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
-void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]);
 void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]);
