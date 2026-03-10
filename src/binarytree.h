@@ -11,8 +11,9 @@ typedef struct btreeNode {
 } BTREENODE;
 
 BTREENODE* varaaMuisti(void);
-BTREENODE* vapautaMuisti(BTREENODE *pAlku);
+BTREENODE* vapautaMuisti(BTREENODE *pJuuri);
 void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 BTREENODE* lueTiedosto(char aTiedostoNimi[]);
+void tulostaPuu(BTREENODE *pJuuri);
 
 #endif // BINARYTREE_H
