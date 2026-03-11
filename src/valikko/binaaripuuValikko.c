@@ -10,6 +10,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 
 int binaaripuuValikko(void) {
     int iValinta = -1;
+    int iArvo = 0;
     char aTiedostoNimi[30];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
@@ -23,7 +24,12 @@ int binaaripuuValikko(void) {
         } else if (iValinta == 2) {
             
         } else if (iValinta == 3) {
-            
+            printf("Anna etsittävä arvo: ");
+            scanf("%d", &iArvo);
+            kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
+            btree_dfsHakuKirjoita(aTiedostoNimi, iArvo, pJuuri);
+            printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 4) {
 
         } else if (iValinta == 5) {
