@@ -10,7 +10,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 
 int binaaripuuValikko(void) {
     int iValinta = -1;
-    char aTiedostoNimi[20];
+    char aTiedostoNimi[30];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
     do {
@@ -44,10 +44,10 @@ int binaaripuuValikko(void) {
 static int valikko(void) {
     int iValinta = 0;
     printf("1) Lue tiedosto\n");
-    printf("2) Kirjoita tiedosto syvyydellä\n");
+    printf("2) Kirjoita tiedosto (DFS)\n");
     printf("3) Syvyyshaku arvon mukaan sekä kirjoita käyty polku tiedostoon\n");
     printf("4) Leveyshaku nimen mukaan sekä kirjoita käyty polku tiedostoon\n");
-    printf("5) Tulosta puu syvyyden mukaan\n");
+    printf("5) Tulosta puu (DFS)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
