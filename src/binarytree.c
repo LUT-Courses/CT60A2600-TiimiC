@@ -76,6 +76,12 @@ BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri) {
     return (pJuuri);
 }
 
+void btree_dfsHakuKirjoita(char aTiedostoNimi[], int iArvo) {
+
+    return;
+}
+
+
 /// @brief Tulostetaan puu rekursiivisesti preorder DFS tyylillä
 /// @param pJuuri 
 void btree_tulostaPuu(BTREENODE *pJuuri) {
