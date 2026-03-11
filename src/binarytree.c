@@ -145,8 +145,9 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys)
     if (pJuuri == NULL) {
         return;
     }
-    btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto, iSyvyys + 1);
     fprintf(Tiedosto, "%s,%d,%d\n", pJuuri->aSukunimi, pJuuri->iMaara, iSyvyys);
+    btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto, iSyvyys + 1);
+    
     btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto, iSyvyys + 1);
     return;
 }
