@@ -12,6 +12,7 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 static BTREENODE* varaaMuisti(void);
 /// @brief Apufunktio tiedostokirjoitukseen syvyyden kanssa
 static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys);
+static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri);
 
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
@@ -26,6 +27,7 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         exit(0);
     }
 
+    fgets(aRivi, LEN_RIVI, Tiedosto); // otsikkorivi pois
     while (fgets(aRivi, LEN_RIVI, Tiedosto) != NULL) {
         if ((p1 = strtok(aRivi, ";")) == NULL) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
@@ -77,14 +79,52 @@ BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri) {
     return (pJuuri);
 }
 
-/// @brief Tulostetaan puu rekursiivisesti depth-first tyylillä
+/// @brief Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon
+/// @param aTiedostoNimi Kirjoitettavan tiedoston nimi
+/// @param iArvo Haettava arvo
+/// @param pJuuri Puun ylin node (juuri)
+void btree_dfsHakuKirjoita(char aTiedostoNimi[], int iArvo, BTREENODE *pJuuri) {
+    FILE *Tiedosto = NULL;
+    int loydetty = 0;
+
+    if ( (Tiedosto = fopen(aTiedostoNimi, "w")) == NULL ) {
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
+    }
+    loydetty = dfsHaku(Tiedosto, iArvo, pJuuri);
+    if (loydetty == 0) {
+        printf("Arvoa '%d' ei löytynyt \n", iArvo); }
+    fclose(Tiedosto);
+    return;
+}
+
+/// apufunktio btree_dfsHakuKirjoita funktiolle rekursiota hyödyntäen
+static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri) {
+    if (pJuuri == NULL) {
+        return (0); }
+    // nykyinen node
+    fprintf(Tiedosto, "%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    if (pJuuri->iMaara == iArvo) {
+        printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+        return (1); }
+
+    // Vasen child
+    if (dfsHaku(Tiedosto, iArvo, pJuuri->pVasenChild)) {
+        return (1); }
+    // Oikea child
+    if (dfsHaku(Tiedosto, iArvo, pJuuri->pOikeaChild)) {
+        return (1); }
+    return (0);
+}
+
+/// @brief Tulostetaan puu rekursiivisesti preorder DFS tyylillä
 /// @param pJuuri 
 void btree_tulostaPuu(BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return;
     }
-    btree_tulostaPuu(pJuuri->pVasenChild);
     printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    btree_tulostaPuu(pJuuri->pVasenChild);
     btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
 }

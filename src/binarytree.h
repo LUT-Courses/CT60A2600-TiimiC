@@ -12,6 +12,7 @@ typedef struct btreeNode {
 
 BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri);
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]);
+void btree_dfsHakuKirjoita(char aTiedostoNimi[], int iArvo, BTREENODE *pJuuri);
 void btree_tulostaPuu(BTREENODE *pJuuri);
 void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]);
 
