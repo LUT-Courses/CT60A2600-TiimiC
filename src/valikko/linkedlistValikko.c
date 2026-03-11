@@ -51,6 +51,7 @@ int linkedlistValikko(void) {
     pAlku = vapautaMuisti(pAlku);
     printf("Muisti vapautettu.\n");
     printf("Kiitos ohjelman käytöstä.\n");
+    printf("\n");
     return 0;
 }
 
@@ -61,7 +62,6 @@ static int valikko(void) {
     printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
     printf("4) Tyhjennä tiedosto\n");
     printf("0) Lopeta\n");
-    printf("\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
     return iValinta;
