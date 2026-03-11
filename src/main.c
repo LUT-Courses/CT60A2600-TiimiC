@@ -13,8 +13,10 @@ int main(void) {
     {
       ivalinta = paaValikko();
         if (ivalinta == 1) {
+            printf("\n");
             linkedlistValikko();
         } else if (ivalinta == 2) {
+            printf("\n");
             binaaripuuValikko();
         } else if (ivalinta == 0) {
             printf("Lopetetaan\n");

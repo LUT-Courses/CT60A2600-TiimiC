@@ -1,36 +1,44 @@
 #include <stdio.h>
+#include "../binarytree.h"
 #include "binaaripuuValikko.h"
 
-//1 Syvyyshaku
-//2 Leveyshaku
-//3 Tulosta
-//0 Lopeta
-
+/// @brief Apufunktio joka tulostaa toiminnot ja antaa käyttäjän valita (0-5)
 static int valikko(void);
+
+/// @brief Apufunktio yksinkertaistamaan. Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin asetetaan tiedoston nimi.
+static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 
 int binaaripuuValikko(void) {
     int iValinta = -1;
     char aTiedostoNimi[20];
-    
+    BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
     do {
         iValinta = valikko();
         if (iValinta == 1) {
-            
+            kysyTiedostoNimi(aTiedostoNimi, "Anna luettavan tiedoston nimi: ");
+            pJuuri = btree_lueTiedosto(aTiedostoNimi);
+            printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 2) {
             
         } else if (iValinta == 3) {
             
+        } else if (iValinta == 4) {
+
+        } else if (iValinta == 5) {
+            btree_tulostaPuu(pJuuri);
+            printf("\n");
         } else if (iValinta == 0) {
-            
+            printf("Lopetetaan\n");
+            printf("Lopetetaan\n");
         } else {
-            
+            printf("Tuntematon valinta\n");
+            printf("\n");
         }
     } while (iValinta != 0);
 
     return 0;
-    
-    
 }
 
 static int valikko(void) {
@@ -44,4 +52,10 @@ static int valikko(void) {
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
     return iValinta;
+}
+
+static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
+    printf("%s", aSyote);
+    scanf("%s", aTiedostoNimi);
+    return;
 }

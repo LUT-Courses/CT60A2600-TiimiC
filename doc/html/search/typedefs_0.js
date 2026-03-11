@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sukunimi_0',['SUKUNIMI',['../main_8c.html#a1d9773f6ca7941fbce6eaa2de8500c58',1,'main.c']]]
+  ['btreenode_0',['BTREENODE',['../binarytree_8h.html#a31e41e7241395517f95ef5447b694915',1,'binarytree.h']]]
 ];

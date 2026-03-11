@@ -10,9 +10,8 @@ typedef struct btreeNode {
     struct btreeNode *pOikeaChild; // pointteri oikeaan lapseen
 } BTREENODE;
 
-BTREENODE* varaaMuisti(void);
-BTREENODE* vapautaMuisti(BTREENODE *pAlku);
-void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
-BTREENODE* lueTiedosto(char aTiedostoNimi[]);
+BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri);
+BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]);
+void btree_tulostaPuu(BTREENODE *pJuuri);
 
 #endif // BINARYTREE_H
