@@ -55,7 +55,11 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     if (pJuuri == NULL) {
         return pUusi; // uusi paikka puussa
     }
-    if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) {
+    if (pUusi->iMaara < pJuuri->iMaara) {
+        pJuuri->pVasenChild = lisaaPuuhun(pJuuri->pVasenChild, pUusi);
+    } else if (pUusi->iMaara > pJuuri->iMaara) {
+        pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
+    } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla
         pJuuri->pVasenChild = lisaaPuuhun(pJuuri->pVasenChild, pUusi);
     } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
