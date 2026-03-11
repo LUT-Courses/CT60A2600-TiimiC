@@ -26,10 +26,10 @@ int binaaripuuValikko(void) {
         } else if (iValinta == 3) {
             printf("Anna etsittävä arvo: ");
             scanf("%d", &iArvo);
-            getchar(); // buffer tyhjennys
             kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
-            btree_dfsHakuKirjoita(aTiedostoNimi, iArvo);
+            btree_dfsHakuKirjoita(aTiedostoNimi, iArvo, pJuuri);
             printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
         } else if (iValinta == 4) {
 
         } else if (iValinta == 5) {
