@@ -10,6 +10,8 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
+/// @brief Apufunktio tiedostokirjoitukseen syvyyden kanssa
+static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys);
 static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri);
 
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
@@ -124,5 +126,27 @@ void btree_tulostaPuu(BTREENODE *pJuuri) {
     printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
     btree_tulostaPuu(pJuuri->pVasenChild);
     btree_tulostaPuu(pJuuri->pOikeaChild);
+    return;
+}
+//kirjoitetaan tiedostoon syvyyden mukaan
+void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
+    FILE* Tiedosto = NULL;
+
+    if ( (Tiedosto = fopen(aTiedostoNimi, "w")) == NULL ) {
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
+    }
+    btree_kirjoitaSyvyys(pJuuri, Tiedosto, 0);
+    fclose(Tiedosto);
+    return;
+}
+//Apufunktio syvyyden mukaan kirjoittamiseen
+static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys) {
+    if (pJuuri == NULL) {
+        return;
+    }
+    btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto, iSyvyys + 1);
+    fprintf(Tiedosto, "%s,%d,%d\n", pJuuri->aSukunimi, pJuuri->iMaara, iSyvyys);
+    btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto, iSyvyys + 1);
     return;
 }
