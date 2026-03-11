@@ -21,6 +21,10 @@ int binaaripuuValikko(void) {
             printf("Tiedosto '%s' luettu\n", aTiedostoNimi);
             printf("\n");
         } else if (iValinta == 2) {
+            kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
+            btree_kirjoitaTiedostoSyvyys(pJuuri, aTiedostoNimi);
+            printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
             
         } else if (iValinta == 3) {
             
