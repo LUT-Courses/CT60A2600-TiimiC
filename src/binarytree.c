@@ -24,6 +24,7 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         exit(0);
     }
 
+    fgets(aRivi, LEN_RIVI, Tiedosto); // otsikkorivi pois
     while (fgets(aRivi, LEN_RIVI, Tiedosto) != NULL) {
         if ((p1 = strtok(aRivi, ";")) == NULL) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", aRivi);
@@ -75,14 +76,14 @@ BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri) {
     return (pJuuri);
 }
 
-/// @brief Tulostetaan puu rekursiivisesti depth-first tyylillä
+/// @brief Tulostetaan puu rekursiivisesti preorder DFS tyylillä
 /// @param pJuuri 
 void btree_tulostaPuu(BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return;
     }
-    btree_tulostaPuu(pJuuri->pVasenChild);
     printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    btree_tulostaPuu(pJuuri->pVasenChild);
     btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
 }
