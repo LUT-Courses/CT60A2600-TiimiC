@@ -12,6 +12,7 @@ int binaaripuuValikko(void) {
     int iValinta = -1;
     int iArvo = 0;
     char aTiedostoNimi[30];
+    char aNimi[LEN_SUKUNIMI];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
     do {
@@ -35,6 +36,12 @@ int binaaripuuValikko(void) {
             printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
             printf("\n");
         } else if (iValinta == 4) {
+            printf("Anna etsittävä sukunimi: ");
+            scanf("%29s", aNimi);
+            kysyTiedostoNimi(aTiedostoNimi, "Anna kirjoitettavan tiedoston nimi: ");
+            btree_bfsHakuNimellaKirjoita(aTiedostoNimi, aNimi, pJuuri);
+            printf("Tiedosto '%s' kirjoitettu\n", aTiedostoNimi);
+            printf("\n");
 
         } else if (iValinta == 5) {
             btree_tulostaPuu(pJuuri);
