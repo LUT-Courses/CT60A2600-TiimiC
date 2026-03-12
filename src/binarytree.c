@@ -14,6 +14,14 @@ static BTREENODE* varaaMuisti(void);
 static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys);
 static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri);
 
+typedef struct queueNode {
+    BTREENODE *pPuuNode;
+    struct queueNode *pSeuraava;
+} QUEUENODE;
+
+static void jonoonLisaa(QUEUENODE **ppAlku, QUEUENODE **ppLoppu, BTREENODE *pNode);
+static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu);
+
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
     BTREENODE *pJuuri = NULL;
@@ -119,6 +127,101 @@ static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri) {
     if (dfsHaku(Tiedosto, iArvo, pJuuri->pOikeaChild)) {
         return (1); }
     return (0);
+}
+
+/// @brief Hakee kysytyn nimen puusta BFS tyylillä ja kirjoittaa käydyn polun tiedostoon
+/// @param aTiedostoNimi Kirjoitettavan tiedoston nimi
+/// @param aNimi Haettava nimi
+/// @param pJuuri Puun ylin node (juuri)
+void btree_bfsHakuNimellaKirjoita(char aTiedostoNimi[], char aNimi[], BTREENODE *pJuuri) {
+    FILE *Tiedosto = NULL;
+    QUEUENODE *pAlku = NULL;
+    QUEUENODE *pLoppu = NULL;
+    BTREENODE *pNykyinen = NULL;
+    int iLoydetty = 0;
+
+    if ( (Tiedosto = fopen(aTiedostoNimi, "w")) == NULL ) {
+        perror("Tiedoston avaaminen epäonnistui, lopetetaan");
+        exit(0);
+    }
+
+    if (pJuuri == NULL) {
+        fclose(Tiedosto);
+        return;
+    }
+
+    jonoonLisaa(&pAlku, &pLoppu, pJuuri);
+
+    while (pAlku != NULL) {
+        pNykyinen = jonostaPoista(&pAlku, &pLoppu);
+        fprintf(Tiedosto, "%s,%d\n", pNykyinen->aSukunimi, pNykyinen->iMaara);
+
+        if (strcmp(pNykyinen->aSukunimi, aNimi) == 0) {
+            printf("Löydetty: %s,%d\n", pNykyinen->aSukunimi, pNykyinen->iMaara);
+            iLoydetty = 1;
+            break;
+        }
+
+        if (pNykyinen->pVasenChild != NULL) {
+            jonoonLisaa(&pAlku, &pLoppu, pNykyinen->pVasenChild);
+        }
+        if (pNykyinen->pOikeaChild != NULL) {
+            jonoonLisaa(&pAlku, &pLoppu, pNykyinen->pOikeaChild);
+        }
+    }
+
+    while (pAlku != NULL) {
+        (void)jonostaPoista(&pAlku, &pLoppu);
+    }
+
+    if (iLoydetty == 0) {
+        printf("Nimeä '%s' ei löytynyt\n", aNimi);
+    }
+
+    fclose(Tiedosto);
+    return;
+}
+
+static void jonoonLisaa(QUEUENODE **ppAlku, QUEUENODE **ppLoppu, BTREENODE *pNode) {
+    QUEUENODE *pUusi = NULL;
+
+    if ((pUusi = (QUEUENODE*)malloc(sizeof(QUEUENODE))) == NULL) {
+        perror("Muistin varaus epäonnistui, lopetetaan");
+        exit(0);
+    }
+
+    pUusi->pPuuNode = pNode;
+    pUusi->pSeuraava = NULL;
+
+    if (*ppLoppu == NULL) {
+        *ppAlku = pUusi;
+        *ppLoppu = pUusi;
+        return;
+    }
+
+    (*ppLoppu)->pSeuraava = pUusi;
+    *ppLoppu = pUusi;
+    return;
+}
+
+static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu) {
+    QUEUENODE *pPoistettava = NULL;
+    BTREENODE *pRet = NULL;
+
+    if (*ppAlku == NULL) {
+        return NULL;
+    }
+
+    pPoistettava = *ppAlku;
+    pRet = pPoistettava->pPuuNode;
+    *ppAlku = pPoistettava->pSeuraava;
+
+    if (*ppAlku == NULL) {
+        *ppLoppu = NULL;
+    }
+
+    free(pPoistettava);
+    return pRet;
 }
 
 /// @brief Tulostetaan puu rekursiivisesti preorder DFS tyylillä
