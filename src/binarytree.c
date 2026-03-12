@@ -10,8 +10,8 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
-/// @brief Apufunktio tiedostokirjoitukseen syvyyden kanssa
-static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys);
+/// @brief Apufunktio tiedostokirjoitukseen DFS-järjestyksessä
+static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto);
 static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri);
 
 typedef struct queueNode {
@@ -243,18 +243,18 @@ void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
         perror("Tiedoston avaaminen epäonnistui, lopetetaan");
         exit(0);
     }
-    btree_kirjoitaSyvyys(pJuuri, Tiedosto, 0);
+    btree_kirjoitaSyvyys(pJuuri, Tiedosto);
     fclose(Tiedosto);
     return;
 }
 //Apufunktio syvyyden mukaan kirjoittamiseen
-static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto, int iSyvyys) {
+static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     if (pJuuri == NULL) {
         return;
     }
-    fprintf(Tiedosto, "%s,%d,%d\n", pJuuri->aSukunimi, pJuuri->iMaara, iSyvyys);
-    btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto, iSyvyys + 1);
+    fprintf(Tiedosto, "%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto);
     
-    btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto, iSyvyys + 1);
+    btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto);
     return;
 }
