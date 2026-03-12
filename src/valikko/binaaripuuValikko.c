@@ -48,12 +48,16 @@ int binaaripuuValikko(void) {
             printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
-            printf("\n");
         } else {
             printf("Tuntematon valinta\n");
             printf("\n");
         }
     } while (iValinta != 0);
+
+    pJuuri = btree_vapautaMuisti(pJuuri);
+    printf("Muisti vapautettu.\n");
+    printf("Kiitos ohjelman käytöstä.\n");
+    printf("\n");
 
     return 0;
 }
