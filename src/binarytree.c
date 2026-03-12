@@ -87,8 +87,14 @@ static BTREENODE* varaaMuisti() {
 }
 
 BTREENODE* btree_vapautaMuisti(BTREENODE *pJuuri) {
+    if (pJuuri == NULL) {
+        return NULL;
+    }
 
-    return (pJuuri);
+    pJuuri->pVasenChild = btree_vapautaMuisti(pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_vapautaMuisti(pJuuri->pOikeaChild);
+    free(pJuuri);
+    return NULL;
 }
 
 /// @brief Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon
