@@ -2,7 +2,7 @@
 all:
 	gcc src/main.c -o bin/main.o -c -std=c99 -pedantic -Wall -g
 	gcc src/linkedlist.c -o bin/linkedlist.o -c -std=c99 -pedantic -Wall -g
-	gcc src/binarytree.c -o bin/binarytree.o -c -std=c99 -pedantic -Wall -g
+	gcc src/binarytree.c -o bin/binarytree.o -c -std=c99 -pedantic -Wall -g 
 	gcc src/valikko/linkedlistValikko.c -o bin/linkedlistValikko.o -c -std=c99 -pedantic -Wall -g
 	gcc src/valikko/binaaripuuValikko.c -o bin/binaaripuuValikko.o -c -std=c99 -pedantic -Wall -g
 	gcc bin/main.o bin/linkedlist.o bin/binarytree.o bin/linkedlistValikko.o bin/binaaripuuValikko.o -o bin/app
@@ -10,23 +10,11 @@ all:
 # Käännetään ja ajetaan testit
 test:
 	gcc -std=c99 -pedantic -Wall -Isrc test/test_hello.c src/hello.c -o bin/tests
-	gcc -std=c99 -pedantic -Wall -Isrc test/test_binarytree.c src/binarytree.c -o bin/tests
 	./bin/tests
 
 # Muistivuotojen tarkistus valgrindillä
 memcheck:
 	valgrind --leak-check=full ./bin/app
-
-# unity testit
-# unity testit
-testiti_unity:
-	gcc -std=c99 -pedantic -Wall \
-	    -Isrc -Iunity/Unity/src \
-	    test/test_binarytree.c src/binarytree.c unity/Unity/src/unity.c \
-	    -o bin/test_binarytree
-	./bin/test_binarytree
-
-
 
 # Puhdistetaan bin-kansio
 clean:
