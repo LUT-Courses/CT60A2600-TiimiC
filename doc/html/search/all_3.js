@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['kirjoitatiedostoalkuloppu_0',['kirjoitatiedostoalkuloppu',['../linkedlist_8c.html#a6d5590e3b03032cc4b0de02146473d17',1,'kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]):&#160;linkedlist.c'],['../linkedlist_8h.html#a6d5590e3b03032cc4b0de02146473d17',1,'kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]):&#160;linkedlist.c']]],
-  ['kirjoitatiedostoloppualku_1',['kirjoitatiedostoloppualku',['../linkedlist_8c.html#a10613413e58c950dd74dfecaebcb2cb1',1,'kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]):&#160;linkedlist.c'],['../linkedlist_8h.html#a10613413e58c950dd74dfecaebcb2cb1',1,'kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]):&#160;linkedlist.c']]],
-  ['kysytiedostonimi_2',['kysytiedostonimi',['../binaaripuuValikko_8c.html#a6550995a625add3d1e208377e4297b0c',1,'kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]):&#160;binaaripuuValikko.c'],['../linkedlistValikko_8c.html#a6550995a625add3d1e208377e4297b0c',1,'kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]):&#160;linkedlistValikko.c']]]
+  ['imaara_0',['imaara',['../structbtreeNode.html#a2ec00dcf9c521e44e70b237bd5406ee1',1,'btreeNode::iMaara'],['../structsukunimi.html#a67932cc392a3a4be498dcfd4e23b9f2f',1,'sukunimi::iMaara']]]
 ];

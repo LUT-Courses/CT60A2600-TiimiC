@@ -90,7 +90,9 @@ $(document).ready(function(){initNavTree('binarytree_8c.html',''); initResizable
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">binarytree.c File Reference</div></div>
 </div><!--header-->
@@ -107,10 +109,20 @@ Include dependency graph for binarytree.c:</div>
 </div>
 <p><a href="binarytree_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqueueNode.html">queueNode</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ade2116ebf2d9e7c910cb6c439eb00f93" id="r_ade2116ebf2d9e7c910cb6c439eb00f93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#ade2116ebf2d9e7c910cb6c439eb00f93">LEN_RIVI</a>&#160;&#160;&#160;40</td></tr>
 <tr class="separator:ade2116ebf2d9e7c910cb6c439eb00f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a8a8e51c2079b345284164204ca2d5ce4" id="r_a8a8e51c2079b345284164204ca2d5ce4"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structqueueNode.html">queueNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a></td></tr>
+<tr class="separator:a8a8e51c2079b345284164204ca2d5ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -120,13 +132,31 @@ Functions</h2></td></tr>
 <tr class="memitem:a09525fb5b36993e1523143ebf90c0c5a" id="r_a09525fb5b36993e1523143ebf90c0c5a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a09525fb5b36993e1523143ebf90c0c5a">varaaMuisti</a> (void)</td></tr>
 <tr class="memdesc:a09525fb5b36993e1523143ebf90c0c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apufunktio, varaa muisti uudelle structille (BTREENODE)  <br /></td></tr>
 <tr class="separator:a09525fb5b36993e1523143ebf90c0c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b8d5577b536ebfe0e72b185e55f671f" id="r_a2b8d5577b536ebfe0e72b185e55f671f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a2b8d5577b536ebfe0e72b185e55f671f">btree_kirjoitaSyvyys</a> (<a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri, FILE *Tiedosto)</td></tr>
+<tr class="memdesc:a2b8d5577b536ebfe0e72b185e55f671f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apufunktio tiedostokirjoitukseen DFS-järjestyksessä  <br /></td></tr>
+<tr class="separator:a2b8d5577b536ebfe0e72b185e55f671f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd74606856a4a3a35662dac89338226e" id="r_abd74606856a4a3a35662dac89338226e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#abd74606856a4a3a35662dac89338226e">dfsHaku</a> (FILE *Tiedosto, int iArvo, <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri)</td></tr>
+<tr class="memdesc:abd74606856a4a3a35662dac89338226e"><td class="mdescLeft">&#160;</td><td class="mdescRight">apufunktio btree_dfsHakuKirjoita funktiolle rekursiota hyödyntäen  <br /></td></tr>
+<tr class="separator:abd74606856a4a3a35662dac89338226e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80c40c8b656d45412f04772085a378f6" id="r_a80c40c8b656d45412f04772085a378f6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a80c40c8b656d45412f04772085a378f6">jonoonLisaa</a> (<a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **ppAlku, <a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **ppLoppu, <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pNode)</td></tr>
+<tr class="separator:a80c40c8b656d45412f04772085a378f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace98d3281dfee4e458379e3dcd7c933f" id="r_ace98d3281dfee4e458379e3dcd7c933f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#ace98d3281dfee4e458379e3dcd7c933f">jonostaPoista</a> (<a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **ppAlku, <a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **ppLoppu)</td></tr>
+<tr class="separator:ace98d3281dfee4e458379e3dcd7c933f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e8e7a1bcc534d1e333af3ec991c67c5" id="r_a5e8e7a1bcc534d1e333af3ec991c67c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a5e8e7a1bcc534d1e333af3ec991c67c5">btree_lueTiedosto</a> (char aTiedostoNimi[])</td></tr>
 <tr class="separator:a5e8e7a1bcc534d1e333af3ec991c67c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d3068f05d29a00399f820f695617140" id="r_a1d3068f05d29a00399f820f695617140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a1d3068f05d29a00399f820f695617140">btree_vapautaMuisti</a> (<a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri)</td></tr>
 <tr class="separator:a1d3068f05d29a00399f820f695617140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7788e7aec2c0632757a615018a4a81f" id="r_ae7788e7aec2c0632757a615018a4a81f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#ae7788e7aec2c0632757a615018a4a81f">btree_dfsHakuKirjoita</a> (char aTiedostoNimi[], int iArvo, <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri)</td></tr>
+<tr class="memdesc:ae7788e7aec2c0632757a615018a4a81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon.  <br /></td></tr>
+<tr class="separator:ae7788e7aec2c0632757a615018a4a81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada17fc6271a6ce7a0b69aa728dda7712" id="r_ada17fc6271a6ce7a0b69aa728dda7712"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#ada17fc6271a6ce7a0b69aa728dda7712">btree_bfsHakuNimellaKirjoita</a> (char aTiedostoNimi[], char aNimi[], <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri)</td></tr>
+<tr class="memdesc:ada17fc6271a6ce7a0b69aa728dda7712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hakee kysytyn nimen puusta BFS tyylillä ja kirjoittaa käydyn polun tiedostoon.  <br /></td></tr>
+<tr class="separator:ada17fc6271a6ce7a0b69aa728dda7712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a476611311f961967c6b360bb7593a9" id="r_a4a476611311f961967c6b360bb7593a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#a4a476611311f961967c6b360bb7593a9">btree_tulostaPuu</a> (<a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri)</td></tr>
-<tr class="memdesc:a4a476611311f961967c6b360bb7593a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tulostetaan puu rekursiivisesti depth-first tyylillä  <br /></td></tr>
+<tr class="memdesc:a4a476611311f961967c6b360bb7593a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tulostetaan puu rekursiivisesti preorder DFS tyylillä  <br /></td></tr>
 <tr class="separator:a4a476611311f961967c6b360bb7593a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6805213a0b361aee9c9001dcbf4ff53" id="r_af6805213a0b361aee9c9001dcbf4ff53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binarytree_8c.html#af6805213a0b361aee9c9001dcbf4ff53">btree_kirjoitaTiedostoSyvyys</a> (<a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *pJuuri, char aTiedostoNimi[])</td></tr>
+<tr class="separator:af6805213a0b361aee9c9001dcbf4ff53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ade2116ebf2d9e7c910cb6c439eb00f93" name="ade2116ebf2d9e7c910cb6c439eb00f93"></a>
@@ -145,7 +175,184 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a8a8e51c2079b345284164204ca2d5ce4" name="a8a8e51c2079b345284164204ca2d5ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8e51c2079b345284164204ca2d5ce4">&#9670;&#160;</a></span>QUEUENODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structqueueNode.html">queueNode</a> <a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ada17fc6271a6ce7a0b69aa728dda7712" name="ada17fc6271a6ce7a0b69aa728dda7712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada17fc6271a6ce7a0b69aa728dda7712">&#9670;&#160;</a></span>btree_bfsHakuNimellaKirjoita()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void btree_bfsHakuNimellaKirjoita </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>aTiedostoNimi</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>aNimi</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pJuuri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hakee kysytyn nimen puusta BFS tyylillä ja kirjoittaa käydyn polun tiedostoon. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aTiedostoNimi</td><td>Kirjoitettavan tiedoston nimi </td></tr>
+    <tr><td class="paramname">aNimi</td><td>Haettava nimi </td></tr>
+    <tr><td class="paramname">pJuuri</td><td>Puun ylin node (juuri) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00142">142</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="ae7788e7aec2c0632757a615018a4a81f" name="ae7788e7aec2c0632757a615018a4a81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7788e7aec2c0632757a615018a4a81f">&#9670;&#160;</a></span>btree_dfsHakuKirjoita()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void btree_dfsHakuKirjoita </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>aTiedostoNimi</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iArvo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pJuuri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aTiedostoNimi</td><td>Kirjoitettavan tiedoston nimi </td></tr>
+    <tr><td class="paramname">iArvo</td><td>Haettava arvo </td></tr>
+    <tr><td class="paramname">pJuuri</td><td>Puun ylin node (juuri) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00104">104</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="a2b8d5577b536ebfe0e72b185e55f671f" name="a2b8d5577b536ebfe0e72b185e55f671f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8d5577b536ebfe0e72b185e55f671f">&#9670;&#160;</a></span>btree_kirjoitaSyvyys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void btree_kirjoitaSyvyys </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pJuuri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>Tiedosto</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apufunktio tiedostokirjoitukseen DFS-järjestyksessä </p>
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00257">257</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="af6805213a0b361aee9c9001dcbf4ff53" name="af6805213a0b361aee9c9001dcbf4ff53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6805213a0b361aee9c9001dcbf4ff53">&#9670;&#160;</a></span>btree_kirjoitaTiedostoSyvyys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void btree_kirjoitaTiedostoSyvyys </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pJuuri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>aTiedostoNimi</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00245">245</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
 <a id="a5e8e7a1bcc534d1e333af3ec991c67c5" name="a5e8e7a1bcc534d1e333af3ec991c67c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e8e7a1bcc534d1e333af3ec991c67c5">&#9670;&#160;</a></span>btree_lueTiedosto()</h2>
 
@@ -162,7 +369,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00014">14</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00025">25</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
 
 </div>
 </div>
@@ -182,7 +389,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tulostetaan puu rekursiivisesti depth-first tyylillä </p>
+<p>Tulostetaan puu rekursiivisesti preorder DFS tyylillä </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pJuuri</td><td><br  />
@@ -191,7 +398,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00080">80</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00235">235</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
 
 </div>
 </div>
@@ -211,7 +418,135 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00073">73</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00089">89</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="abd74606856a4a3a35662dac89338226e" name="abd74606856a4a3a35662dac89338226e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd74606856a4a3a35662dac89338226e">&#9670;&#160;</a></span>dfsHaku()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int dfsHaku </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>Tiedosto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iArvo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pJuuri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>apufunktio btree_dfsHakuKirjoita funktiolle rekursiota hyödyntäen </p>
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00120">120</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="a80c40c8b656d45412f04772085a378f6" name="a80c40c8b656d45412f04772085a378f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c40c8b656d45412f04772085a378f6">&#9670;&#160;</a></span>jonoonLisaa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void jonoonLisaa </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **&#160;</td>
+          <td class="paramname"><em>ppAlku</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **&#160;</td>
+          <td class="paramname"><em>ppLoppu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> *&#160;</td>
+          <td class="paramname"><em>pNode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00191">191</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+
+</div>
+</div>
+<a id="ace98d3281dfee4e458379e3dcd7c933f" name="ace98d3281dfee4e458379e3dcd7c933f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace98d3281dfee4e458379e3dcd7c933f">&#9670;&#160;</a></span>jonostaPoista()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="binarytree_8h.html#a31e41e7241395517f95ef5447b694915">BTREENODE</a> * jonostaPoista </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **&#160;</td>
+          <td class="paramname"><em>ppAlku</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="binarytree_8c.html#a8a8e51c2079b345284164204ca2d5ce4">QUEUENODE</a> **&#160;</td>
+          <td class="paramname"><em>ppLoppu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00213">213</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
 
 </div>
 </div>
@@ -251,7 +586,7 @@ Functions</h2></td></tr>
 
 <p>Rekursiivinen apufunktio puuhun lisäykseen. </p>
 
-<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00050">50</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00062">62</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
 
 </div>
 </div>
@@ -281,7 +616,7 @@ Functions</h2></td></tr>
 
 <p>Apufunktio, varaa muisti uudelle structille (BTREENODE) </p>
 
-<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00062">62</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="binarytree_8c_source.html#l00078">78</a> of file <a class="el" href="binarytree_8c_source.html">binarytree.c</a>.</p>
 
 </div>
 </div>

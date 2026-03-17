@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imaara_0',['imaara',['../structbtreeNode.html#a2ec00dcf9c521e44e70b237bd5406ee1',1,'btreeNode::iMaara'],['../structsukunimi.html#a67932cc392a3a4be498dcfd4e23b9f2f',1,'sukunimi::iMaara']]]
+  ['dfshaku_0',['dfsHaku',['../binarytree_8c.html#abd74606856a4a3a35662dac89338226e',1,'binarytree.c']]]
 ];

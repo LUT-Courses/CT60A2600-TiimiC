@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('linkedlistValikko_8c_source.html','');
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="linkedlistValikko_8c.html#a6ce66334bd0edf070aed1fdafb24477c">   16</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="linkedlistValikko_8c.html#a6ce66334bd0edf070aed1fdafb24477c">linkedlistValikko</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> iValinta = -1;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span> aTiedostoNimi[20];</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span> aTiedostoNimi[30];</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_struct" href="structsukunimi.html">SUKUNIMI</a> *pAlku = NULL; <span class="comment">// alustetaan pointerit NULL</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">do</span> {</div>
@@ -149,19 +149,19 @@ $(document).ready(function(){initNavTree('linkedlistValikko_8c_source.html','');
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    pAlku = <a class="code hl_function" href="linkedlist_8c.html#a41db76f1f5dabb51b314183f13742247">vapautaMuisti</a>(pAlku);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    printf(<span class="stringliteral">&quot;Muisti vapautettu.\n&quot;</span>);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    printf(<span class="stringliteral">&quot;Kiitos ohjelman käytöstä.\n&quot;</span>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">   57</a></span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">valikko</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">int</span> iValinta = 0;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    printf(<span class="stringliteral">&quot;1) Lue tiedosto\n&quot;</span>);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    printf(<span class="stringliteral">&quot;2) Kirjoita tiedostoon nimet alusta loppuun\n&quot;</span>);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    printf(<span class="stringliteral">&quot;3) Kirjoita tiedostoon nimet lopusta alkuun\n&quot;</span>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    printf(<span class="stringliteral">&quot;4) Tyhjennä tiedosto\n&quot;</span>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    printf(<span class="stringliteral">&quot;0) Lopeta\n&quot;</span>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">   58</a></span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">valikko</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">int</span> iValinta = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    printf(<span class="stringliteral">&quot;1) Lue tiedosto\n&quot;</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    printf(<span class="stringliteral">&quot;2) Kirjoita tiedostoon nimet alusta loppuun\n&quot;</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    printf(<span class="stringliteral">&quot;3) Kirjoita tiedostoon nimet lopusta alkuun\n&quot;</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    printf(<span class="stringliteral">&quot;4) Tyhjennä tiedosto\n&quot;</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    printf(<span class="stringliteral">&quot;0) Lopeta\n&quot;</span>);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    printf(<span class="stringliteral">&quot;Anna valintasi: &quot;</span>);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp;iValinta);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> iValinta;</div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('linkedlistValikko_8c_source.html','');
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
 <div class="ttc" id="alinkedlistValikko_8c_html_a6550995a625add3d1e208377e4297b0c"><div class="ttname"><a href="linkedlistValikko_8c.html#a6550995a625add3d1e208377e4297b0c">kysyTiedostoNimi</a></div><div class="ttdeci">static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[])</div><div class="ttdoc">Apufunktio yksinkertaistamaan. Muuttujaparametri ja syöte valikko funktiosta. Muuttujaparametriin ase...</div><div class="ttdef"><b>Definition</b> <a href="linkedlistValikko_8c_source.html#l00070">linkedlistValikko.c:70</a></div></div>
-<div class="ttc" id="alinkedlistValikko_8c_html_a667165b6bc26391019d05a4727721499"><div class="ttname"><a href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">valikko</a></div><div class="ttdeci">static int valikko(void)</div><div class="ttdoc">Apufunktio joka tulostaa toiminnot ja antaa käyttäjän valita (0-5)</div><div class="ttdef"><b>Definition</b> <a href="linkedlistValikko_8c_source.html#l00057">linkedlistValikko.c:57</a></div></div>
+<div class="ttc" id="alinkedlistValikko_8c_html_a667165b6bc26391019d05a4727721499"><div class="ttname"><a href="linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499">valikko</a></div><div class="ttdeci">static int valikko(void)</div><div class="ttdoc">Apufunktio joka tulostaa toiminnot ja antaa käyttäjän valita (0-5)</div><div class="ttdef"><b>Definition</b> <a href="linkedlistValikko_8c_source.html#l00058">linkedlistValikko.c:58</a></div></div>
 <div class="ttc" id="alinkedlistValikko_8c_html_a6ce66334bd0edf070aed1fdafb24477c"><div class="ttname"><a href="linkedlistValikko_8c.html#a6ce66334bd0edf070aed1fdafb24477c">linkedlistValikko</a></div><div class="ttdeci">int linkedlistValikko(void)</div><div class="ttdef"><b>Definition</b> <a href="linkedlistValikko_8c_source.html#l00016">linkedlistValikko.c:16</a></div></div>
 <div class="ttc" id="alinkedlistValikko_8h_html"><div class="ttname"><a href="linkedlistValikko_8h.html">linkedlistValikko.h</a></div></div>
 <div class="ttc" id="alinkedlist_8c_html_a10613413e58c950dd74dfecaebcb2cb1"><div class="ttname"><a href="linkedlist_8c.html#a10613413e58c950dd74dfecaebcb2cb1">kirjoitaTiedostoLoppuAlku</a></div><div class="ttdeci">void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[])</div><div class="ttdef"><b>Definition</b> <a href="linkedlist_8c_source.html#l00106">linkedlist.c:106</a></div></div>
