@@ -8,6 +8,9 @@
 /// @brief Rekursiivinen apufunktio puuhun lisäykseen
 static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
+/// @brief Rekursiivinen apufunktio AVL puuhun lisäykseen
+static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
+
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
 /// @brief Apufunktio tiedostokirjoitukseen DFS-järjestyksessä
