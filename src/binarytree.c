@@ -8,8 +8,13 @@
 /// @brief Rekursiivinen apufunktio puuhun lisäykseen
 static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
-/// @brief Rekursiivinen apufunktio AVL puuhun lisäykseen
+// Apufunktiota AVL puuta varten
 static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
+static BTREENODE* kiertoVasen(BTREENODE *pNode);
+static BTREENODE* kiertoOikea(BTREENODE *pNode);
+static int tasapaino(BTREENODE *pNode);
+static int korkeus(BTREENODE *pNode);
+static int paivitaKorkus(BTREENODE *pNode);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
@@ -75,11 +80,6 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
     }
-    return (pJuuri);
-}
-
-static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
-
     return (pJuuri);
 }
 
@@ -271,4 +271,10 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     
     btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto);
     return;
+}
+
+
+static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+
+    return (pJuuri);
 }
