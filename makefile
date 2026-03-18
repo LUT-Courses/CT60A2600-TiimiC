@@ -28,5 +28,6 @@ clean:
 	rm -f bin/app bin/test bin/test_binarytree
 	rm -f bin/*.o
 
+# Luo dokumentaatio Doxygenilla
 docs:
 	doxygen doc/Doxyfile
