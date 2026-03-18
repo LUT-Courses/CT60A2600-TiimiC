@@ -78,6 +78,11 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     return (pJuuri);
 }
 
+static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+
+    return (pJuuri);
+}
+
 static BTREENODE* varaaMuisti() {
     BTREENODE *pUusi = NULL;
 
