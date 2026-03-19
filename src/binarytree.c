@@ -12,9 +12,9 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
 static BTREENODE* kiertoVasen(BTREENODE *pNode);
 static BTREENODE* kiertoOikea(BTREENODE *pNode);
-static int tasapaino(BTREENODE *pNode);
-static int korkeus(BTREENODE *pNode);
-static int paivitaKorkus(BTREENODE *pNode);
+static int tarkistaTasapaino(BTREENODE *pNode);
+static int tarkistaKorkeus(BTREENODE *pNode);
+static void paivitaKorkus(BTREENODE *pNode);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
@@ -30,6 +30,9 @@ typedef struct queueNode {
 static void jonoonLisaa(QUEUENODE **ppAlku, QUEUENODE **ppLoppu, BTREENODE *pNode);
 static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu);
 
+/// @brief lukee tiedostosta nimet ja lisää ne puuhun käyttäen apufunktiota
+/// @param aTiedostoNimi kirjoitettavan tiedoston nimi 
+/// @return palauttaa puun ylimmän noden pJuuri
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
     BTREENODE *pJuuri = NULL;
