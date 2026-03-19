@@ -319,5 +319,5 @@ static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
         return kiertoVasen(pJuuri);
     }
 
-    return (pJuuri);
+    return (pJuuri); // tasapainossa
 }
