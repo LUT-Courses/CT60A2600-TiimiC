@@ -14,7 +14,7 @@ static BTREENODE* kiertoVasen(BTREENODE *pNode);
 static BTREENODE* kiertoOikea(BTREENODE *pNode);
 static int tarkistaTasapaino(BTREENODE *pNode);
 static int tarkistaKorkeus(BTREENODE *pNode);
-static void paivitaKorkus(BTREENODE *pNode);
+static void paivitaKorkeus(BTREENODE *pNode);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
@@ -350,4 +350,21 @@ static void paivitaKorkus(BTREENODE *pNode) {
         pNode->iKorkeus = iOikea + 1;
     }
     return;
+}
+
+static BTREENODE* kiertoOikea(BTREENODE *pNode) {
+    BTREENODE* pUusi;
+    BTREENODE* pKiertava;
+
+    if (pNode == NULL || (pNode->pVasenChild == NULL)) { // tarkistus onko kierto mahdollista tehdä
+        return (pNode); }
+
+    pUusi = pNode->pVasenChild;
+    pKiertava = pNode->pOikeaChild;
+
+    pUusi->pOikeaChild = pNode; // kierto
+    pNode->pVasenChild = pKiertava;
+    paivitaKorkeus(pNode); //korkeus päivitys
+    paivitaKorkeus(pKiertava);
+    return (pUusi);
 }
