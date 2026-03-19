@@ -321,3 +321,10 @@ static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
 
     return (pJuuri); // tasapainossa
 }
+
+static int tarkistaKorkeus(BTREENODE *pNode) {
+    if (pNode == NULL) {
+        return 0; // tasapainossa
+    }
+    return pNode->iKorkeus;
+}
