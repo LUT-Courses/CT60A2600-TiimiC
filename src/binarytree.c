@@ -333,7 +333,7 @@ static int tarkistaKorkeus(BTREENODE *pNode) {
 
 /// @brief Laskee ja päivittää noden korkeuden
 /// @param pNode Päivitettävä node
-static void paivitaKorkus(BTREENODE *pNode) {
+static void paivitaKorkeus(BTREENODE *pNode) {
     int iVasen; // vasen alipuu korkeus
     int iOikea; // oikea alipuu korkeus
 
@@ -351,7 +351,8 @@ static void paivitaKorkus(BTREENODE *pNode) {
     }
     return;
 }
-
+/// @brief Suorittaa oikean kierron
+/// @param pNode Kierrättävän alipuun juuri 
 static BTREENODE* kiertoOikea(BTREENODE *pNode) {
     BTREENODE* pUusi;
     BTREENODE* pKiertava;
@@ -360,11 +361,29 @@ static BTREENODE* kiertoOikea(BTREENODE *pNode) {
         return (pNode); }
 
     pUusi = pNode->pVasenChild;
-    pKiertava = pNode->pOikeaChild;
+    pKiertava = pUusi->pOikeaChild;
 
     pUusi->pOikeaChild = pNode; // kierto
     pNode->pVasenChild = pKiertava;
     paivitaKorkeus(pNode); //korkeus päivitys
-    paivitaKorkeus(pKiertava);
+    paivitaKorkeus(pUusi);
+    return (pUusi);
+}
+/// @brief Suorittaa vasemman kierron
+/// @param pNode Kierrättävän alipuun juuri 
+static BTREENODE* kiertoVasen(BTREENODE *pNode) {
+    BTREENODE* pUusi;
+    BTREENODE* pKiertava;
+
+    if (pNode == NULL || (pNode->pOikeaChild == NULL)) { // tarkistus onko kierto mahdollista tehdä
+        return (pNode); }
+
+    pUusi = pNode->pOikeaChild;
+    pKiertava = pUusi->pVasenChild;
+
+    pUusi->pVasenChild = pNode; // kierto
+    pNode->pOikeaChild = pKiertava;
+    paivitaKorkeus(pNode); //korkeus päivitys
+    paivitaKorkeus(pUusi);
     return (pUusi);
 }
