@@ -322,9 +322,32 @@ static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
     return (pJuuri); // tasapainossa
 }
 
+/// @brief palauttaa korkeuden INT
+/// @param pNode tarkistettava node
 static int tarkistaKorkeus(BTREENODE *pNode) {
     if (pNode == NULL) {
         return 0; // tasapainossa
     }
     return pNode->iKorkeus;
+}
+
+/// @brief Laskee ja päivittää noden korkeuden
+/// @param pNode Päivitettävä node
+static void paivitaKorkus(BTREENODE *pNode) {
+    int iVasen; // vasen alipuu korkeus
+    int iOikea; // oikea alipuu korkeus
+
+    if (pNode == NULL) {
+        return; }
+
+    // haetaan nykyiset korkeudet
+    iVasen = tarkistaKorkeus(pNode->pVasenChild);
+    iOikea = tarkistaKorkeus(pNode->pOikeaChild);
+
+    if (iVasen > iOikea) {
+        pNode->iKorkeus = iVasen + 1;
+    } else {
+        pNode->iKorkeus = iOikea + 1;
+    }
+    return;
 }
