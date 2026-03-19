@@ -62,6 +62,7 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         pUusi->iMaara = atoi(p2);
         pUusi->pVasenChild = NULL;
         pUusi->pOikeaChild = NULL;
+        pUusi->iKorkeus = 1; // alustetaan uudelle nodelle aina korkeus 1
 
         // uusi node puuhun apufunktion avulla
         pJuuri = lisaaPuuhunAVL(pJuuri, pUusi);
