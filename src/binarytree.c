@@ -252,7 +252,7 @@ void btree_tulostaPuu(BTREENODE *pJuuri) {
     btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
 }
-//kirjoitetaan tiedostoon syvyyden mukaan
+///kirjoitetaan tiedostoon syvyyden mukaan
 void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
 
@@ -264,10 +264,8 @@ void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
     fclose(Tiedosto);
     return;
 }
-//Apufunktio syvyyden mukaan kirjoittamiseen
+///Apufunktio syvyyden mukaan kirjoittamiseen
 static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
-    int iTasapainoKerroin;
-
     if (pJuuri == NULL) {
         return;
     }
@@ -283,6 +281,8 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
 /// @param pUusi uusi node joka lisätään
 /// @return käsitellyn alipuun (mahd. uusi) juuri
 static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+    int iTasapainoKerroin;
+
     if (pJuuri == NULL) {
         return pUusi; } // uusi paikka puussa
 
@@ -296,7 +296,28 @@ static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
         pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
     }
     paivitaKorkus(pJuuri); // päivitetään nykyisen noden korkeus
+    iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
 
+    if (iTasapainoKerroin > 1 && // LL case vasen->vasen
+        (pUusi->iMaara < pJuuri->pVasenChild->iMaara || // vertaillaan määrä, meneekö node vasen
+        (pUusi->iMaara == pJuuri->pVasenChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella vasemmalle
+        strcmp(pUusi->aSukunimi, pJuuri->pVasenChild->aSukunimi) < 0)) ) {
+        return kiertoOikea(pJuuri);
+    }
+    if (iTasapainoKerroin < -1 && // RR case oikea->oikea
+        (pUusi->iMaara > pJuuri->pOikeaChild->iMaara || // vertaillaan määrä, meneekö node oikea
+        (pUusi->iMaara == pJuuri->pOikeaChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella oikealle
+        strcmp(pUusi->aSukunimi, pJuuri->pOikeaChild->aSukunimi) >= 0)) ) {
+        return kiertoVasen(pJuuri);
+    }
+    if (iTasapainoKerroin > 1) { // LR case vasen->oikea. LL ei osunut joten riittää kun vertaillaan tasapainoa
+        pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
+        return kiertoOikea(pJuuri);
+    }
+    if (iTasapainoKerroin < -1) { // RL case oikea->vasen. RR ei osunut joten riittää kun vertaillaan tasapainoa
+        pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
+        return kiertoVasen(pJuuri);
+    }
 
     return (pJuuri);
 }
