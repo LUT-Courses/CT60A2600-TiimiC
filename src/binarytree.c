@@ -266,6 +266,8 @@ void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
 }
 //Apufunktio syvyyden mukaan kirjoittamiseen
 static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
+    int iTasapainoKerroin;
+
     if (pJuuri == NULL) {
         return;
     }
@@ -276,8 +278,25 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     return;
 }
 
-
+/// @brief lisää noden AVL puuhun
+/// @param pJuuri käsiteltävän (ali)puun juuri
+/// @param pUusi uusi node joka lisätään
+/// @return käsitellyn alipuun (mahd. uusi) juuri
 static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+    if (pJuuri == NULL) {
+        return pUusi; } // uusi paikka puussa
+
+    if (pUusi->iMaara < pJuuri->iMaara) { // uuden noden määrä pienempi, menee vasen
+        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi); 
+    } else if (pUusi->iMaara > pJuuri->iMaara) { // uuden noden määrä isompi, menee oikea
+        pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
+    } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla (ensin tulevan vasemmalle)
+        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi);
+    } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
+        pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
+    }
+    paivitaKorkus(pJuuri); // päivitetään nykyisen noden korkeus
+
 
     return (pJuuri);
 }
