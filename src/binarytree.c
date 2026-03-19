@@ -6,7 +6,15 @@
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 
 /// @brief Rekursiivinen apufunktio puuhun lisäykseen
-static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
+//static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
+
+// Apufunktiota AVL puuta varten
+static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
+static BTREENODE* kiertoVasen(BTREENODE *pNode);
+static BTREENODE* kiertoOikea(BTREENODE *pNode);
+static int tarkistaTasapaino(BTREENODE *pNode);
+static int tarkistaKorkeus(BTREENODE *pNode);
+static void paivitaKorkeus(BTREENODE *pNode);
 
 /// @brief Apufunktio, varaa muisti uudelle structille (BTREENODE)
 static BTREENODE* varaaMuisti(void);
@@ -22,6 +30,9 @@ typedef struct queueNode {
 static void jonoonLisaa(QUEUENODE **ppAlku, QUEUENODE **ppLoppu, BTREENODE *pNode);
 static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu);
 
+/// @brief lukee tiedostosta nimet ja lisää ne puuhun käyttäen apufunktiota
+/// @param aTiedostoNimi kirjoitettavan tiedoston nimi 
+/// @return palauttaa puun ylimmän noden pJuuri
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
     BTREENODE *pJuuri = NULL;
@@ -53,13 +64,13 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         pUusi->pOikeaChild = NULL;
 
         // uusi node puuhun apufunktion avulla
-        pJuuri = lisaaPuuhun(pJuuri, pUusi);
+        pJuuri = lisaaPuuhunAVL(pJuuri, pUusi);
     }
     fclose(Tiedosto);
     return (pJuuri);
 }
 
-static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
+/*static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
     if (pJuuri == NULL) {
         return pUusi; // uusi paikka puussa
     }
@@ -73,7 +84,7 @@ static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi) {
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
     }
     return (pJuuri);
-}
+}*/
 
 static BTREENODE* varaaMuisti() {
     BTREENODE *pUusi = NULL;
@@ -241,7 +252,7 @@ void btree_tulostaPuu(BTREENODE *pJuuri) {
     btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
 }
-//kirjoitetaan tiedostoon syvyyden mukaan
+///kirjoitetaan tiedostoon syvyyden mukaan
 void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
 
@@ -253,7 +264,7 @@ void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]) {
     fclose(Tiedosto);
     return;
 }
-//Apufunktio syvyyden mukaan kirjoittamiseen
+///Apufunktio syvyyden mukaan kirjoittamiseen
 static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     if (pJuuri == NULL) {
         return;
@@ -263,4 +274,127 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     
     btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto);
     return;
+}
+
+/// @brief lisää noden AVL puuhun
+/// @param pJuuri käsiteltävän (ali)puun juuri
+/// @param pUusi uusi node joka lisätään
+/// @return käsitellyn alipuun (mahd. uusi) juuri
+static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+    int iTasapainoKerroin;
+
+    if (pJuuri == NULL) {
+        return pUusi; } // uusi paikka puussa
+
+    if (pUusi->iMaara < pJuuri->iMaara) { // uuden noden määrä pienempi, menee vasen
+        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi); 
+    } else if (pUusi->iMaara > pJuuri->iMaara) { // uuden noden määrä isompi, menee oikea
+        pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
+    } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla (ensin tulevan vasemmalle)
+        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi);
+    } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
+        pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
+    }
+    paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
+    iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
+
+    if (iTasapainoKerroin > 1 && // LL case vasen->vasen
+        (pUusi->iMaara < pJuuri->pVasenChild->iMaara || // vertaillaan määrä, meneekö node vasen
+        (pUusi->iMaara == pJuuri->pVasenChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella vasemmalle
+        strcmp(pUusi->aSukunimi, pJuuri->pVasenChild->aSukunimi) < 0)) ) {
+        return kiertoOikea(pJuuri);
+    }
+    if (iTasapainoKerroin < -1 && // RR case oikea->oikea
+        (pUusi->iMaara > pJuuri->pOikeaChild->iMaara || // vertaillaan määrä, meneekö node oikea
+        (pUusi->iMaara == pJuuri->pOikeaChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella oikealle
+        strcmp(pUusi->aSukunimi, pJuuri->pOikeaChild->aSukunimi) >= 0)) ) {
+        return kiertoVasen(pJuuri);
+    }
+    if (iTasapainoKerroin > 1) { // LR case vasen->oikea. LL ei osunut joten riittää kun vertaillaan tasapainoa
+        pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
+        return kiertoOikea(pJuuri);
+    }
+    if (iTasapainoKerroin < -1) { // RL case oikea->vasen. RR ei osunut joten riittää kun vertaillaan tasapainoa
+        pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
+        return kiertoVasen(pJuuri);
+    }
+
+    return (pJuuri); // tasapainossa
+}
+
+/// @brief palauttaa korkeuden INT
+/// @param pNode tarkistettava node
+static int tarkistaKorkeus(BTREENODE *pNode) {
+    if (pNode == NULL) {
+        return 0; // tasapainossa
+    }
+    return pNode->iKorkeus;
+}
+
+/// @brief Laskee ja päivittää noden korkeuden
+/// @param pNode Päivitettävä node
+static void paivitaKorkeus(BTREENODE *pNode) {
+    int iVasen; // vasen alipuu korkeus
+    int iOikea; // oikea alipuu korkeus
+
+    if (pNode == NULL) {
+        return; }
+
+    // haetaan nykyiset korkeudet
+    iVasen = tarkistaKorkeus(pNode->pVasenChild);
+    iOikea = tarkistaKorkeus(pNode->pOikeaChild);
+
+    if (iVasen > iOikea) {
+        pNode->iKorkeus = iVasen + 1;
+    } else {
+        pNode->iKorkeus = iOikea + 1;
+    }
+    return;
+}
+/// @brief Suorittaa oikean kierron
+/// @param pNode Kierrättävän alipuun juuri 
+static BTREENODE* kiertoOikea(BTREENODE *pNode) {
+    BTREENODE* pUusi;
+    BTREENODE* pKiertava;
+
+    if (pNode == NULL || (pNode->pVasenChild == NULL)) { // tarkistus onko kierto mahdollista tehdä
+        return (pNode); }
+
+    pUusi = pNode->pVasenChild;
+    pKiertava = pUusi->pOikeaChild;
+
+    pUusi->pOikeaChild = pNode; // kierto
+    pNode->pVasenChild = pKiertava;
+    paivitaKorkeus(pNode); //korkeus päivitys
+    paivitaKorkeus(pUusi);
+    return (pUusi);
+}
+/// @brief Suorittaa vasemman kierron
+/// @param pNode Kierrättävän alipuun juuri 
+static BTREENODE* kiertoVasen(BTREENODE *pNode) {
+    BTREENODE* pUusi;
+    BTREENODE* pKiertava;
+
+    if (pNode == NULL || (pNode->pOikeaChild == NULL)) { // tarkistus onko kierto mahdollista tehdä
+        return (pNode); }
+
+    pUusi = pNode->pOikeaChild;
+    pKiertava = pUusi->pVasenChild;
+
+    pUusi->pVasenChild = pNode; // kierto
+    pNode->pOikeaChild = pKiertava;
+    paivitaKorkeus(pNode); //korkeus päivitys
+    paivitaKorkeus(pUusi);
+    return (pUusi);
+}
+
+/// @brief Laskee noden tasapainokertoimen
+/// @param pNode Tarkistettava node 
+static int tarkistaTasapaino(BTREENODE *pNode) {
+    int iTasapaino;
+    if (pNode == NULL) {
+        return 0; // tasapainossa
+    }
+    iTasapaino = tarkistaKorkeus(pNode->pVasenChild) - tarkistaKorkeus(pNode->pOikeaChild);
+    return (iTasapaino);
 }

@@ -6,6 +6,7 @@
 typedef struct btreeNode {
     char aSukunimi[LEN_SUKUNIMI];
     int iMaara;
+    int iKorkeus;
     struct btreeNode *pVasenChild; // pointteri vasempaan lapseen
     struct btreeNode *pOikeaChild; // pointteri oikeaan lapseen
 } BTREENODE;
