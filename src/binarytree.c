@@ -400,7 +400,27 @@ static int tarkistaTasapaino(BTREENODE *pNode) {
     return (iTasapaino);
 }
 
-void btree_poistaNodePohja(char aNimi[], int iArvo, BTREENODE* pJuuri) {
+void btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
+    if (pJuuri == NULL) {
+        return (0); }
 
-    return;
+    if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
+        if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
+            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            free(pJuuri); // vapautetaan muisti
+            return;
+        }
+    }
+}
+void btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
+    if (pJuuri == NULL) {
+        return (0); }
+
+    if (pJuuri->iMaara == iArvo) {
+        if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
+            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            free(pJuuri); // vapautetaan muisti
+            return;
+        }
+    }
 }
