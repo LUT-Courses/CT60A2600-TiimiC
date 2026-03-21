@@ -48,7 +48,7 @@ int binaaripuuValikko(void) {
             btree_tulostaPuu(pJuuri);
             printf("\n");
         } else if (iValinta == 6) {
-            printf("Anna poistettava nimi tai arvo\n");
+            printf("Anna poistettava nimi tai arvo: ");
             scanf("%s", aNimi);
             if ( (iArvo = atoi(aNimi)) != 0) { // jos numero niin numeron perusteella
                 printf("%d",iArvo);
@@ -80,7 +80,7 @@ static int valikko(void) {
     printf("3) Syvyyshaku arvon mukaan sekä kirjoita käyty polku tiedostoon (DFS)\n");
     printf("4) Leveyshaku nimen mukaan sekä kirjoita käyty polku tiedostoon (BFS)\n");
     printf("5) Tulosta puu (DFS)\n");
-    printf("6) Poista pohjimmainen node\n");
+    printf("6) Poista pohjimmainen node (nimellä tai arvolla)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
