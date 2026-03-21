@@ -400,7 +400,7 @@ static int tarkistaTasapaino(BTREENODE *pNode) {
     return (iTasapaino);
 }
 
-void btree_poistaNodePohja(char aNimi[], int iMaara, BTREENODE* pJuuri) {
+void btree_poistaNodePohja(char aNimi[], int iArvo, BTREENODE* pJuuri) {
 
     return;
 }

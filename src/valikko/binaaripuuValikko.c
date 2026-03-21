@@ -47,7 +47,8 @@ int binaaripuuValikko(void) {
             btree_tulostaPuu(pJuuri);
             printf("\n");
         } else if (iValinta == 6) {
-            
+            btree_poistaNodePohja(aNimi, iArvo, pJuuri);
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
