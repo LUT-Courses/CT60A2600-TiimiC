@@ -404,6 +404,7 @@ static int tarkistaTasapaino(BTREENODE *pNode) {
 /// @param aNimi Kriteeri
 /// @param pJuuri Puun juuri
 BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
+    int iTasapainoKerroin;
     if (pJuuri == NULL) {
         return (NULL); }
 
@@ -417,6 +418,26 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
             return (NULL);
         }
     }
+    // tasapainotus
+    paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
+    iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
+
+    if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) >= 0) { // LL case vasen->vasen
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) < 0) { // LR case vasen->oikea
+        pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) <= 0) { // RR case oikea->oikea
+        return kiertoVasen(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) > 0) { // RL case oikea->vasen
+        pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
+        return kiertoVasen(pJuuri);
+    }
+    return(pJuuri);
+
     return(pJuuri);
 }
 /// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa
