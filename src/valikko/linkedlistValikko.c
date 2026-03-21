@@ -15,7 +15,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 
 int linkedlistValikko(void) {
     int iValinta = -1;
-    char aTiedostoNimi[30];
+    char aTiedostoNimi[40];
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
     do {
