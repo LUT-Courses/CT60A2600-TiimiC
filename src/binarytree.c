@@ -399,3 +399,8 @@ static int tarkistaTasapaino(BTREENODE *pNode) {
     iTasapaino = tarkistaKorkeus(pNode->pVasenChild) - tarkistaKorkeus(pNode->pOikeaChild);
     return (iTasapaino);
 }
+
+void btree_poistaNodePohja(char aNimi[], int iMaara, BTREENODE* pJuuri) {
+
+    return;
+}

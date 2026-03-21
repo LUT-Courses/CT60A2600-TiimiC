@@ -17,5 +17,6 @@ void btree_dfsHakuKirjoita(char aTiedostoNimi[], int iArvo, BTREENODE *pJuuri);
 void btree_bfsHakuNimellaKirjoita(char aTiedostoNimi[], char aNimi[], BTREENODE *pJuuri);
 void btree_tulostaPuu(BTREENODE *pJuuri);
 void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]);
+void btree_poistaNodePohja(char aNimi[], int iMaara, BTREENODE* pJuuri);
 
 #endif // BINARYTREE_H
