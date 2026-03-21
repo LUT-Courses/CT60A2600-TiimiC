@@ -68,7 +68,16 @@ static int valikko(void) {
 }
 
 static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
-    printf("%s", aSyote);
-    scanf("%s", aTiedostoNimi);
+    #ifdef DEBUG
+    if (strstr(aSyote, "luettavan") != NULL) {
+        strcpy(aTiedostoNimi, "data/miehet_15.txt");
+    } else { // kirjoitustiedosto
+        strcpy(aTiedostoNimi, "debug.txt");
+    }
+    printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
+    #else
+        printf("%s", aSyote);
+        scanf("%s", aTiedostoNimi);
+    #endif
     return;
 }

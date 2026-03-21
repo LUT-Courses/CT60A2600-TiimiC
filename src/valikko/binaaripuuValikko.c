@@ -98,9 +98,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
     printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
     #else
         printf("%s", aSyote);
-        scanf("%39s", aTiedostoNimi);
+        scanf("%s", aTiedostoNimi);
     #endif
-    printf("%s", aSyote);
-    scanf("%s", aTiedostoNimi);
     return;
 }
