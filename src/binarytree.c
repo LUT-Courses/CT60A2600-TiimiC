@@ -407,6 +407,9 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
     if (pJuuri == NULL) {
         return (NULL); }
 
+    pJuuri->pVasenChild = btree_poistaNodePohjaArvo(aNimi, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaArvo(aNimi, pJuuri->pOikeaChild);
+
     if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
             printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
@@ -414,6 +417,7 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
             return;
         }
     }
+    return(pJuuri);
 }
 /// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa
 /// @param aNimi Kriteeri
@@ -422,6 +426,9 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
     if (pJuuri == NULL) {
         return (NULL); }
 
+    pJuuri->pVasenChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pOikeaChild);
+
     if (pJuuri->iMaara == iArvo) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
             printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
@@ -429,5 +436,5 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
             return (NULL);
         }
     }
-
+    return(pJuuri);
 }
