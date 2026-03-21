@@ -11,7 +11,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 int binaaripuuValikko(void) {
     int iValinta = -1;
     int iArvo = 0;
-    char aTiedostoNimi[30];
+    char aTiedostoNimi[40];
     char aNimi[LEN_SUKUNIMI];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
@@ -47,7 +47,13 @@ int binaaripuuValikko(void) {
             btree_tulostaPuu(pJuuri);
             printf("\n");
         } else if (iValinta == 6) {
-            btree_poistaNodePohja(aNimi, iArvo, pJuuri);
+            printf("Anna poistettava nimi tai arvo\n");
+            scanf("%s", aNimi);
+            if ( (iArvo = atoi(aNimi)) != 0) { // jos numero niin numeron perusteella
+                btree_poistaNodePohjaArvo(iArvo, pJuuri);
+            } else {
+                btree_poistaNodePohjaNimi(aNimi, pJuuri); // muuten nimen perusteella
+            }
             printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
