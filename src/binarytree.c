@@ -399,3 +399,82 @@ static int tarkistaTasapaino(BTREENODE *pNode) {
     iTasapaino = tarkistaKorkeus(pNode->pVasenChild) - tarkistaKorkeus(pNode->pOikeaChild);
     return (iTasapaino);
 }
+
+/// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää nimen kanssa
+/// @param aNimi Kriteeri
+/// @param pJuuri Puun juuri
+BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
+    int iTasapainoKerroin;
+    if (pJuuri == NULL) {
+        return (NULL); }
+
+    pJuuri->pVasenChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pOikeaChild);
+
+    if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
+        if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
+            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            free(pJuuri); // vapautetaan muisti
+            return (NULL);
+        }
+    }
+    // tasapainotus
+    paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
+    iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
+
+    if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) >= 0) { // LL case vasen->vasen
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) < 0) { // LR case vasen->oikea
+        pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) <= 0) { // RR case oikea->oikea
+        return kiertoVasen(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) > 0) { // RL case oikea->vasen
+        pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
+        return kiertoVasen(pJuuri);
+    }
+    return(pJuuri);
+
+    return(pJuuri);
+}
+/// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa
+/// @param aNimi Kriteeri
+/// @param pJuuri Puun juuri
+BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
+    int iTasapainoKerroin;
+    if (pJuuri == NULL) {
+        return (NULL); }
+
+    pJuuri->pVasenChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pOikeaChild);
+
+    if (pJuuri->iMaara == iArvo) {
+        if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
+            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            free(pJuuri); // vapautetaan muisti
+            return (NULL);
+        }
+    }
+    // tasapainotus
+    paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
+    iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
+
+    if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) >= 0) { // LL case vasen->vasen
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) < 0) { // LR case vasen->oikea
+        pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
+        return kiertoOikea(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) <= 0) { // RR case oikea->oikea
+        return kiertoVasen(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) > 0) { // RL case oikea->vasen
+        pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
+        return kiertoVasen(pJuuri);
+    }
+    return(pJuuri);
+}
