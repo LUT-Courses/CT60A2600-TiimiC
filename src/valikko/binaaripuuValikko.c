@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../binarytree.h"
 #include "binaaripuuValikko.h"
 
@@ -51,7 +52,7 @@ int binaaripuuValikko(void) {
             printf("Anna poistettava nimi tai arvo: ");
             scanf("%s", aNimi);
             if ( (iArvo = atoi(aNimi)) != 0) { // jos numero niin numeron perusteella
-                printf("%d",iArvo);
+                //printf("%d",iArvo); //debug
                 pJuuri = btree_poistaNodePohjaArvo(iArvo, pJuuri);
             } else {
                 pJuuri = btree_poistaNodePohjaNimi(aNimi, pJuuri); // muuten nimen perusteella
@@ -88,6 +89,17 @@ static int valikko(void) {
 }
 
 static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
+    #ifdef DEBUG
+    if (strstr(aSyote, "luettavan") != NULL) {
+        strcpy(aTiedostoNimi, "data/miehet_15.txt");
+    } else { // kirjoitustiedosto
+        strcpy(aTiedostoNimi, "debug.txt");
+    }
+    printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
+    #else
+        printf("%s", aSyote);
+        scanf("%39s", aTiedostoNimi);
+    #endif
     printf("%s", aSyote);
     scanf("%s", aTiedostoNimi);
     return;
