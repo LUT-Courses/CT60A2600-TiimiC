@@ -1,0 +1,16 @@
+Etunimi;Lukumäärä
+Maria;198862
+Helena;118691
+Anneli;114429
+Johanna;111640
+Kaarina;90548
+Hannele;85133
+Marjatta;78341
+Kristiina;75191
+Emilia;71374
+Sofia;64973
+Elina;63584
+Liisa;60831
+Maarit;57124
+Susanna;56764
+Tuulikki;55542
