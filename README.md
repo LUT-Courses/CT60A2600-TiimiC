@@ -146,7 +146,7 @@ make memcheck
 | 0.3.1   | 2026-03-21 | Tiimi-C     | Päivitetty README:n make-komennot, testikomennot ja Doxygen-ohjeistus. |
 Tag releases:
 ```bash
-git tag -a v0.1.0 -m "Initial scaffold"
+git tag -a v0.1.0 -m "Implemented the main menu and linked list"
 git push origin v0.1.0
 git tag -a v0.2.0 -m "New main menu and binary tree search"
 git push origin v0.2.0
