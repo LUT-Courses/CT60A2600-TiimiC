@@ -19,5 +19,6 @@ void btree_tulostaPuu(BTREENODE *pJuuri);
 void btree_kirjoitaTiedostoSyvyys(BTREENODE *pJuuri, char aTiedostoNimi[]);
 BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri);
 BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri);
+BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
 
 #endif // BINARYTREE_H
