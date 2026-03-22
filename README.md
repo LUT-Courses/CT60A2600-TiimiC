@@ -8,26 +8,40 @@
 
 ```
 .
-├── Makefile              # Build targets: build, run, test, clean, etc.
+├── makefile              # Build targets: build, test, clean, docs, etc.
 ├── src/                  # C source files and headers
-│   └── main.c
-├── bin/                  # Compiled binaries (output of build)
-│   └── app               # Example executable name
-├── test/                 # Test sources (e.g., Unity/CMocka) + fixtures
-│   ├── test_main.c
-│   └── fixtures/
+│   ├── main.c
+│   ├── linkedlist.c
+│   ├── linkedlist.h
+│   ├── binarytree.c
+│   ├── binarytree.h
+│   └── valikko/
+│       ├── linkedlistValikko.c
+│       ├── linkedlistValikko.h
+│       ├── binaaripuuValikko.c
+│       └── binaaripuuValikko.h
+├── bin/                  # Build output (binary + object files)
+│   └── app
+├── test/                 # Unit tests
+│   ├── test_hello.c
+│   ├── test_binarytree.c
+│   └── test_linkedlist.c
 ├── data/
+│   ├── miehet_15.txt
 │   ├── miehet_2025.txt
+│   ├── naiset_15.txt
 │   ├── naiset_2025.txt
 │   ├── sukunimet_2025.txt
 │   ├── verkko_iso_lyhenteilla.txt
 │   ├── verkko_iso.txt
 │   ├── verkko_pieni.txt
-│   └── README.md         # Describe data sources and formats
-└── doc/                  # Documentation (design notes, Doxygen config)
-    ├── readme.md
-    ├── html/
-    └── config
+│   └── readme.md
+├── doc/                  # Documentation (Doxygen config + generated HTML)
+│   ├── Doxyfile
+│   ├── readme.md
+│   └── html/
+└── unity/
+    └── Unity/
 ```
 
 > **Notes**
