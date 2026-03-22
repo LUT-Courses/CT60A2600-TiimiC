@@ -54,14 +54,20 @@ make --version
 ## 🚀 Quick Start (Build / Run / Test)
 
 ```bash
-# Build (creates ./bin/app by default)
+# Build (creates ./bin/app)
 make
+
+# Build debug version (-DDEBUG)
+make debug
 
 # Run
 ./bin/app
 
-# Tests
+# Run basic test
 make test
+
+# Run binary tree tests (Unity)
+make test_binarytree
 
 # Memory check
 make memcheck
@@ -74,11 +80,13 @@ make clean
 
 ## 📚 Documentation
 
-- High-level design: `doc/design.md`
-- API docs: generate with Doxygen
+- Doxygen config: `doc/Doxyfile`
 
 ```bash
-# Generate docs
+# Generate docs to doc/html/
+make docs
+
+# Or directly:
 doxygen doc/Doxyfile
 ```
 
@@ -93,12 +101,22 @@ doxygen doc/Doxyfile
 
 ## 🧪 Testing
 
-- Place test sources in `test/`. Choose a C test framework (e.g., Unity, CMocka) or write simple assertion-based tests.
-- Document how to run tests here.
+Projektin yksikkötestit sijaitsevat `test/`-kansiossa.
+
+Aja testit:
 
 ```bash
 make test
+make test_binarytree
 ```
+
+Muistivuotojen tarkistus:
+
+```bash
+make memcheck
+```
+
+`test_binarytree` käyttää Unity-testikirjastoa (`unity/Unity/src`).
 
 ---
 
@@ -108,12 +126,20 @@ make test
 
 | Version | Date       | Author      | Changes                                               |
 |--------:|------------|-------------|-------------------------------------------------------|
-| 0.1.0   | 2026-03-01 | Your Name   | Initial scaffold: folders, Makefile, sample main      |
-
+| 0.1.0   | 2026-03-09 | Tiimi-C     | Tehty päävalikko ja linkedlist molempiin suuntiin.    |
+| 0.2.0   | 2026-03-16 | Tiimi-C     | Tehty uusi päävalikko ja binaaripuuhaku dfs ja bfs tyylillä. |
+| 0.3.0   | 2026-03-21 | Tiimi-C     | Tehty tasapainotettu binääripuu valintaan (2). |
+| 0.3.1   | 2026-03-21 | Tiimi-C     | Päivitetty README:n make-komennot, testikomennot ja Doxygen-ohjeistus. |
 Tag releases:
 ```bash
 git tag -a v0.1.0 -m "Initial scaffold"
 git push origin v0.1.0
+git tag -a v0.2.0 -m "New main menu and binary tree search"
+git push origin v0.2.0
+git tag -a v0.3.0 -m "Balanced binary tree option"
+git push origin v0.3.0
+git tag -a v0.3.1 -m "README, make targets, and Doxygen docs update"
+git push origin v0.3.1
 ```
 
 ---
