@@ -7,6 +7,15 @@ all:
 	gcc src/valikko/binaaripuuValikko.c -o bin/binaaripuuValikko.o -c -std=c99 -pedantic -Wall -g
 	gcc bin/main.o bin/linkedlist.o bin/binarytree.o bin/linkedlistValikko.o bin/binaaripuuValikko.o -o bin/app
 
+# Käännetään debug-versio, jossa on debug-tiedot ja DEBUG-makro määritettynä
+debug:
+	gcc src/main.c -o bin/main.o -c -std=c99 -pedantic -Wall -g -DDEBUG
+	gcc src/linkedlist.c -o bin/linkedlist.o -c -std=c99 -pedantic -Wall -g -DDEBUG
+	gcc src/binarytree.c -o bin/binarytree.o -c -std=c99 -pedantic -Wall -g -DDEBUG
+	gcc src/valikko/linkedlistValikko.c -o bin/linkedlistValikko.o -c -std=c99 -pedantic -Wall -g -DDEBUG
+	gcc src/valikko/binaaripuuValikko.c -o bin/binaaripuuValikko.o -c -std=c99 -pedantic -Wall -g -DDEBUG
+	gcc bin/main.o bin/linkedlist.o bin/binarytree.o bin/linkedlistValikko.o bin/binaaripuuValikko.o -o bin/app -DDEBUG
+
 # Käännetään ja ajetaan testit
 test:
 	gcc -std=c99 -pedantic -Wall -Isrc test/test_hello.c src/hello.c -o bin/tests
@@ -28,5 +37,6 @@ clean:
 	rm -f bin/app bin/test bin/test_binarytree
 	rm -f bin/*.o
 
+# Luo dokumentaatio Doxygenilla
 docs:
 	doxygen doc/Doxyfile

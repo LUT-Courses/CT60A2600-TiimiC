@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "../binarytree.h"
 #include "binaaripuuValikko.h"
 
@@ -11,7 +13,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 int binaaripuuValikko(void) {
     int iValinta = -1;
     int iArvo = 0;
-    char aTiedostoNimi[30];
+    char aTiedostoNimi[40];
     char aNimi[LEN_SUKUNIMI];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
@@ -46,6 +48,16 @@ int binaaripuuValikko(void) {
         } else if (iValinta == 5) {
             btree_tulostaPuu(pJuuri);
             printf("\n");
+        } else if (iValinta == 6) {
+            printf("Anna poistettava nimi tai arvo: ");
+            scanf("%s", aNimi);
+            if ( (iArvo = atoi(aNimi)) != 0) { // jos numero niin numeron perusteella
+                //printf("%d",iArvo); //debug
+                pJuuri = btree_poistaNodePohjaArvo(iArvo, pJuuri);
+            } else {
+                pJuuri = btree_poistaNodePohjaNimi(aNimi, pJuuri); // muuten nimen perusteella
+            }
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
@@ -66,9 +78,10 @@ static int valikko(void) {
     int iValinta = 0;
     printf("1) Lue tiedosto\n");
     printf("2) Kirjoita tiedosto (DFS)\n");
-    printf("3) Syvyyshaku arvon mukaan sekä kirjoita käyty polku tiedostoon\n");
-    printf("4) Leveyshaku nimen mukaan sekä kirjoita käyty polku tiedostoon\n");
+    printf("3) Syvyyshaku arvon mukaan sekä kirjoita käyty polku tiedostoon (DFS)\n");
+    printf("4) Leveyshaku nimen mukaan sekä kirjoita käyty polku tiedostoon (BFS)\n");
     printf("5) Tulosta puu (DFS)\n");
+    printf("6) Poista pohjimmainen node (nimellä tai arvolla)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
@@ -76,7 +89,16 @@ static int valikko(void) {
 }
 
 static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
-    printf("%s", aSyote);
-    scanf("%s", aTiedostoNimi);
+    #ifdef DEBUG
+    if (strstr(aSyote, "luettavan") != NULL) {
+        strcpy(aTiedostoNimi, "data/miehet_15.txt");
+    } else { // kirjoitustiedosto
+        strcpy(aTiedostoNimi, "debug.txt");
+    }
+    printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
+    #else
+        printf("%s", aSyote);
+        scanf("%s", aTiedostoNimi);
+    #endif
     return;
 }
