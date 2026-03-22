@@ -299,27 +299,20 @@ static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
     paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
     iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
 
-    if (iTasapainoKerroin > 1 && // LL case vasen->vasen
-        (pUusi->iMaara < pJuuri->pVasenChild->iMaara || // vertaillaan määrä, meneekö node vasen
-        (pUusi->iMaara == pJuuri->pVasenChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella vasemmalle
-        strcmp(pUusi->aSukunimi, pJuuri->pVasenChild->aSukunimi) < 0)) ) {
+    if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) >= 0) { // LL case vasen->vasen
         return kiertoOikea(pJuuri);
     }
-    if (iTasapainoKerroin < -1 && // RR case oikea->oikea
-        (pUusi->iMaara > pJuuri->pOikeaChild->iMaara || // vertaillaan määrä, meneekö node oikea
-        (pUusi->iMaara == pJuuri->pOikeaChild->iMaara && // jos sama määrä, tarkista meneekö aakkosten perusteella oikealle
-        strcmp(pUusi->aSukunimi, pJuuri->pOikeaChild->aSukunimi) >= 0)) ) {
-        return kiertoVasen(pJuuri);
-    }
-    if (iTasapainoKerroin > 1) { // LR case vasen->oikea. LL ei osunut joten riittää kun vertaillaan tasapainoa
+    else if (iTasapainoKerroin > 1 && tarkistaTasapaino(pJuuri->pVasenChild) < 0) { // LR case vasen->oikea
         pJuuri->pVasenChild = kiertoVasen(pJuuri->pVasenChild);
         return kiertoOikea(pJuuri);
     }
-    if (iTasapainoKerroin < -1) { // RL case oikea->vasen. RR ei osunut joten riittää kun vertaillaan tasapainoa
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) <= 0) { // RR case oikea->oikea
+        return kiertoVasen(pJuuri);
+    }
+    else if (iTasapainoKerroin < -1 && tarkistaTasapaino(pJuuri->pOikeaChild) > 0) { // RL case oikea->vasen
         pJuuri->pOikeaChild = kiertoOikea(pJuuri->pOikeaChild);
         return kiertoVasen(pJuuri);
     }
-
     return (pJuuri); // tasapainossa
 }
 
@@ -408,9 +401,9 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
     if (pJuuri == NULL) {
         return (NULL); }
 
-    pJuuri->pVasenChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pVasenChild);
-    pJuuri->pOikeaChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pOikeaChild);
-
+    //printf("[DEBUG] Tarkistetaan: %s vs %s ", pJuuri->aSukunimi, aNimi);
+    //printf("%s, %s\n",pJuuri->pVasenChild->aSukunimi, pJuuri->pOikeaChild->aSukunimi);
+    
     if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
             printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
@@ -418,6 +411,9 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
             return (NULL);
         }
     }
+    pJuuri->pVasenChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaNimi(aNimi, pJuuri->pOikeaChild);
+
     // tasapainotus
     paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
     iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
@@ -437,8 +433,6 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
         return kiertoVasen(pJuuri);
     }
     return(pJuuri);
-
-    return(pJuuri);
 }
 /// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa
 /// @param aNimi Kriteeri
@@ -448,9 +442,6 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
     if (pJuuri == NULL) {
         return (NULL); }
 
-    pJuuri->pVasenChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pVasenChild);
-    pJuuri->pOikeaChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pOikeaChild);
-
     if (pJuuri->iMaara == iArvo) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
             printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
@@ -458,6 +449,9 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
             return (NULL);
         }
     }
+    pJuuri->pVasenChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pVasenChild);
+    pJuuri->pOikeaChild = btree_poistaNodePohjaArvo(iArvo, pJuuri->pOikeaChild);
+
     // tasapainotus
     paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
     iTasapainoKerroin = tarkistaTasapaino(pJuuri); // max tasapaino varianssi +-1, 0 tasapainossa
