@@ -9,7 +9,6 @@
 //static BTREENODE* lisaaPuuhun(BTREENODE *pJuuri, BTREENODE *pUusi);
 
 // Apufunktiota AVL puuta varten
-static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi);
 static BTREENODE* kiertoVasen(BTREENODE *pNode);
 static BTREENODE* kiertoOikea(BTREENODE *pNode);
 static int tarkistaTasapaino(BTREENODE *pNode);
@@ -281,7 +280,7 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
 /// @param pJuuri käsiteltävän (ali)puun juuri
 /// @param pUusi uusi node joka lisätään
 /// @return käsitellyn alipuun (mahd. uusi) juuri
-static BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
+BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
     int iTasapainoKerroin;
 
     if (pJuuri == NULL) {
