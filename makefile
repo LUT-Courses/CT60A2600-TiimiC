@@ -19,6 +19,13 @@ test_binarytree:
 	-o bin/test_binarytree
 	./bin/test_binarytree
 
+test_linkedlist:
+	gcc -std=c99 -pedantic -Wall \
+	-Isrc -Iunity/Unity/src \
+	test/test_linkedlist.c src/linkedlist.c unity/Unity/src/unity.c \
+	-o bin/test_linkedlist
+	./bin/test_linkedlist
+
 # Muistivuotojen tarkistus valgrindillä
 memcheck:
 	valgrind --leak-check=full ./bin/app
