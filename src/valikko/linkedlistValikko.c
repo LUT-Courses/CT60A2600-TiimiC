@@ -40,6 +40,9 @@ int linkedlistValikko(void) {
             tyhjennaTiedosto(aTiedostoNimi);
             printf("Tiedosto '%s' tyhjennetty\n", aTiedostoNimi);
             printf("\n");
+        } else if (iValinta == 6) {
+            pAlku = lajitteleLaskeva(pAlku);
+            printf("Lista lajiteltu laskevasti.\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {

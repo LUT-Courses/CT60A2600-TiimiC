@@ -137,3 +137,10 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
     return;
 }
 
+/// @brief Lajittelee listan arvon mukaan laskevasti (isoin ensin)
+/// @param pAlku Osoitin listan ensimmäiseen alkioon 
+/// @return Palauttaa osoittimen listan ensimmäiseen alkioon
+SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
+
+
+}
