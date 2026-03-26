@@ -61,6 +61,7 @@ static int valikko(void) {
     printf("2) Kirjoita tiedostoon nimet alusta loppuun\n");
     printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
     printf("4) Tyhjennä tiedosto\n");
+    printf("6) Lajittele lista arvon mukaan (laskeva)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
