@@ -8,6 +8,9 @@
 
 /// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
 static SUKUNIMI* varaaMuisti(void);
+static SUKUNIMI* mergeSortLaskeva(SUKUNIMI *pAlku);
+static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea);
+static SUKUNIMI* mergeSortLaskeva_pilko(SUKUNIMI *pAlkio);
 
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
@@ -137,6 +140,7 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
     return;
 }
 
+// https://www.w3resource.com/c-programming-exercises/linked_list/c-linked_list-exercise-39.php
 /// @brief Lajittelee listan arvon mukaan laskevasti (isoin ensin)
 /// @param pAlku Osoitin listan ensimmäiseen alkioon 
 /// @return Palauttaa osoittimen listan ensimmäiseen alkioon
