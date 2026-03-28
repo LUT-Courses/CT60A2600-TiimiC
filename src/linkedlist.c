@@ -8,9 +8,10 @@
 
 /// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
 static SUKUNIMI* varaaMuisti(void);
-static SUKUNIMI* mergeSortLaskeva(SUKUNIMI *pAlku);
+
+static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku);
 static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea);
-static SUKUNIMI* mergeSortLaskeva_pilko(SUKUNIMI *pAlkio);
+static SUKUNIMI* mergeSortLaskeva(SUKUNIMI *pAlku);
 
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
@@ -148,3 +149,35 @@ SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
 
 
 }
+
+/// @brief Etsii slow, fast pointer tekniikalla listan keskikohdan
+/// @param pAlku
+/// @return Palauttaa osoittimen listan keskikohtaan
+static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
+    SUKUNIMI* slowPtr = pAlku;
+    SUKUNIMI* fastPtr = pAlku;
+
+    while ((fastPtr->pSeuraava != NULL) && (fastPtr->pSeuraava->pSeuraava != NULL)) {
+        slowPtr->pSeuraava;
+        fastPtr->pSeuraava->pSeuraava;
+    }
+    return (slowPtr);
+}
+
+/// @brief Yhdistää kaksi lajiteltua linkedlist puoliskoa
+/// @param pVasen  
+/// @param pOikea 
+/// @return Palauttaa osoittimen yhdistetyn listan alkuun
+static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
+    SUKUNIMI* yhdistetty = NULL;
+
+    if (pVasen == NULL) {
+        yhdistetty = pOikea;
+    } else if (pOikea == NULL) {
+        yhdistetty = pVasen;
+    } else if (pVasen->iMaara < pOikea->iMaara) {
+        
+    }
+
+}
+
