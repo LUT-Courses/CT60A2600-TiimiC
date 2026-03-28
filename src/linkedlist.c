@@ -158,16 +158,16 @@ static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
     SUKUNIMI* fastPtr = pAlku;
 
     while ((fastPtr->pSeuraava != NULL) && (fastPtr->pSeuraava->pSeuraava != NULL)) {
-        slowPtr->pSeuraava;
-        fastPtr->pSeuraava->pSeuraava;
+        slowPtr = slowPtr->pSeuraava;
+        fastPtr = fastPtr->pSeuraava->pSeuraava;
     }
     return (slowPtr);
 }
 
-/// @brief Yhdistää kaksi lajiteltua linkedlist puoliskoa
+/// @brief Yhdistää kaksi lajiteltua linkedlist puoliskoa laskevaan (descending) muotoon.
 /// @param pVasen  
 /// @param pOikea 
-/// @return Palauttaa osoittimen yhdistetyn listan alkuun
+/// @return Palauttaa osoittimen lajitellun yhdistetyn listan alkuun
 static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
     SUKUNIMI* yhdistetty = NULL;
 
@@ -175,9 +175,21 @@ static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
         yhdistetty = pOikea;
     } else if (pOikea == NULL) {
         yhdistetty = pVasen;
-    } else if (pVasen->iMaara < pOikea->iMaara) {
-        
+    } else if (pVasen->iMaara > pOikea->iMaara) {
+        yhdistetty = pVasen;
+        yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pVasen->pSeuraava, pOikea);
+    } else if (pOikea->iMaara > pVasen->iMaara) {
+        yhdistetty = pOikea;
+        yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pOikea->pSeuraava, pVasen);
+    } else { // jos arvot samat niin aakkosten perusteella
+        if ( (strcmp(pVasen->aSukunimi, pOikea->aSukunimi)) > 0 ) { // vasen isompi
+            yhdistetty = pVasen;
+            yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pVasen->pSeuraava, pOikea);
+        } else { // oikea isompi tai duplikaatti
+            yhdistetty = pOikea;
+            yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pOikea->pSeuraava, pVasen);
+        }
     }
-
+    return (yhdistetty);
 }
 
