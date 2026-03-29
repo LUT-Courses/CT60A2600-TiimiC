@@ -9,9 +9,9 @@
 /// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
 static SUKUNIMI* varaaMuisti(void);
 
+// mergesort apufunktiot
 static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku);
 static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea);
-static SUKUNIMI* mergeSortLaskeva(SUKUNIMI *pAlku);
 
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
@@ -142,12 +142,28 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
 }
 
 // https://www.w3resource.com/c-programming-exercises/linked_list/c-linked_list-exercise-39.php
-/// @brief Lajittelee listan arvon mukaan laskevasti (isoin ensin)
+/// @brief Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin)
 /// @param pAlku Osoitin listan ensimmäiseen alkioon 
 /// @return Palauttaa osoittimen listan ensimmäiseen alkioon
 SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
+    SUKUNIMI* pVasen = NULL;
+    SUKUNIMI* pOikea = NULL;
+    SUKUNIMI* pKeski = NULL;
+    SUKUNIMI* pLajiteltu = NULL;
 
+    if (pAlku == NULL || pAlku->pSeuraava == NULL) { // lista on NULL tai vain 1 alkion pituinen
+        return (pAlku);
+    }
+    pKeski = mergeSortLaskeva_etsiKeski(pAlku);
+    pVasen = pAlku;
+    pOikea = pKeski->pSeuraava;
+    pKeski->pSeuraava = NULL; // katkaistaan yhteys keskeltä
 
+    pVasen = lajitteleLaskeva(pAlku);
+    pOikea = lajitteleLaskeva(pOikea);
+    
+    pLajiteltu = mergeSortLaskeva_yhdista(pVasen, pOikea);
+    return (pLajiteltu);
 }
 
 /// @brief Etsii slow, fast pointer tekniikalla listan keskikohdan
@@ -192,4 +208,3 @@ static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
     }
     return (yhdistetty);
 }
-

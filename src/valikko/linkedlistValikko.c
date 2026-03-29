@@ -43,6 +43,7 @@ int linkedlistValikko(void) {
         } else if (iValinta == 6) {
             pAlku = lajitteleLaskeva(pAlku);
             printf("Lista lajiteltu laskevasti.\n");
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
