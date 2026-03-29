@@ -50,6 +50,20 @@ int linkedlistValikko(void) {
             pAlku = lajitteleLaskeva(pAlku);
             printf("Lista lajiteltu laskevasti.\n");
             printf("\n");
+        } else if (iValinta == 7) {
+            char nimi[LEN_SUKUNIMI];
+            int maara = 0;
+            int kohta = 0;
+        
+            printf("Anna mihin kohtaan listassa lisätään (0 = alku): ");
+            scanf("%d", &kohta);
+            printf("Anna lisättävä sukunimi: ");
+            scanf("%s", nimi);
+            printf("Anna määrä: ");
+            scanf("%d", &maara);
+        
+            pAlku = lisaaListaan(pAlku, kohta, nimi, maara);
+            printf("Nimi '%s' lisätty listaan kohtaan %d.\n\n", nimi, kohta);
         } else if (iValinta == 8) {
             printf("Anna poistettava nimi tai arvo: ");
             scanf("%s", aNimi);

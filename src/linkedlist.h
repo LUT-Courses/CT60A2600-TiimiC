@@ -19,5 +19,6 @@ SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku);
 SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku);
 SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku);
 SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku);
+SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara);
 
 #endif // LINKEDLIST_H

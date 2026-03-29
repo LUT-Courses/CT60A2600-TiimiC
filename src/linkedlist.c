@@ -322,3 +322,31 @@ SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
     }
     return (pAlku);
 }
+
+SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
+    SUKUNIMI *uusi = varaaMuisti(); // varataan muisti uudelle structille
+    strcpy(uusi->aSukunimi, nimi);
+    uusi->iMaara = maara;
+    if (alku == NULL || kohta == 0) {
+        uusi->pSeuraava = alku; // uusi osoittaa vanhaan alkuun
+        uusi->pEdellinen = NULL; // uusi on uusi alku, joten edellinen on NULL
+ 
+        if (alku != NULL) {
+            alku->pEdellinen = uusi; // vanhan alkuun edellinen osoittaa uuteen alkupäähän
+        }
+        return uusi; // uusi on uusi alku, joten palautetaan se
+    }
+    SUKUNIMI *ptr = alku; // aloitetaan listan alusta
+    int i = 0;
+    while (ptr->pSeuraava != NULL && i < kohta - 1) { // kuljetaan listaa eteenpäin, kunnes saavutetaan haluttu kohta tai listan loppu
+        ptr = ptr->pSeuraava; // siirrytään seuraavaan alkioon
+        i++;
+    }
+    uusi->pSeuraava = ptr->pSeuraava; // uusi osoittaa siihen, mihin ptr osoitti ennen (eli seuraavaan alkioon)
+    uusi->pEdellinen = ptr; //
+    if (ptr->pSeuraava != NULL) { // jos ptr ei ole listan viimeinen alkio, asetetaan seuraavan alkion edellinen osoittamaan uuteen alkioon
+        ptr->pSeuraava->pEdellinen = uusi; // seuraavan alkion edellinen osoittaa uuteen alkioon
+    }
+    ptr->pSeuraava = uusi;
+    return alku;
+}
