@@ -17,9 +17,12 @@ debug:
 	gcc bin/main.o bin/linkedlist.o bin/binarytree.o bin/linkedlistValikko.o bin/binaaripuuValikko.o -o bin/app -DDEBUG
 
 # Käännetään ja ajetaan testit
-test:
-	gcc -std=c99 -pedantic -Wall -Isrc test/test_hello.c src/hello.c -o bin/tests
-	./bin/tests
+# Kaikki testit
+tests:
+	gcc -std=c99 -pedantic -Wall -Isrc -Iunity/Unity/src test/test_binarytree.c src/binarytree.c unity/Unity/src/unity.c -o bin/test_binarytree
+	gcc -std=c99 -pedantic -Wall -Isrc -Iunity/Unity/src test/test_linkedlist.c src/linkedlist.c unity/Unity/src/unity.c -o bin/test_linkedlist
+	./bin/test_binarytree
+	./bin/test_linkedlist
 
 test_binarytree:
 	gcc -std=c99 -pedantic -Wall \
@@ -41,7 +44,7 @@ memcheck:
 
 # Puhdistetaan bin-kansio
 clean:
-	rm -f bin/app bin/test bin/test_binarytree
+	rm -f bin/app bin/test_linkedlist bin/test_binarytree
 	rm -f bin/*.o
 
 # Luo dokumentaatio Doxygenilla
