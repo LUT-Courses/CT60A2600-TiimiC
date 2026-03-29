@@ -1,0 +1,124 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}btree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Field Documentation}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}aSukunimi}{5}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}iKorkeus}{5}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}iMaara}{6}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}pOikeaChild}{6}{subsubsection.3.1.2.4}%
+\contentsline {subsubsection}{\numberline {3.1.2.5}pVasenChild}{6}{subsubsection.3.1.2.5}%
+\contentsline {section}{\numberline {3.2}queue\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node Struct Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Field Documentation}{6}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}pPuuNode}{6}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}pSeuraava}{7}{subsubsection.3.2.2.2}%
+\contentsline {section}{\numberline {3.3}sukunimi Struct Reference}{7}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{7}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Field Documentation}{7}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}aSukunimi}{7}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}iMaara}{7}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}pEdellinen}{7}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}pSeuraava}{7}{subsubsection.3.3.2.4}%
+\contentsline {chapter}{\numberline {4}File Documentation}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}src/binarytree.c File Reference}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Macro Definition Documentation}{10}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}LEN\_RIVI}{10}{subsubsection.4.1.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Typedef Documentation}{10}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}QUEUENODE}{10}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Function Documentation}{10}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}btree\_bfsHakuNimellaKirjoita()}{10}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}btree\_dfsHakuKirjoita()}{11}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}btree\_kirjoitaSyvyys()}{11}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}btree\_kirjoitaTiedostoSyvyys()}{11}{subsubsection.4.1.3.4}%
+\contentsline {subsubsection}{\numberline {4.1.3.5}btree\_lueTiedosto()}{11}{subsubsection.4.1.3.5}%
+\contentsline {subsubsection}{\numberline {4.1.3.6}btree\_poistaNodePohjaArvo()}{12}{subsubsection.4.1.3.6}%
+\contentsline {subsubsection}{\numberline {4.1.3.7}btree\_poistaNodePohjaNimi()}{12}{subsubsection.4.1.3.7}%
+\contentsline {subsubsection}{\numberline {4.1.3.8}btree\_tulostaPuu()}{12}{subsubsection.4.1.3.8}%
+\contentsline {subsubsection}{\numberline {4.1.3.9}btree\_vapautaMuisti()}{13}{subsubsection.4.1.3.9}%
+\contentsline {subsubsection}{\numberline {4.1.3.10}dfsHaku()}{13}{subsubsection.4.1.3.10}%
+\contentsline {subsubsection}{\numberline {4.1.3.11}jonoonLisaa()}{13}{subsubsection.4.1.3.11}%
+\contentsline {subsubsection}{\numberline {4.1.3.12}jonostaPoista()}{13}{subsubsection.4.1.3.12}%
+\contentsline {subsubsection}{\numberline {4.1.3.13}kiertoOikea()}{13}{subsubsection.4.1.3.13}%
+\contentsline {subsubsection}{\numberline {4.1.3.14}kiertoVasen()}{14}{subsubsection.4.1.3.14}%
+\contentsline {subsubsection}{\numberline {4.1.3.15}lisaaPuuhunAVL()}{14}{subsubsection.4.1.3.15}%
+\contentsline {subsubsection}{\numberline {4.1.3.16}paivitaKorkeus()}{14}{subsubsection.4.1.3.16}%
+\contentsline {subsubsection}{\numberline {4.1.3.17}tarkistaKorkeus()}{15}{subsubsection.4.1.3.17}%
+\contentsline {subsubsection}{\numberline {4.1.3.18}tarkistaTasapaino()}{15}{subsubsection.4.1.3.18}%
+\contentsline {subsubsection}{\numberline {4.1.3.19}varaaMuisti()}{15}{subsubsection.4.1.3.19}%
+\contentsline {section}{\numberline {4.2}binarytree.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}src/binarytree.h File Reference}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Macro Definition Documentation}{22}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}LEN\_SUKUNIMI}{22}{subsubsection.4.3.1.1}%
+\contentsline {subsection}{\numberline {4.3.2}Typedef Documentation}{22}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}BTREENODE}{22}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Function Documentation}{22}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}btree\_bfsHakuNimellaKirjoita()}{22}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}btree\_dfsHakuKirjoita()}{22}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3.3}btree\_kirjoitaTiedostoSyvyys()}{23}{subsubsection.4.3.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.4}btree\_lueTiedosto()}{23}{subsubsection.4.3.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.3.5}btree\_poistaNodePohjaArvo()}{23}{subsubsection.4.3.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.3.6}btree\_poistaNodePohjaNimi()}{23}{subsubsection.4.3.3.6}%
+\contentsline {subsubsection}{\numberline {4.3.3.7}btree\_tulostaPuu()}{24}{subsubsection.4.3.3.7}%
+\contentsline {subsubsection}{\numberline {4.3.3.8}btree\_vapautaMuisti()}{24}{subsubsection.4.3.3.8}%
+\contentsline {subsubsection}{\numberline {4.3.3.9}lisaaPuuhunAVL()}{24}{subsubsection.4.3.3.9}%
+\contentsline {section}{\numberline {4.4}binarytree.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}{section.4.4}%
+\contentsline {section}{\numberline {4.5}src/linkedlist.c File Reference}{25}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Macro Definition Documentation}{26}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}LEN\_RIVI}{26}{subsubsection.4.5.1.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.2}LEN\_SUKUNIMI}{26}{subsubsection.4.5.1.2}%
+\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{26}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}kirjoitaTiedostoAlkuLoppu()}{26}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}kirjoitaTiedostoLoppuAlku()}{26}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}lajitteleLaskeva()}{26}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}lajitteleNouseva()}{27}{subsubsection.4.5.2.4}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}lueTiedosto()}{27}{subsubsection.4.5.2.5}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}mergeSortLaskeva\_etsiKeski()}{27}{subsubsection.4.5.2.6}%
+\contentsline {subsubsection}{\numberline {4.5.2.7}mergeSortLaskeva\_yhdista()}{28}{subsubsection.4.5.2.7}%
+\contentsline {subsubsection}{\numberline {4.5.2.8}tyhjennaTiedosto()}{28}{subsubsection.4.5.2.8}%
+\contentsline {subsubsection}{\numberline {4.5.2.9}vapautaMuisti()}{28}{subsubsection.4.5.2.9}%
+\contentsline {subsubsection}{\numberline {4.5.2.10}varaaMuisti()}{28}{subsubsection.4.5.2.10}%
+\contentsline {section}{\numberline {4.6}linkedlist.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{29}{section.4.6}%
+\contentsline {section}{\numberline {4.7}src/linkedlist.h File Reference}{31}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Macro Definition Documentation}{32}{subsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.1}LEN\_SUKUNIMI}{32}{subsubsection.4.7.1.1}%
+\contentsline {subsection}{\numberline {4.7.2}Typedef Documentation}{32}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}SUKUNIMI}{32}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Function Documentation}{32}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}kirjoitaTiedostoAlkuLoppu()}{32}{subsubsection.4.7.3.1}%
+\contentsline {subsubsection}{\numberline {4.7.3.2}kirjoitaTiedostoLoppuAlku()}{33}{subsubsection.4.7.3.2}%
+\contentsline {subsubsection}{\numberline {4.7.3.3}lajitteleLaskeva()}{33}{subsubsection.4.7.3.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.4}lajitteleNouseva()}{33}{subsubsection.4.7.3.4}%
+\contentsline {subsubsection}{\numberline {4.7.3.5}lueTiedosto()}{33}{subsubsection.4.7.3.5}%
+\contentsline {subsubsection}{\numberline {4.7.3.6}tyhjennaTiedosto()}{34}{subsubsection.4.7.3.6}%
+\contentsline {subsubsection}{\numberline {4.7.3.7}vapautaMuisti()}{34}{subsubsection.4.7.3.7}%
+\contentsline {section}{\numberline {4.8}linkedlist.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{34}{section.4.8}%
+\contentsline {section}{\numberline {4.9}src/main.c File Reference}{34}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Function Documentation}{35}{subsection.4.9.1}%
+\contentsline {subsubsection}{\numberline {4.9.1.1}main()}{35}{subsubsection.4.9.1.1}%
+\contentsline {subsubsection}{\numberline {4.9.1.2}paaValikko()}{35}{subsubsection.4.9.1.2}%
+\contentsline {section}{\numberline {4.10}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{35}{section.4.10}%
+\contentsline {section}{\numberline {4.11}src/valikko/binaaripuu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.c File Reference}{36}{section.4.11}%
+\contentsline {section}{\numberline {4.12}binaaripuu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{36}{section.4.12}%
+\contentsline {section}{\numberline {4.13}src/valikko/binaaripuu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.h File Reference}{37}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Function Documentation}{37}{subsection.4.13.1}%
+\contentsline {subsubsection}{\numberline {4.13.1.1}binaaripuuValikko()}{37}{subsubsection.4.13.1.1}%
+\contentsline {section}{\numberline {4.14}binaaripuu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{37}{section.4.14}%
+\contentsline {section}{\numberline {4.15}src/valikko/linkedlist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.c File Reference}{38}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Macro Definition Documentation}{38}{subsection.4.15.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.1}LEN\_RIVI}{38}{subsubsection.4.15.1.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.2}LEN\_SUKUNIMI}{38}{subsubsection.4.15.1.2}%
+\contentsline {subsection}{\numberline {4.15.2}Function Documentation}{38}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}kysyTiedostoNimi()}{38}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}linkedlistValikko()}{39}{subsubsection.4.15.2.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.3}valikko()}{39}{subsubsection.4.15.2.3}%
+\contentsline {section}{\numberline {4.16}linkedlist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{39}{section.4.16}%
+\contentsline {section}{\numberline {4.17}src/valikko/linkedlist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.h File Reference}{40}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Function Documentation}{40}{subsection.4.17.1}%
+\contentsline {subsubsection}{\numberline {4.17.1.1}linkedlistValikko()}{40}{subsubsection.4.17.1.1}%
+\contentsline {section}{\numberline {4.18}linkedlist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Valikko.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.4.18}%
+\contentsline {chapter}{Index}{41}{section*.23}%
