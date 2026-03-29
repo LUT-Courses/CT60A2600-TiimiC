@@ -284,3 +284,4 @@ SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
     return alku;
 }
 
+
