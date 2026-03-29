@@ -17,5 +17,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]);
 void tyhjennaTiedosto(char aTiedostoNimi[]);
 SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku);
 SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku);
+SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku);
+SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku);
 
 #endif // LINKEDLIST_H

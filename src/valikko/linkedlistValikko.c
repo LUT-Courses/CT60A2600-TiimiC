@@ -16,6 +16,8 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 int linkedlistValikko(void) {
     int iValinta = -1;
     char aTiedostoNimi[40];
+    char aNimi[LEN_SUKUNIMI];
+    int iMaara = 0;
     SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
 
     do {
@@ -48,6 +50,16 @@ int linkedlistValikko(void) {
             pAlku = lajitteleLaskeva(pAlku);
             printf("Lista lajiteltu laskevasti.\n");
             printf("\n");
+        } else if (iValinta == 8) {
+            printf("Anna poistettava nimi tai arvo: ");
+            scanf("%s", aNimi);
+            if ( (iMaara = atoi(aNimi)) != 0) { // jos numero niin numeron perusteella
+                //printf("%d",iArvo); //debug
+                pAlku = poistaAlkioMaara(iMaara, pAlku);
+            } else {
+                pAlku = poistaAlkioNimi(aNimi, pAlku); // muuten nimen perusteella
+            }
+            printf("\n");
         } else if (iValinta == 0) {
             printf("Lopetetaan\n");
         } else {
@@ -71,6 +83,7 @@ static int valikko(void) {
     printf("4) Tyhjennä tiedosto\n");
     printf("5) Lajittele lista arvon mukaan (nouseva, bubble sort)\n");
     printf("6) Lajittele lista arvon mukaan (laskeva)\n");
+    printf("8) Poista alkio (nimellä tai arvolla)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);

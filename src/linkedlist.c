@@ -254,3 +254,71 @@ SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
 
     return pAlku;
 }
+
+/// @brief Poistaa alkion listasta nimen perusteella
+/// @param aNimi Poistettavan alkion nimi
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
+/// @return Palauttaa osoittimen listan alkuun
+SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
+    SUKUNIMI *ptr = pAlku;
+    int iPoistettu = 0;
+
+    while (ptr != NULL) {
+        if ( strcmp(aNimi, ptr->aSukunimi) == 0 ) {
+            if (ptr->pEdellinen == NULL) { // poistetaan listan ensimmäinen
+                pAlku = ptr->pSeuraava;
+                if (pAlku != NULL) { // varomääre jos listassa onkin vain yksi alkio
+                    pAlku->pEdellinen = NULL; //  ja poistettaessa ensimmäinen alkio se menee tyhjäksi
+                }
+            } else if (ptr->pSeuraava == NULL) { // poistetaan listan viimeinen
+                ptr->pEdellinen->pSeuraava = NULL;
+            } else {
+                ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
+                ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
+            }
+            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
+            free(ptr);
+            iPoistettu = 1;
+            break; // poistetaan vain ensimmäinen vastaan tuleva
+        }
+        ptr = ptr->pSeuraava;
+    }
+    if (iPoistettu == 0) {
+        printf("'%s' ei löytynyt osumaa.\n", aNimi);
+    }
+    return (pAlku);
+}
+
+/// @brief Poistaa alkion listasta arvon (määrä) perusteella
+/// @param aNimi 
+/// @param pAlku 
+/// @return Palauttaa osoittien listan alkuun
+SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
+    SUKUNIMI *ptr = pAlku;
+    int iPoistettu = 0;
+
+    while (ptr != NULL) {
+        if (iMaara == ptr->iMaara) {
+            if (ptr->pEdellinen == NULL) { // poistetaan listan ensimmäinen
+                pAlku = ptr->pSeuraava;
+                if (pAlku != NULL) { // varomääre jos listassa onkin vain yksi alkio
+                    pAlku->pEdellinen = NULL; //  ja poistettaessa ensimmäinen alkio se menee tyhjäksi
+                }
+            } else if (ptr->pSeuraava == NULL) { // poistetaan listan viimeinen
+                ptr->pEdellinen->pSeuraava = NULL;
+            } else {
+                ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
+                ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
+            }
+            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
+            free(ptr);
+            iPoistettu = 1;
+            break; // poistetaan vain ensimmäinen vastaan tuleva
+        }
+        ptr = ptr->pSeuraava;
+    }
+    if (iPoistettu == 0) {
+        printf("'%d' ei löytynyt osumaa.\n", iMaara);
+    }
+    return (pAlku);
+}
