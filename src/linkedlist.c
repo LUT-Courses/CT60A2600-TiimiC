@@ -254,3 +254,40 @@ SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
 
     return pAlku;
 }
+
+/// @brief Poistaa alkion listasta nimen perusteella
+/// @param aNimi Poistettavan alkion nimi
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
+/// @return Palauttaa osoittimen listan alkuun
+SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
+    SUKUNIMI *ptr = pAlku;
+
+    while (ptr != NULL) {
+        if ( strcmp(aNimi, ptr->aSukunimi) == 0 ) {
+            if (ptr->pEdellinen == NULL) { // poistetaan listan ensimmäinen
+                pAlku = ptr->pSeuraava;
+                if (pAlku != NULL) { // varomääre jos listassa onkin vain yksi alkio
+                    pAlku->pEdellinen = NULL; //  ja poistettaessa ensimmäinen alkio se menee tyhjäksi
+                }
+            } else if (ptr->pSeuraava == NULL) { // poistetaan listan viimeinen
+                ptr->pEdellinen->pSeuraava = NULL;
+            } else {
+                ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
+                ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
+            }
+            free(ptr);
+            break; // poistetaan vain ensimmäinen vastaan tuleva
+        }
+        ptr = ptr->pSeuraava;
+    }
+    return (pAlku);
+}
+
+/// @brief Poistaa alkion listasta arvon (määrä) perusteella
+/// @param aNimi 
+/// @param pAlku 
+/// @return Palauttaa osoittien listan alkuun
+SUKUNIMI* poistaAlkioMaara(char iMaara, SUKUNIMI* pAlku) {
+    
+
+}
