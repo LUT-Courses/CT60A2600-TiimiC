@@ -30,7 +30,7 @@ static void jonoonLisaa(QUEUENODE **ppAlku, QUEUENODE **ppLoppu, BTREENODE *pNod
 static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu);
 
 /// @brief lukee tiedostosta nimet ja lisää ne puuhun käyttäen apufunktiota
-/// @param aTiedostoNimi kirjoitettavan tiedoston nimi 
+/// @param aTiedostoNimi kirjoitettavan tiedoston nimi
 /// @return palauttaa puun ylimmän noden pJuuri
 BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
@@ -55,7 +55,7 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
             printf("Merkkijonon '%s' pilkkominen epäonnistui, lopetetaan.\n", p1);
             exit(0);
         }
-        
+
         pUusi = varaaMuisti();
         strcpy(pUusi->aSukunimi, p1);
         pUusi->iMaara = atoi(p2);
@@ -242,7 +242,7 @@ static BTREENODE* jonostaPoista(QUEUENODE **ppAlku, QUEUENODE **ppLoppu) {
 }
 
 /// @brief Tulostetaan puu rekursiivisesti preorder DFS tyylillä
-/// @param pJuuri 
+/// @param pJuuri
 void btree_tulostaPuu(BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return;
@@ -271,7 +271,7 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     }
     fprintf(Tiedosto, "%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
     btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto);
-    
+
     btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto);
     return;
 }
@@ -287,7 +287,7 @@ BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
         return pUusi; } // uusi paikka puussa
 
     if (pUusi->iMaara < pJuuri->iMaara) { // uuden noden määrä pienempi, menee vasen
-        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi); 
+        pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi);
     } else if (pUusi->iMaara > pJuuri->iMaara) { // uuden noden määrä isompi, menee oikea
         pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
     } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla (ensin tulevan vasemmalle)
@@ -345,7 +345,7 @@ static void paivitaKorkeus(BTREENODE *pNode) {
     return;
 }
 /// @brief Suorittaa oikean kierron
-/// @param pNode Kierrättävän alipuun juuri 
+/// @param pNode Kierrättävän alipuun juuri
 static BTREENODE* kiertoOikea(BTREENODE *pNode) {
     BTREENODE* pUusi;
     BTREENODE* pKiertava;
@@ -363,7 +363,7 @@ static BTREENODE* kiertoOikea(BTREENODE *pNode) {
     return (pUusi);
 }
 /// @brief Suorittaa vasemman kierron
-/// @param pNode Kierrättävän alipuun juuri 
+/// @param pNode Kierrättävän alipuun juuri
 static BTREENODE* kiertoVasen(BTREENODE *pNode) {
     BTREENODE* pUusi;
     BTREENODE* pKiertava;
@@ -382,7 +382,7 @@ static BTREENODE* kiertoVasen(BTREENODE *pNode) {
 }
 
 /// @brief Laskee noden tasapainokertoimen
-/// @param pNode Tarkistettava node 
+/// @param pNode Tarkistettava node
 static int tarkistaTasapaino(BTREENODE *pNode) {
     int iTasapaino;
     if (pNode == NULL) {
@@ -402,7 +402,7 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
 
     //printf("[DEBUG] Tarkistetaan: %s vs %s ", pJuuri->aSukunimi, aNimi);
     //printf("%s, %s\n",pJuuri->pVasenChild->aSukunimi, pJuuri->pOikeaChild->aSukunimi);
-    
+
     if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
             printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
@@ -471,3 +471,4 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
     }
     return(pJuuri);
 }
+
