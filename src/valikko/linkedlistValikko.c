@@ -49,7 +49,6 @@ int linkedlistValikko(void)
             tyhjennaTiedosto(aTiedostoNimi);
             printf("Tiedosto '%s' tyhjennetty\n", aTiedostoNimi);
             printf("\n");
-<<<<<<< Updated upstream
         }
         else if (iValinta == 5)
         {
@@ -81,9 +80,6 @@ int linkedlistValikko(void)
         }
         else if (iValinta == 0)
         {
-=======
-        } else if (iValinta == 0) {
->>>>>>> Stashed changes
             printf("Lopetetaan\n");
         }
         else
@@ -107,12 +103,9 @@ static int valikko(void)
     printf("2) Kirjoita tiedostoon nimet alusta loppuun\n");
     printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
     printf("4) Tyhjennä tiedosto\n");
-<<<<<<< Updated upstream
     printf("5) Lajittele lista arvon mukaan (nouseva, bubble sort)\n");
     printf("6) Lajittele lista arvon mukaan (laskeva)\n");
     printf("7) Lisää nimi listaan\n");
-=======
->>>>>>> Stashed changes
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);
