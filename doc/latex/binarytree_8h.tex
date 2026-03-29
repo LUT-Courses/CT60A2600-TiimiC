@@ -1,0 +1,243 @@
+\doxysection{src/binarytree.h File Reference}
+\hypertarget{binarytree_8h}{}\label{binarytree_8h}\index{src/binarytree.h@{src/binarytree.h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbtreeNode}{btree\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{binarytree_8h_aac38d06fc83e76745b2104b189ca3d9c}{LEN\+\_\+\+SUKUNIMI}}~30
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structbtreeNode}{btree\+Node}} \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binarytree_8h_a1d3068f05d29a00399f820f695617140}{btree\+\_\+vapauta\+Muisti}} (\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\item 
+\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binarytree_8h_a5e8e7a1bcc534d1e333af3ec991c67c5}{btree\+\_\+lue\+Tiedosto}} (char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em lukee tiedostosta nimet ja lisää ne puuhun käyttäen apufunktiota \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{binarytree_8h_ae7788e7aec2c0632757a615018a4a81f}{btree\+\_\+dfs\+Haku\+Kirjoita}} (char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]}, int i\+Arvo, \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\begin{DoxyCompactList}\small\item\em Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{binarytree_8h_ada17fc6271a6ce7a0b69aa728dda7712}{btree\+\_\+bfs\+Haku\+Nimella\+Kirjoita}} (char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]}, char a\+Nimi\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\begin{DoxyCompactList}\small\item\em Hakee kysytyn nimen puusta BFS tyylillä ja kirjoittaa käydyn polun tiedostoon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{binarytree_8h_a4a476611311f961967c6b360bb7593a9}{btree\+\_\+tulosta\+Puu}} (\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\begin{DoxyCompactList}\small\item\em Tulostetaan puu rekursiivisesti preorder DFS tyylillä \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{binarytree_8h_af6805213a0b361aee9c9001dcbf4ff53}{btree\+\_\+kirjoita\+Tiedosto\+Syvyys}} (\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri, char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em kirjoitetaan tiedostoon syvyyden mukaan \end{DoxyCompactList}\item 
+\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binarytree_8h_a3bcef757faf60e6ab456b5dcca98ebf8}{btree\+\_\+poista\+Node\+Pohja\+Nimi}} (char a\+Nimi\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\begin{DoxyCompactList}\small\item\em Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää nimen kanssa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binarytree_8h_aa2db1efa082c922848b1a4d42edb36f1}{btree\+\_\+poista\+Node\+Pohja\+Arvo}} (int i\+Arvo, \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri)
+\begin{DoxyCompactList}\small\item\em Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{binarytree_8h_a9e3333cd50b3e847d4a95edc29e55b9c}{lisaa\+Puuhun\+AVL}} (\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Juuri, \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}p\+Uusi)
+\begin{DoxyCompactList}\small\item\em lisää noden AVL puuhun \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{binarytree_8h_aac38d06fc83e76745b2104b189ca3d9c}\label{binarytree_8h_aac38d06fc83e76745b2104b189ca3d9c} 
+\index{binarytree.h@{binarytree.h}!LEN\_SUKUNIMI@{LEN\_SUKUNIMI}}
+\index{LEN\_SUKUNIMI@{LEN\_SUKUNIMI}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{LEN\_SUKUNIMI}{LEN\_SUKUNIMI}}
+{\footnotesize\ttfamily \#define LEN\+\_\+\+SUKUNIMI~30}
+
+
+
+Definition at line \mbox{\hyperlink{binarytree_8h_source_l00004}{4}} of file \mbox{\hyperlink{binarytree_8h_source}{binarytree.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{binarytree_8h_a31e41e7241395517f95ef5447b694915}\label{binarytree_8h_a31e41e7241395517f95ef5447b694915} 
+\index{binarytree.h@{binarytree.h}!BTREENODE@{BTREENODE}}
+\index{BTREENODE@{BTREENODE}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{BTREENODE}{BTREENODE}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structbtreeNode}{btree\+Node}} \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{binarytree_8h_ada17fc6271a6ce7a0b69aa728dda7712}\label{binarytree_8h_ada17fc6271a6ce7a0b69aa728dda7712} 
+\index{binarytree.h@{binarytree.h}!btree\_bfsHakuNimellaKirjoita@{btree\_bfsHakuNimellaKirjoita}}
+\index{btree\_bfsHakuNimellaKirjoita@{btree\_bfsHakuNimellaKirjoita}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_bfsHakuNimellaKirjoita()}{btree\_bfsHakuNimellaKirjoita()}}
+{\footnotesize\ttfamily void btree\+\_\+bfs\+Haku\+Nimella\+Kirjoita (\begin{DoxyParamCaption}\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]},  }\item[{char}]{a\+Nimi\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Hakee kysytyn nimen puusta BFS tyylillä ja kirjoittaa käydyn polun tiedostoon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Tiedosto\+Nimi} & Kirjoitettavan tiedoston nimi \\
+\hline
+{\em a\+Nimi} & Haettava nimi \\
+\hline
+{\em p\+Juuri} & Puun ylin node (juuri) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00153}{153}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_ae7788e7aec2c0632757a615018a4a81f}\label{binarytree_8h_ae7788e7aec2c0632757a615018a4a81f} 
+\index{binarytree.h@{binarytree.h}!btree\_dfsHakuKirjoita@{btree\_dfsHakuKirjoita}}
+\index{btree\_dfsHakuKirjoita@{btree\_dfsHakuKirjoita}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_dfsHakuKirjoita()}{btree\_dfsHakuKirjoita()}}
+{\footnotesize\ttfamily void btree\+\_\+dfs\+Haku\+Kirjoita (\begin{DoxyParamCaption}\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]},  }\item[{int}]{i\+Arvo,  }\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Hakee kysytyn arvon puusta DFS tyylillä ja kirjoittaa käydyn polun tiedostoon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Tiedosto\+Nimi} & Kirjoitettavan tiedoston nimi \\
+\hline
+{\em i\+Arvo} & Haettava arvo \\
+\hline
+{\em p\+Juuri} & Puun ylin node (juuri) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00115}{115}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_af6805213a0b361aee9c9001dcbf4ff53}\label{binarytree_8h_af6805213a0b361aee9c9001dcbf4ff53} 
+\index{binarytree.h@{binarytree.h}!btree\_kirjoitaTiedostoSyvyys@{btree\_kirjoitaTiedostoSyvyys}}
+\index{btree\_kirjoitaTiedostoSyvyys@{btree\_kirjoitaTiedostoSyvyys}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_kirjoitaTiedostoSyvyys()}{btree\_kirjoitaTiedostoSyvyys()}}
+{\footnotesize\ttfamily void btree\+\_\+kirjoita\+Tiedosto\+Syvyys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri,  }\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+kirjoitetaan tiedostoon syvyyden mukaan 
+
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00256}{256}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_a5e8e7a1bcc534d1e333af3ec991c67c5}\label{binarytree_8h_a5e8e7a1bcc534d1e333af3ec991c67c5} 
+\index{binarytree.h@{binarytree.h}!btree\_lueTiedosto@{btree\_lueTiedosto}}
+\index{btree\_lueTiedosto@{btree\_lueTiedosto}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_lueTiedosto()}{btree\_lueTiedosto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} btree\+\_\+lue\+Tiedosto (\begin{DoxyParamCaption}\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+lukee tiedostosta nimet ja lisää ne puuhun käyttäen apufunktiota 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Tiedosto\+Nimi} & kirjoitettavan tiedoston nimi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+palauttaa puun ylimmän noden p\+Juuri 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00035}{35}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_aa2db1efa082c922848b1a4d42edb36f1}\label{binarytree_8h_aa2db1efa082c922848b1a4d42edb36f1} 
+\index{binarytree.h@{binarytree.h}!btree\_poistaNodePohjaArvo@{btree\_poistaNodePohjaArvo}}
+\index{btree\_poistaNodePohjaArvo@{btree\_poistaNodePohjaArvo}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_poistaNodePohjaArvo()}{btree\_poistaNodePohjaArvo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} btree\+\_\+poista\+Node\+Pohja\+Arvo (\begin{DoxyParamCaption}\item[{int}]{i\+Arvo,  }\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Nimi} & Kriteeri \\
+\hline
+{\em p\+Juuri} & Puun juuri \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00439}{439}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_a3bcef757faf60e6ab456b5dcca98ebf8}\label{binarytree_8h_a3bcef757faf60e6ab456b5dcca98ebf8} 
+\index{binarytree.h@{binarytree.h}!btree\_poistaNodePohjaNimi@{btree\_poistaNodePohjaNimi}}
+\index{btree\_poistaNodePohjaNimi@{btree\_poistaNodePohjaNimi}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_poistaNodePohjaNimi()}{btree\_poistaNodePohjaNimi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} btree\+\_\+poista\+Node\+Pohja\+Nimi (\begin{DoxyParamCaption}\item[{char}]{a\+Nimi\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää nimen kanssa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Nimi} & Kriteeri \\
+\hline
+{\em p\+Juuri} & Puun juuri \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00398}{398}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_a4a476611311f961967c6b360bb7593a9}\label{binarytree_8h_a4a476611311f961967c6b360bb7593a9} 
+\index{binarytree.h@{binarytree.h}!btree\_tulostaPuu@{btree\_tulostaPuu}}
+\index{btree\_tulostaPuu@{btree\_tulostaPuu}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_tulostaPuu()}{btree\_tulostaPuu()}}
+{\footnotesize\ttfamily void btree\+\_\+tulosta\+Puu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Tulostetaan puu rekursiivisesti preorder DFS tyylillä 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Juuri} & ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00246}{246}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_a1d3068f05d29a00399f820f695617140}\label{binarytree_8h_a1d3068f05d29a00399f820f695617140} 
+\index{binarytree.h@{binarytree.h}!btree\_vapautaMuisti@{btree\_vapautaMuisti}}
+\index{btree\_vapautaMuisti@{btree\_vapautaMuisti}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{btree\_vapautaMuisti()}{btree\_vapautaMuisti()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} btree\+\_\+vapauta\+Muisti (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00100}{100}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+
+\Hypertarget{binarytree_8h_a9e3333cd50b3e847d4a95edc29e55b9c}\label{binarytree_8h_a9e3333cd50b3e847d4a95edc29e55b9c} 
+\index{binarytree.h@{binarytree.h}!lisaaPuuhunAVL@{lisaaPuuhunAVL}}
+\index{lisaaPuuhunAVL@{lisaaPuuhunAVL}!binarytree.h@{binarytree.h}}
+\doxysubsubsection{\texorpdfstring{lisaaPuuhunAVL()}{lisaaPuuhunAVL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*} lisaa\+Puuhun\+AVL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Juuri,  }\item[{\mbox{\hyperlink{binarytree_8h_a31e41e7241395517f95ef5447b694915}{BTREENODE}} \texorpdfstring{$\ast$}{*}}]{p\+Uusi }\end{DoxyParamCaption})}
+
+
+
+lisää noden AVL puuhun 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Juuri} & käsiteltävän (ali)puun juuri \\
+\hline
+{\em p\+Uusi} & uusi node joka lisätään \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+käsitellyn alipuun (mahd. uusi) juuri 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{binarytree_8c_source_l00283}{283}} of file \mbox{\hyperlink{binarytree_8c_source}{binarytree.\+c}}.
+

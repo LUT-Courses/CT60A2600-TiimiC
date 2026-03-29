@@ -1,0 +1,231 @@
+\doxysection{src/linkedlist.c File Reference}
+\hypertarget{linkedlist_8c}{}\label{linkedlist_8c}\index{src/linkedlist.c@{src/linkedlist.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}linkedlist.\+h"{}}\newline
+Include dependency graph for linkedlist.\+c\+:
+% FIG 0
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{linkedlist_8c_ade2116ebf2d9e7c910cb6c439eb00f93}{LEN\+\_\+\+RIVI}}~40
+\item 
+\#define \mbox{\hyperlink{linkedlist_8c_aac38d06fc83e76745b2104b189ca3d9c}{LEN\+\_\+\+SUKUNIMI}}~30
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaa\+Muisti}} (void)
+\begin{DoxyCompactList}\small\item\em Apufunktio, varaa muisti uudelle structille (SUKUNIMI) \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_a25cb277563185b5c6f786670787359c4}{merge\+Sort\+Laskeva\+\_\+etsi\+Keski}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Etsii slow, fast pointer tekniikalla listan keskikohdan. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{merge\+Sort\+Laskeva\+\_\+yhdista}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Vasen, \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Oikea)
+\begin{DoxyCompactList}\small\item\em Yhdistää kaksi lajiteltua linkedlist puoliskoa laskevaan (descending) muotoon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04}{lue\+Tiedosto}} (char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_a41db76f1f5dabb51b314183f13742247}{vapauta\+Muisti}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Vapauttaa muistin käymällä linked-\/list läpi alusta loppuun. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17}{kirjoita\+Tiedosto\+Alku\+Loppu}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku, char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Kirjoittaa tiedostoon kulkemalla listan alusta loppuun. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1}{kirjoita\+Tiedosto\+Loppu\+Alku}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku, char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{linkedlist_8c_a89168600b76d2d8444d4ad67965d6a29}{tyhjenna\+Tiedosto}} (char a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Tyhjentää tiedoston. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajittele\+Laskeva}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348}{lajittele\+Nouseva}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Lajittelee listan bubble sortilla nousevasti (pienin ensin) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{linkedlist_8c_ade2116ebf2d9e7c910cb6c439eb00f93}\label{linkedlist_8c_ade2116ebf2d9e7c910cb6c439eb00f93} 
+\index{linkedlist.c@{linkedlist.c}!LEN\_RIVI@{LEN\_RIVI}}
+\index{LEN\_RIVI@{LEN\_RIVI}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{LEN\_RIVI}{LEN\_RIVI}}
+{\footnotesize\ttfamily \#define LEN\+\_\+\+RIVI~40}
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00006}{6}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_aac38d06fc83e76745b2104b189ca3d9c}\label{linkedlist_8c_aac38d06fc83e76745b2104b189ca3d9c} 
+\index{linkedlist.c@{linkedlist.c}!LEN\_SUKUNIMI@{LEN\_SUKUNIMI}}
+\index{LEN\_SUKUNIMI@{LEN\_SUKUNIMI}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{LEN\_SUKUNIMI}{LEN\_SUKUNIMI}}
+{\footnotesize\ttfamily \#define LEN\+\_\+\+SUKUNIMI~30}
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00007}{7}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17}\label{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17} 
+\index{linkedlist.c@{linkedlist.c}!kirjoitaTiedostoAlkuLoppu@{kirjoitaTiedostoAlkuLoppu}}
+\index{kirjoitaTiedostoAlkuLoppu@{kirjoitaTiedostoAlkuLoppu}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{kirjoitaTiedostoAlkuLoppu()}{kirjoitaTiedostoAlkuLoppu()}}
+{\footnotesize\ttfamily void kirjoita\+Tiedosto\+Alku\+Loppu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku,  }\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Kirjoittaa tiedostoon kulkemalla listan alusta loppuun. 
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00090}{90}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1}\label{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1} 
+\index{linkedlist.c@{linkedlist.c}!kirjoitaTiedostoLoppuAlku@{kirjoitaTiedostoLoppuAlku}}
+\index{kirjoitaTiedostoLoppuAlku@{kirjoitaTiedostoLoppuAlku}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{kirjoitaTiedostoLoppuAlku()}{kirjoitaTiedostoLoppuAlku()}}
+{\footnotesize\ttfamily void kirjoita\+Tiedosto\+Loppu\+Alku (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku,  }\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Kulkee ensin listan loppuun ja sitten kirjoittaa nimet kulkien alkuun 
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00110}{110}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}\label{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f} 
+\index{linkedlist.c@{linkedlist.c}!lajitteleLaskeva@{lajitteleLaskeva}}
+\index{lajitteleLaskeva@{lajitteleLaskeva}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{lajitteleLaskeva()}{lajitteleLaskeva()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} lajittele\+Laskeva (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})}
+
+
+
+Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Alku} & Osoitin listan ensimmäiseen alkioon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittimen listan ensimmäiseen alkioon 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00148}{148}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348}\label{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348} 
+\index{linkedlist.c@{linkedlist.c}!lajitteleNouseva@{lajitteleNouseva}}
+\index{lajitteleNouseva@{lajitteleNouseva}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{lajitteleNouseva()}{lajitteleNouseva()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} lajittele\+Nouseva (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})}
+
+
+
+Lajittelee listan bubble sortilla nousevasti (pienin ensin) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Alku} & Osoitin listan ensimmäiseen alkioon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittimen listan alkuun 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00215}{215}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04}\label{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04} 
+\index{linkedlist.c@{linkedlist.c}!lueTiedosto@{lueTiedosto}}
+\index{lueTiedosto@{lueTiedosto}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{lueTiedosto()}{lueTiedosto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} lue\+Tiedosto (\begin{DoxyParamCaption}\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin. Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin. Palauttaa osoittimen listan alkuu p\+Alku 
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00019}{19}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a25cb277563185b5c6f786670787359c4}\label{linkedlist_8c_a25cb277563185b5c6f786670787359c4} 
+\index{linkedlist.c@{linkedlist.c}!mergeSortLaskeva\_etsiKeski@{mergeSortLaskeva\_etsiKeski}}
+\index{mergeSortLaskeva\_etsiKeski@{mergeSortLaskeva\_etsiKeski}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{mergeSortLaskeva\_etsiKeski()}{mergeSortLaskeva\_etsiKeski()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} merge\+Sort\+Laskeva\+\_\+etsi\+Keski (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Etsii slow, fast pointer tekniikalla listan keskikohdan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Alku} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittimen listan keskikohtaan 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00172}{172}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}\label{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b} 
+\index{linkedlist.c@{linkedlist.c}!mergeSortLaskeva\_yhdista@{mergeSortLaskeva\_yhdista}}
+\index{mergeSortLaskeva\_yhdista@{mergeSortLaskeva\_yhdista}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{mergeSortLaskeva\_yhdista()}{mergeSortLaskeva\_yhdista()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} merge\+Sort\+Laskeva\+\_\+yhdista (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Vasen,  }\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Oikea }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Yhdistää kaksi lajiteltua linkedlist puoliskoa laskevaan (descending) muotoon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Vasen} & ~\newline
+ \\
+\hline
+{\em p\+Oikea} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittimen lajitellun yhdistetyn listan alkuun 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00187}{187}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a89168600b76d2d8444d4ad67965d6a29}\label{linkedlist_8c_a89168600b76d2d8444d4ad67965d6a29} 
+\index{linkedlist.c@{linkedlist.c}!tyhjennaTiedosto@{tyhjennaTiedosto}}
+\index{tyhjennaTiedosto@{tyhjennaTiedosto}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{tyhjennaTiedosto()}{tyhjennaTiedosto()}}
+{\footnotesize\ttfamily void tyhjenna\+Tiedosto (\begin{DoxyParamCaption}\item[{char}]{a\+Tiedosto\+Nimi\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Tyhjentää tiedoston. 
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00132}{132}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a41db76f1f5dabb51b314183f13742247}\label{linkedlist_8c_a41db76f1f5dabb51b314183f13742247} 
+\index{linkedlist.c@{linkedlist.c}!vapautaMuisti@{vapautaMuisti}}
+\index{vapautaMuisti@{vapautaMuisti}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{vapautaMuisti()}{vapautaMuisti()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} vapauta\+Muisti (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})}
+
+
+
+Vapauttaa muistin käymällä linked-\/list läpi alusta loppuun. 
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00079}{79}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}\label{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601} 
+\index{linkedlist.c@{linkedlist.c}!varaaMuisti@{varaaMuisti}}
+\index{varaaMuisti@{varaaMuisti}!linkedlist.c@{linkedlist.c}}
+\doxysubsubsection{\texorpdfstring{varaaMuisti()}{varaaMuisti()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} varaa\+Muisti (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Apufunktio, varaa muisti uudelle structille (SUKUNIMI) 
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00067}{67}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+

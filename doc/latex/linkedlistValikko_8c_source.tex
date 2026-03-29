@@ -1,0 +1,97 @@
+\doxysection{linkedlist\+Valikko.\+c}
+\hypertarget{linkedlistValikko_8c_source}{}\label{linkedlistValikko_8c_source}\index{src/valikko/linkedlistValikko.c@{src/valikko/linkedlistValikko.c}}
+\mbox{\hyperlink{linkedlistValikko_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../linkedlist.h"{}}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{linkedlistValikko_8h}{linkedlistValikko.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00007}\mbox{\hyperlink{linkedlistValikko_8c_ade2116ebf2d9e7c910cb6c439eb00f93}{00007}}\ \textcolor{preprocessor}{\#define\ LEN\_RIVI\ 40\ }\textcolor{comment}{//\ max\ rivi\ pituus\ tiedostossa}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00008}\mbox{\hyperlink{linkedlistValikko_8c_aac38d06fc83e76745b2104b189ca3d9c}{00008}}\ \textcolor{preprocessor}{\#define\ LEN\_SUKUNIMI\ 30\ }\textcolor{comment}{//\ max\ sukunimi\ pituus}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00011}00011\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linkedlistValikko_8c_a667165b6bc26391019d05a4727721499}{valikko}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00014}00014\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(\textcolor{keywordtype}{char}\ aTiedostoNimi[],\ \textcolor{keywordtype}{char}\ aSyote[]);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00016}\mbox{\hyperlink{linkedlistValikko_8c_a6ce66334bd0edf070aed1fdafb24477c}{00016}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linkedlistValikko_8c_a6ce66334bd0edf070aed1fdafb24477c}{linkedlistValikko}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ iValinta\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{char}\ aTiedostoNimi[40];}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku\ =\ NULL;\ \textcolor{comment}{//\ alustetaan\ pointerit\ NULL}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ iValinta\ =\ \mbox{\hyperlink{linkedlistValikko_8c_a667165b6bc26391019d05a4727721499}{valikko}}();}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(aTiedostoNimi,\ \textcolor{stringliteral}{"{}Anna\ luettavan\ tiedoston\ nimi:\ "{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ \mbox{\hyperlink{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04}{lueTiedosto}}(aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Tiedosto\ '\%s'\ luettu\(\backslash\)n"{}},\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(aTiedostoNimi,\ \textcolor{stringliteral}{"{}Anna\ kirjoitettavan\ tiedoston\ nimi:\ "{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17}{kirjoitaTiedostoAlkuLoppu}}(pAlku,\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Tiedosto\ '\%s'\ kirjoitettu\(\backslash\)n"{}},\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(aTiedostoNimi,\ \textcolor{stringliteral}{"{}Anna\ kirjoitettavan\ tiedoston\ nimi:\ "{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1}{kirjoitaTiedostoLoppuAlku}}(pAlku,\ aTiedostoNimi);\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Tiedosto\ '\%s'\ kirjoitettu\(\backslash\)n"{}},\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(aTiedostoNimi,\ \textcolor{stringliteral}{"{}Anna\ tyhjennettävän\ tiedoston\ nimi:\ "{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{linkedlist_8c_a89168600b76d2d8444d4ad67965d6a29}{tyhjennaTiedosto}}(aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Tiedosto\ '\%s'\ tyhjennetty\(\backslash\)n"{}},\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 5)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ \mbox{\hyperlink{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348}{lajitteleNouseva}}(pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ lajiteltu\ nousevasti\ (bubble\ sort).\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 6)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ lajiteltu\ laskevasti.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (iValinta\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lopetetaan\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Tuntematon\ valinta\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00057}00057\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (iValinta\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00058}00058\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00059}00059\ \ \ \ \ pAlku\ =\ \mbox{\hyperlink{linkedlist_8c_a41db76f1f5dabb51b314183f13742247}{vapautaMuisti}}(pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00060}00060\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Muisti\ vapautettu.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00061}00061\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Kiitos\ ohjelman\ käytöstä.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00062}00062\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00066}\mbox{\hyperlink{linkedlistValikko_8c_a667165b6bc26391019d05a4727721499}{00066}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linkedlistValikko_8c_a667165b6bc26391019d05a4727721499}{valikko}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{int}\ iValinta\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00068}00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}1)\ Lue\ tiedosto\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00069}00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}2)\ Kirjoita\ tiedostoon\ nimet\ alusta\ loppuun\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00070}00070\ \ \ \ \ printf(\textcolor{stringliteral}{"{}3)\ Kirjoita\ tiedostoon\ nimet\ lopusta\ alkuun\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00071}00071\ \ \ \ \ printf(\textcolor{stringliteral}{"{}4)\ Tyhjennä\ tiedosto\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00072}00072\ \ \ \ \ printf(\textcolor{stringliteral}{"{}5)\ Lajittele\ lista\ arvon\ mukaan\ (nouseva,\ bubble\ sort)\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00073}00073\ \ \ \ \ printf(\textcolor{stringliteral}{"{}6)\ Lajittele\ lista\ arvon\ mukaan\ (laskeva)\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00074}00074\ \ \ \ \ printf(\textcolor{stringliteral}{"{}0)\ Lopeta\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00075}00075\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anna\ valintasi:\ "{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00076}00076\ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&iValinta);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ iValinta;}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00080}\mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{00080}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlistValikko_8c_a6550995a625add3d1e208377e4297b0c}{kysyTiedostoNimi}}(\textcolor{keywordtype}{char}\ aTiedostoNimi[],\ \textcolor{keywordtype}{char}\ aSyote[])\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00081}00081\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ DEBUG}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (strstr(aSyote,\ \textcolor{stringliteral}{"{}luettavan"{}})\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ strcpy(aTiedostoNimi,\ \textcolor{stringliteral}{"{}data/miehet\_15.txt"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00084}00084\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ kirjoitustiedosto}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ strcpy(aTiedostoNimi,\ \textcolor{stringliteral}{"{}debug.txt"{}});}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00087}00087\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[DEBUG]\ \%s\%s\(\backslash\)n"{}},\ aSyote,\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00088}00088\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ aSyote);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%s"{}},\ aTiedostoNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00091}00091\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{linkedlistValikko_8c_source_l00093}00093\ \}}
+
+\end{DoxyCode}

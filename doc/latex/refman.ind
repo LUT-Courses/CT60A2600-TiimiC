@@ -1,0 +1,253 @@
+\begin{theindex}
+
+  \item {aSukunimi}
+    \subitem {btreeNode}, \hyperpage{5}
+    \subitem {sukunimi}, \hyperpage{7}
+
+  \indexspace
+
+  \item {binaaripuuValikko}
+    \subitem {binaaripuuValikko.h}, \hyperpage{37}
+  \item {binaaripuuValikko.h}
+    \subitem {binaaripuuValikko}, \hyperpage{37}
+  \item {binarytree.c}
+    \subitem {btree\_bfsHakuNimellaKirjoita}, \hyperpage{10}
+    \subitem {btree\_dfsHakuKirjoita}, \hyperpage{11}
+    \subitem {btree\_kirjoitaSyvyys}, \hyperpage{11}
+    \subitem {btree\_kirjoitaTiedostoSyvyys}, \hyperpage{11}
+    \subitem {btree\_lueTiedosto}, \hyperpage{11}
+    \subitem {btree\_poistaNodePohjaArvo}, \hyperpage{12}
+    \subitem {btree\_poistaNodePohjaNimi}, \hyperpage{12}
+    \subitem {btree\_tulostaPuu}, \hyperpage{12}
+    \subitem {btree\_vapautaMuisti}, \hyperpage{13}
+    \subitem {dfsHaku}, \hyperpage{13}
+    \subitem {jonoonLisaa}, \hyperpage{13}
+    \subitem {jonostaPoista}, \hyperpage{13}
+    \subitem {kiertoOikea}, \hyperpage{13}
+    \subitem {kiertoVasen}, \hyperpage{14}
+    \subitem {LEN\_RIVI}, \hyperpage{10}
+    \subitem {lisaaPuuhunAVL}, \hyperpage{14}
+    \subitem {paivitaKorkeus}, \hyperpage{14}
+    \subitem {QUEUENODE}, \hyperpage{10}
+    \subitem {tarkistaKorkeus}, \hyperpage{15}
+    \subitem {tarkistaTasapaino}, \hyperpage{15}
+    \subitem {varaaMuisti}, \hyperpage{15}
+  \item {binarytree.h}
+    \subitem {btree\_bfsHakuNimellaKirjoita}, \hyperpage{22}
+    \subitem {btree\_dfsHakuKirjoita}, \hyperpage{22}
+    \subitem {btree\_kirjoitaTiedostoSyvyys}, \hyperpage{23}
+    \subitem {btree\_lueTiedosto}, \hyperpage{23}
+    \subitem {btree\_poistaNodePohjaArvo}, \hyperpage{23}
+    \subitem {btree\_poistaNodePohjaNimi}, \hyperpage{23}
+    \subitem {btree\_tulostaPuu}, \hyperpage{24}
+    \subitem {btree\_vapautaMuisti}, \hyperpage{24}
+    \subitem {BTREENODE}, \hyperpage{22}
+    \subitem {LEN\_SUKUNIMI}, \hyperpage{22}
+    \subitem {lisaaPuuhunAVL}, \hyperpage{24}
+  \item {btree\_bfsHakuNimellaKirjoita}
+    \subitem {binarytree.c}, \hyperpage{10}
+    \subitem {binarytree.h}, \hyperpage{22}
+  \item {btree\_dfsHakuKirjoita}
+    \subitem {binarytree.c}, \hyperpage{11}
+    \subitem {binarytree.h}, \hyperpage{22}
+  \item {btree\_kirjoitaSyvyys}
+    \subitem {binarytree.c}, \hyperpage{11}
+  \item {btree\_kirjoitaTiedostoSyvyys}
+    \subitem {binarytree.c}, \hyperpage{11}
+    \subitem {binarytree.h}, \hyperpage{23}
+  \item {btree\_lueTiedosto}
+    \subitem {binarytree.c}, \hyperpage{11}
+    \subitem {binarytree.h}, \hyperpage{23}
+  \item {btree\_poistaNodePohjaArvo}
+    \subitem {binarytree.c}, \hyperpage{12}
+    \subitem {binarytree.h}, \hyperpage{23}
+  \item {btree\_poistaNodePohjaNimi}
+    \subitem {binarytree.c}, \hyperpage{12}
+    \subitem {binarytree.h}, \hyperpage{23}
+  \item {btree\_tulostaPuu}
+    \subitem {binarytree.c}, \hyperpage{12}
+    \subitem {binarytree.h}, \hyperpage{24}
+  \item {btree\_vapautaMuisti}
+    \subitem {binarytree.c}, \hyperpage{13}
+    \subitem {binarytree.h}, \hyperpage{24}
+  \item {BTREENODE}
+    \subitem {binarytree.h}, \hyperpage{22}
+  \item {btreeNode}, \hyperpage{5}
+    \subitem {aSukunimi}, \hyperpage{5}
+    \subitem {iKorkeus}, \hyperpage{5}
+    \subitem {iMaara}, \hyperpage{5}
+    \subitem {pOikeaChild}, \hyperpage{6}
+    \subitem {pVasenChild}, \hyperpage{6}
+
+  \indexspace
+
+  \item {dfsHaku}
+    \subitem {binarytree.c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {iKorkeus}
+    \subitem {btreeNode}, \hyperpage{5}
+  \item {iMaara}
+    \subitem {btreeNode}, \hyperpage{5}
+    \subitem {sukunimi}, \hyperpage{7}
+
+  \indexspace
+
+  \item {jonoonLisaa}
+    \subitem {binarytree.c}, \hyperpage{13}
+  \item {jonostaPoista}
+    \subitem {binarytree.c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {kiertoOikea}
+    \subitem {binarytree.c}, \hyperpage{13}
+  \item {kiertoVasen}
+    \subitem {binarytree.c}, \hyperpage{14}
+  \item {kirjoitaTiedostoAlkuLoppu}
+    \subitem {linkedlist.c}, \hyperpage{26}
+    \subitem {linkedlist.h}, \hyperpage{32}
+  \item {kirjoitaTiedostoLoppuAlku}
+    \subitem {linkedlist.c}, \hyperpage{26}
+    \subitem {linkedlist.h}, \hyperpage{32}
+  \item {kysyTiedostoNimi}
+    \subitem {linkedlistValikko.c}, \hyperpage{38}
+
+  \indexspace
+
+  \item {lajitteleLaskeva}
+    \subitem {linkedlist.c}, \hyperpage{26}
+    \subitem {linkedlist.h}, \hyperpage{33}
+  \item {lajitteleNouseva}
+    \subitem {linkedlist.c}, \hyperpage{27}
+    \subitem {linkedlist.h}, \hyperpage{33}
+  \item {LEN\_RIVI}
+    \subitem {binarytree.c}, \hyperpage{10}
+    \subitem {linkedlist.c}, \hyperpage{26}
+    \subitem {linkedlistValikko.c}, \hyperpage{38}
+  \item {LEN\_SUKUNIMI}
+    \subitem {binarytree.h}, \hyperpage{22}
+    \subitem {linkedlist.c}, \hyperpage{26}
+    \subitem {linkedlist.h}, \hyperpage{32}
+    \subitem {linkedlistValikko.c}, \hyperpage{38}
+  \item {linkedlist.c}
+    \subitem {kirjoitaTiedostoAlkuLoppu}, \hyperpage{26}
+    \subitem {kirjoitaTiedostoLoppuAlku}, \hyperpage{26}
+    \subitem {lajitteleLaskeva}, \hyperpage{26}
+    \subitem {lajitteleNouseva}, \hyperpage{27}
+    \subitem {LEN\_RIVI}, \hyperpage{26}
+    \subitem {LEN\_SUKUNIMI}, \hyperpage{26}
+    \subitem {lueTiedosto}, \hyperpage{27}
+    \subitem {mergeSortLaskeva\_etsiKeski}, \hyperpage{27}
+    \subitem {mergeSortLaskeva\_yhdista}, \hyperpage{27}
+    \subitem {tyhjennaTiedosto}, \hyperpage{28}
+    \subitem {vapautaMuisti}, \hyperpage{28}
+    \subitem {varaaMuisti}, \hyperpage{28}
+  \item {linkedlist.h}
+    \subitem {kirjoitaTiedostoAlkuLoppu}, \hyperpage{32}
+    \subitem {kirjoitaTiedostoLoppuAlku}, \hyperpage{32}
+    \subitem {lajitteleLaskeva}, \hyperpage{33}
+    \subitem {lajitteleNouseva}, \hyperpage{33}
+    \subitem {LEN\_SUKUNIMI}, \hyperpage{32}
+    \subitem {lueTiedosto}, \hyperpage{33}
+    \subitem {SUKUNIMI}, \hyperpage{32}
+    \subitem {tyhjennaTiedosto}, \hyperpage{34}
+    \subitem {vapautaMuisti}, \hyperpage{34}
+  \item {linkedlistValikko}
+    \subitem {linkedlistValikko.c}, \hyperpage{38}
+    \subitem {linkedlistValikko.h}, \hyperpage{40}
+  \item {linkedlistValikko.c}
+    \subitem {kysyTiedostoNimi}, \hyperpage{38}
+    \subitem {LEN\_RIVI}, \hyperpage{38}
+    \subitem {LEN\_SUKUNIMI}, \hyperpage{38}
+    \subitem {linkedlistValikko}, \hyperpage{38}
+    \subitem {valikko}, \hyperpage{39}
+  \item {linkedlistValikko.h}
+    \subitem {linkedlistValikko}, \hyperpage{40}
+  \item {lisaaPuuhunAVL}
+    \subitem {binarytree.c}, \hyperpage{14}
+    \subitem {binarytree.h}, \hyperpage{24}
+  \item {lueTiedosto}
+    \subitem {linkedlist.c}, \hyperpage{27}
+    \subitem {linkedlist.h}, \hyperpage{33}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{35}
+  \item {main.c}
+    \subitem {main}, \hyperpage{35}
+    \subitem {paaValikko}, \hyperpage{35}
+  \item {mergeSortLaskeva\_etsiKeski}
+    \subitem {linkedlist.c}, \hyperpage{27}
+  \item {mergeSortLaskeva\_yhdista}
+    \subitem {linkedlist.c}, \hyperpage{27}
+
+  \indexspace
+
+  \item {paaValikko}
+    \subitem {main.c}, \hyperpage{35}
+  \item {paivitaKorkeus}
+    \subitem {binarytree.c}, \hyperpage{14}
+  \item {pEdellinen}
+    \subitem {sukunimi}, \hyperpage{7}
+  \item {pOikeaChild}
+    \subitem {btreeNode}, \hyperpage{6}
+  \item {pPuuNode}
+    \subitem {queueNode}, \hyperpage{6}
+  \item {pSeuraava}
+    \subitem {queueNode}, \hyperpage{6}
+    \subitem {sukunimi}, \hyperpage{7}
+  \item {pVasenChild}
+    \subitem {btreeNode}, \hyperpage{6}
+
+  \indexspace
+
+  \item {QUEUENODE}
+    \subitem {binarytree.c}, \hyperpage{10}
+  \item {queueNode}, \hyperpage{6}
+    \subitem {pPuuNode}, \hyperpage{6}
+    \subitem {pSeuraava}, \hyperpage{6}
+
+  \indexspace
+
+  \item {src/binarytree.c}, \hyperpage{9}, \hyperpage{15}
+  \item {src/binarytree.h}, \hyperpage{21}, \hyperpage{25}
+  \item {src/linkedlist.c}, \hyperpage{25}, \hyperpage{29}
+  \item {src/linkedlist.h}, \hyperpage{31}, \hyperpage{34}
+  \item {src/main.c}, \hyperpage{34, 35}
+  \item {src/valikko/binaaripuuValikko.c}, \hyperpage{36}
+  \item {src/valikko/binaaripuuValikko.h}, \hyperpage{37}
+  \item {src/valikko/linkedlistValikko.c}, \hyperpage{38, 39}
+  \item {src/valikko/linkedlistValikko.h}, \hyperpage{40}
+  \item {SUKUNIMI}
+    \subitem {linkedlist.h}, \hyperpage{32}
+  \item {sukunimi}, \hyperpage{7}
+    \subitem {aSukunimi}, \hyperpage{7}
+    \subitem {iMaara}, \hyperpage{7}
+    \subitem {pEdellinen}, \hyperpage{7}
+    \subitem {pSeuraava}, \hyperpage{7}
+
+  \indexspace
+
+  \item {tarkistaKorkeus}
+    \subitem {binarytree.c}, \hyperpage{15}
+  \item {tarkistaTasapaino}
+    \subitem {binarytree.c}, \hyperpage{15}
+  \item {tyhjennaTiedosto}
+    \subitem {linkedlist.c}, \hyperpage{28}
+    \subitem {linkedlist.h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {valikko}
+    \subitem {linkedlistValikko.c}, \hyperpage{39}
+  \item {vapautaMuisti}
+    \subitem {linkedlist.c}, \hyperpage{28}
+    \subitem {linkedlist.h}, \hyperpage{34}
+  \item {varaaMuisti}
+    \subitem {binarytree.c}, \hyperpage{15}
+    \subitem {linkedlist.c}, \hyperpage{28}
+
+\end{theindex}
