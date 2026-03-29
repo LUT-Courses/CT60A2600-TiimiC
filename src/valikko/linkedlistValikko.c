@@ -83,6 +83,7 @@ static int valikko(void) {
     printf("4) Tyhjennä tiedosto\n");
     printf("5) Lajittele lista arvon mukaan (nouseva, bubble sort)\n");
     printf("6) Lajittele lista arvon mukaan (laskeva)\n");
+    printf("8) Poista alkio (nimellä tai arvolla)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
     scanf("%d", &iValinta);

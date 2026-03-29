@@ -261,6 +261,7 @@ SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
 /// @return Palauttaa osoittimen listan alkuun
 SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
     SUKUNIMI *ptr = pAlku;
+    int iPoistettu = 0;
 
     while (ptr != NULL) {
         if ( strcmp(aNimi, ptr->aSukunimi) == 0 ) {
@@ -275,10 +276,15 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
                 ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
                 ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
             }
+            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
             free(ptr);
+            iPoistettu = 1;
             break; // poistetaan vain ensimmäinen vastaan tuleva
         }
         ptr = ptr->pSeuraava;
+    }
+    if (iPoistettu == 0) {
+        printf("'%s' ei löytynyt osumaa.\n", aNimi);
     }
     return (pAlku);
 }
@@ -287,8 +293,9 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
 /// @param aNimi 
 /// @param pAlku 
 /// @return Palauttaa osoittien listan alkuun
-SUKUNIMI* poistaAlkioMaara(char iMaara, SUKUNIMI* pAlku) {
+SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
     SUKUNIMI *ptr = pAlku;
+    int iPoistettu = 0;
 
     while (ptr != NULL) {
         if (iMaara == ptr->iMaara) {
@@ -303,10 +310,15 @@ SUKUNIMI* poistaAlkioMaara(char iMaara, SUKUNIMI* pAlku) {
                 ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
                 ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
             }
+            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
             free(ptr);
+            iPoistettu = 1;
             break; // poistetaan vain ensimmäinen vastaan tuleva
         }
         ptr = ptr->pSeuraava;
+    }
+    if (iPoistettu == 0) {
+        printf("'%d' ei löytynyt osumaa.\n", iMaara);
     }
     return (pAlku);
 }
