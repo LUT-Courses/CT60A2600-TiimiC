@@ -208,3 +208,49 @@ static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
     }
     return (yhdistetty);
 }
+
+/// @brief Lajittelee listan bubble sortilla nousevasti (pienin ensin)
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
+/// @return Palauttaa osoittimen listan alkuun
+SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
+    int iVaihtoTehty = 0;
+    SUKUNIMI *ptr = NULL;
+    char aApuNimi[LEN_SUKUNIMI];
+    int iApuMaara = 0;
+
+    if (pAlku == NULL || pAlku->pSeuraava == NULL) {
+        return pAlku;
+    }
+
+    do {
+        iVaihtoTehty = 0;
+        ptr = pAlku;
+
+        while (ptr->pSeuraava != NULL) {
+            int iVaihda = 0;
+
+            if (ptr->iMaara > ptr->pSeuraava->iMaara) {
+                iVaihda = 1;
+            } else if (ptr->iMaara == ptr->pSeuraava->iMaara) {
+                if (strcmp(ptr->aSukunimi, ptr->pSeuraava->aSukunimi) > 0) {
+                    iVaihda = 1;
+                }
+            }
+
+            if (iVaihda == 1) {
+                strcpy(aApuNimi, ptr->aSukunimi);
+                iApuMaara = ptr->iMaara;
+
+                strcpy(ptr->aSukunimi, ptr->pSeuraava->aSukunimi);
+                ptr->iMaara = ptr->pSeuraava->iMaara;
+
+                strcpy(ptr->pSeuraava->aSukunimi, aApuNimi);
+                ptr->pSeuraava->iMaara = iApuMaara;
+                iVaihtoTehty = 1;
+            }
+            ptr = ptr->pSeuraava;
+        }
+    } while (iVaihtoTehty == 1);
+
+    return pAlku;
+}

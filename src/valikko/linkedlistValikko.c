@@ -40,6 +40,10 @@ int linkedlistValikko(void) {
             tyhjennaTiedosto(aTiedostoNimi);
             printf("Tiedosto '%s' tyhjennetty\n", aTiedostoNimi);
             printf("\n");
+        } else if (iValinta == 5) {
+            pAlku = lajitteleNouseva(pAlku);
+            printf("Lista lajiteltu nousevasti (bubble sort).\n");
+            printf("\n");
         } else if (iValinta == 6) {
             pAlku = lajitteleLaskeva(pAlku);
             printf("Lista lajiteltu laskevasti.\n");
@@ -65,6 +69,7 @@ static int valikko(void) {
     printf("2) Kirjoita tiedostoon nimet alusta loppuun\n");
     printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
     printf("4) Tyhjennä tiedosto\n");
+    printf("5) Lajittele lista arvon mukaan (nouseva, bubble sort)\n");
     printf("6) Lajittele lista arvon mukaan (laskeva)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
