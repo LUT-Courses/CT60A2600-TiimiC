@@ -33,7 +33,13 @@ void \mbox{\hyperlink{linkedlist_8h_a89168600b76d2d8444d4ad67965d6a29}{tyhjenna\
 \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8h_a0524f02838eb801951dfd3e3b7a7077f}{lajittele\+Laskeva}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
 \begin{DoxyCompactList}\small\item\em Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8h_aff2d084bc8fa70a7971fa69122bf5348}{lajittele\+Nouseva}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
-\begin{DoxyCompactList}\small\item\em Lajittelee listan bubble sortilla nousevasti (pienin ensin) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Lajittelee listan bubble sortilla nousevasti (pienin ensin) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8h_a32f63a9340932c737be92d62c8a72636}{poista\+Alkio\+Nimi}} (char a\+Nimi\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Poistaa alkion listasta nimen perusteella. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8h_a4b1ff657bd93116aee9b743edfa2a892}{poista\+Alkio\+Maara}} (int i\+Maara, \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}p\+Alku)
+\begin{DoxyCompactList}\small\item\em Poistaa alkion listasta arvon (määrä) perusteella. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linkedlist_8h_a1b23fd2e33e513d266e6fe4b687e80c4}{lisaa\+Listaan}} (\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}alku, int kohta, char nimi\mbox{[}$\,$\mbox{]}, int maara)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -127,6 +133,16 @@ Palauttaa osoittimen listan alkuun
 
 Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00215}{215}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
 
+\Hypertarget{linkedlist_8h_a1b23fd2e33e513d266e6fe4b687e80c4}\label{linkedlist_8h_a1b23fd2e33e513d266e6fe4b687e80c4} 
+\index{linkedlist.h@{linkedlist.h}!lisaaListaan@{lisaaListaan}}
+\index{lisaaListaan@{lisaaListaan}!linkedlist.h@{linkedlist.h}}
+\doxysubsubsection{\texorpdfstring{lisaaListaan()}{lisaaListaan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} lisaa\+Listaan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{alku,  }\item[{int}]{kohta,  }\item[{char}]{nimi\mbox{[}$\,$\mbox{]},  }\item[{int}]{maara }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00326}{326}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
 \Hypertarget{linkedlist_8h_a54d4a9ee0a55ea13a24b9afea0918b04}\label{linkedlist_8h_a54d4a9ee0a55ea13a24b9afea0918b04} 
 \index{linkedlist.h@{linkedlist.h}!lueTiedosto@{lueTiedosto}}
 \index{lueTiedosto@{lueTiedosto}!linkedlist.h@{linkedlist.h}}
@@ -136,6 +152,54 @@ Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00215}{215}} of file \
 Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin. Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin. Palauttaa osoittimen listan alkuu p\+Alku 
 
 Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00019}{19}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8h_a4b1ff657bd93116aee9b743edfa2a892}\label{linkedlist_8h_a4b1ff657bd93116aee9b743edfa2a892} 
+\index{linkedlist.h@{linkedlist.h}!poistaAlkioMaara@{poistaAlkioMaara}}
+\index{poistaAlkioMaara@{poistaAlkioMaara}!linkedlist.h@{linkedlist.h}}
+\doxysubsubsection{\texorpdfstring{poistaAlkioMaara()}{poistaAlkioMaara()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} poista\+Alkio\+Maara (\begin{DoxyParamCaption}\item[{int}]{i\+Maara,  }\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})}
+
+
+
+Poistaa alkion listasta arvon (määrä) perusteella. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Nimi} & \\
+\hline
+{\em p\+Alku} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittien listan alkuun 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00296}{296}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
+
+\Hypertarget{linkedlist_8h_a32f63a9340932c737be92d62c8a72636}\label{linkedlist_8h_a32f63a9340932c737be92d62c8a72636} 
+\index{linkedlist.h@{linkedlist.h}!poistaAlkioNimi@{poistaAlkioNimi}}
+\index{poistaAlkioNimi@{poistaAlkioNimi}!linkedlist.h@{linkedlist.h}}
+\doxysubsubsection{\texorpdfstring{poistaAlkioNimi()}{poistaAlkioNimi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*} poista\+Alkio\+Nimi (\begin{DoxyParamCaption}\item[{char}]{a\+Nimi\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{linkedlist_8h_a1d9773f6ca7941fbce6eaa2de8500c58}{SUKUNIMI}} \texorpdfstring{$\ast$}{*}}]{p\+Alku }\end{DoxyParamCaption})}
+
+
+
+Poistaa alkion listasta nimen perusteella. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Nimi} & Poistettavan alkion nimi \\
+\hline
+{\em p\+Alku} & Osoitin listan ensimmäiseen alkioon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Palauttaa osoittimen listan alkuun 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linkedlist_8c_source_l00262}{262}} of file \mbox{\hyperlink{linkedlist_8c_source}{linkedlist.\+c}}.
 
 \Hypertarget{linkedlist_8h_a89168600b76d2d8444d4ad67965d6a29}\label{linkedlist_8h_a89168600b76d2d8444d4ad67965d6a29} 
 \index{linkedlist.h@{linkedlist.h}!tyhjennaTiedosto@{tyhjennaTiedosto}}

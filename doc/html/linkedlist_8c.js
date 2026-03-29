@@ -6,9 +6,12 @@ var linkedlist_8c =
     [ "kirjoitaTiedostoLoppuAlku", "linkedlist_8c.html#a10613413e58c950dd74dfecaebcb2cb1", null ],
     [ "lajitteleLaskeva", "linkedlist_8c.html#a0524f02838eb801951dfd3e3b7a7077f", null ],
     [ "lajitteleNouseva", "linkedlist_8c.html#aff2d084bc8fa70a7971fa69122bf5348", null ],
+    [ "lisaaListaan", "linkedlist_8c.html#a1b23fd2e33e513d266e6fe4b687e80c4", null ],
     [ "lueTiedosto", "linkedlist_8c.html#a54d4a9ee0a55ea13a24b9afea0918b04", null ],
     [ "mergeSortLaskeva_etsiKeski", "linkedlist_8c.html#a25cb277563185b5c6f786670787359c4", null ],
     [ "mergeSortLaskeva_yhdista", "linkedlist_8c.html#ae2bf49bb5d2416ce7429b0f3ff94360b", null ],
+    [ "poistaAlkioMaara", "linkedlist_8c.html#a4b1ff657bd93116aee9b743edfa2a892", null ],
+    [ "poistaAlkioNimi", "linkedlist_8c.html#a32f63a9340932c737be92d62c8a72636", null ],
     [ "tyhjennaTiedosto", "linkedlist_8c.html#a89168600b76d2d8444d4ad67965d6a29", null ],
     [ "vapautaMuisti", "linkedlist_8c.html#a41db76f1f5dabb51b314183f13742247", null ],
     [ "varaaMuisti", "linkedlist_8c.html#a3f19fb62798007ff7274e8dc0ae47601", null ]

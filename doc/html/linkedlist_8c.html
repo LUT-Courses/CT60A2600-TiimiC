@@ -144,6 +144,14 @@ Functions</h2></td></tr>
 <tr class="memitem:aff2d084bc8fa70a7971fa69122bf5348" id="r_aff2d084bc8fa70a7971fa69122bf5348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedlist_8c.html#aff2d084bc8fa70a7971fa69122bf5348">lajitteleNouseva</a> (<a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *pAlku)</td></tr>
 <tr class="memdesc:aff2d084bc8fa70a7971fa69122bf5348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lajittelee listan bubble sortilla nousevasti (pienin ensin)  <br /></td></tr>
 <tr class="separator:aff2d084bc8fa70a7971fa69122bf5348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32f63a9340932c737be92d62c8a72636" id="r_a32f63a9340932c737be92d62c8a72636"><td class="memItemLeft" align="right" valign="top"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedlist_8c.html#a32f63a9340932c737be92d62c8a72636">poistaAlkioNimi</a> (char aNimi[], <a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *pAlku)</td></tr>
+<tr class="memdesc:a32f63a9340932c737be92d62c8a72636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poistaa alkion listasta nimen perusteella.  <br /></td></tr>
+<tr class="separator:a32f63a9340932c737be92d62c8a72636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1ff657bd93116aee9b743edfa2a892" id="r_a4b1ff657bd93116aee9b743edfa2a892"><td class="memItemLeft" align="right" valign="top"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedlist_8c.html#a4b1ff657bd93116aee9b743edfa2a892">poistaAlkioMaara</a> (int iMaara, <a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *pAlku)</td></tr>
+<tr class="memdesc:a4b1ff657bd93116aee9b743edfa2a892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poistaa alkion listasta arvon (määrä) perusteella.  <br /></td></tr>
+<tr class="separator:a4b1ff657bd93116aee9b743edfa2a892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b23fd2e33e513d266e6fe4b687e80c4" id="r_a1b23fd2e33e513d266e6fe4b687e80c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedlist_8c.html#a1b23fd2e33e513d266e6fe4b687e80c4">lisaaListaan</a> (<a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *alku, int kohta, char nimi[], int maara)</td></tr>
+<tr class="separator:a1b23fd2e33e513d266e6fe4b687e80c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ade2116ebf2d9e7c910cb6c439eb00f93" name="ade2116ebf2d9e7c910cb6c439eb00f93"></a>
@@ -300,6 +308,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1b23fd2e33e513d266e6fe4b687e80c4" name="a1b23fd2e33e513d266e6fe4b687e80c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b23fd2e33e513d266e6fe4b687e80c4">&#9670;&#160;</a></span>lisaaListaan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> * lisaaListaan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td>
+          <td class="paramname"><em>alku</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>kohta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nimi</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maara</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linkedlist_8c_source.html#l00326">326</a> of file <a class="el" href="linkedlist_8c_source.html">linkedlist.c</a>.</p>
+
+</div>
+</div>
 <a id="a54d4a9ee0a55ea13a24b9afea0918b04" name="a54d4a9ee0a55ea13a24b9afea0918b04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54d4a9ee0a55ea13a24b9afea0918b04">&#9670;&#160;</a></span>lueTiedosto()</h2>
 
@@ -404,6 +454,86 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Palauttaa osoittimen lajitellun yhdistetyn listan alkuun </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="linkedlist_8c_source.html#l00187">187</a> of file <a class="el" href="linkedlist_8c_source.html">linkedlist.c</a>.</p>
+
+</div>
+</div>
+<a id="a4b1ff657bd93116aee9b743edfa2a892" name="a4b1ff657bd93116aee9b743edfa2a892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b1ff657bd93116aee9b743edfa2a892">&#9670;&#160;</a></span>poistaAlkioMaara()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> * poistaAlkioMaara </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iMaara</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td>
+          <td class="paramname"><em>pAlku</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Poistaa alkion listasta arvon (määrä) perusteella. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aNimi</td><td></td></tr>
+    <tr><td class="paramname">pAlku</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Palauttaa osoittien listan alkuun </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="linkedlist_8c_source.html#l00296">296</a> of file <a class="el" href="linkedlist_8c_source.html">linkedlist.c</a>.</p>
+
+</div>
+</div>
+<a id="a32f63a9340932c737be92d62c8a72636" name="a32f63a9340932c737be92d62c8a72636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32f63a9340932c737be92d62c8a72636">&#9670;&#160;</a></span>poistaAlkioNimi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> * poistaAlkioNimi </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>aNimi</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="linkedlist_8h.html#a1d9773f6ca7941fbce6eaa2de8500c58">SUKUNIMI</a> *&#160;</td>
+          <td class="paramname"><em>pAlku</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Poistaa alkion listasta nimen perusteella. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aNimi</td><td>Poistettavan alkion nimi </td></tr>
+    <tr><td class="paramname">pAlku</td><td>Osoitin listan ensimmäiseen alkioon </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Palauttaa osoittimen listan alkuun </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="linkedlist_8c_source.html#l00262">262</a> of file <a class="el" href="linkedlist_8c_source.html">linkedlist.c</a>.</p>
 
 </div>
 </div>
