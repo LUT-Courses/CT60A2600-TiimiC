@@ -302,7 +302,7 @@ void test_poistoJaTasapainotus(void) // testataan, että noden poisto toimii odo
     }
     TEST_ASSERT_TRUE(tarkistaTasapaino(pJuuri) >= -1 && tarkistaTasapaino(pJuuri) <= 1); // tarkistetaan, että puu on tasapainossa ennen poistoa
 
-    // FIX: Added NULL check before accessing children
+
     pJuuri = btree_poistaNodePohjaArvo(10, pJuuri);                                                // poistetaan pohjimmainen node ja tarkistetaan, että se on löydetty ja että puu pysyy tasapainossa myös poiston jälkeen
     if (pJuuri != NULL && pJuuri->pVasenChild != NULL && pJuuri->pVasenChild->pVasenChild != NULL) // tarkistetaan että poiston jälkeen vanhan juuren vasemman lapsen lapsi on linkitetty oikein
     {
@@ -310,9 +310,7 @@ void test_poistoJaTasapainotus(void) // testataan, että noden poisto toimii odo
     }
 
     pJuuri = btree_poistaNodePohjaArvo(20, pJuuri);
-    // TEST_ASSERT_TRUE(tarkistaTasapaino(pJuuri) >= -1 && tarkistaTasapaino(pJuuri) <= 1); // tarkistetaan, että puu on tasapainossa poiston jälkeen
 
-    // FIX: Added NULL check before calling tarkistaKorkeudet
     if (pJuuri != NULL)
     {
         tarkistaKorkeudet(pJuuri); // tarkistetaan, että noden korkeus on oikein laskettu ja päivitetty poiston jälkeen
