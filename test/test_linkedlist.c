@@ -266,6 +266,27 @@ void TiedostonTyhjennysTesti(void) // Testaa, että tyhjennaTiedosto-funktio toi
     TEST_ASSERT_NULL(lista);
 }
 
+void testaaLaskevaJarjestys(void) {
+    char aNimi[5][50] = {"B", "C", "A", "E", "D"}; // B ja C sama määrä, lopussa C pitäisi tulla ennen B
+    int aMaara[5] = {10, 10, 20, 30, 40};
+    int iRivit = 5;
+
+    luoTiedosto(TEST_TIEDOSTO, aNimi, aMaara, iRivit);
+    SUKUNIMI* lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
+
+    lista = lajitteleLaskeva(lista);
+
+    int aOdotettuMaara[5] = {40, 30, 20, 10, 10}; 
+    char aOdotettuNimi[5][10] = {"D", "E", "A", "C", "B"};
+    SUKUNIMI* ptr = lista;
+    for (int i = 0; i < iRivit; i++) {  // käydään lista läpi ja verrataan odotetut arvot toteutuneisiin arvoihin
+        TEST_ASSERT_EQUAL_INT(aOdotettuMaara[i], ptr->iMaara);
+        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aSukunimi);
+        ptr = ptr->pSeuraava;
+    }
+    vapautaMuisti(lista);
+}
+
 int main(void)
 {
     UNITY_BEGIN();
@@ -274,5 +295,6 @@ int main(void)
     RUN_TEST(TestiMuistinHallinta);
     RUN_TEST(TestaaTapaukset);
     RUN_TEST(TiedostonTyhjennysTesti);
+    RUN_TEST(testaaLaskevaJarjestys);
     return UNITY_END();
 }
