@@ -287,6 +287,27 @@ void testaaLaskevaJarjestys(void) {
     vapautaMuisti(lista);
 }
 
+void testaaNousevaJarjestys(void) {
+    char aNimi[5][50] = {"B", "C", "A", "E", "D"}; // B ja C sama määrä, nousevassa B ennen C
+    int aMaara[5] = {10, 10, 20, 30, 40};
+    int iRivit = 5;
+
+    luoTiedosto(TEST_TIEDOSTO, aNimi, aMaara, iRivit);
+    SUKUNIMI* lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
+
+    lista = lajitteleNouseva(lista);
+
+    int aOdotettuMaara[5] = {10, 10, 20, 30, 40};
+    char aOdotettuNimi[5][10] = {"B", "C", "A", "E", "D"};
+    SUKUNIMI* ptr = lista;
+    for (int i = 0; i < iRivit; i++) {  // käydään lista läpi ja verrataan odotetut arvot toteutuneisiin arvoihin
+        TEST_ASSERT_EQUAL_INT(aOdotettuMaara[i], ptr->iMaara);
+        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aSukunimi);
+        ptr = ptr->pSeuraava;
+    }
+    vapautaMuisti(lista);
+}
+
 int main(void)
 {
     UNITY_BEGIN();
@@ -296,5 +317,6 @@ int main(void)
     RUN_TEST(TestaaTapaukset);
     RUN_TEST(TiedostonTyhjennysTesti);
     RUN_TEST(testaaLaskevaJarjestys);
+    RUN_TEST(testaaNousevaJarjestys);
     return UNITY_END();
 }
