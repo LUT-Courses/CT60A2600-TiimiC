@@ -15,5 +15,10 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
 void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]);
 void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]);
 void tyhjennaTiedosto(char aTiedostoNimi[]);
+SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku);
+SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku);
+SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara);
+void Tulosta(SUKUNIMI *pAlku);
+
 
 #endif // LINKEDLIST_H

@@ -9,6 +9,10 @@
 /// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
 static SUKUNIMI* varaaMuisti(void);
 
+// mergesort apufunktiot
+static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku);
+static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea);
+
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
 /// Palauttaa osoittimen listan alkuu pAlku
@@ -135,5 +139,148 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
     }
     fclose(Tiedosto);
     return;
+}
+
+// https://www.w3resource.com/c-programming-exercises/linked_list/c-linked_list-exercise-39.php
+/// @brief Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin)
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
+/// @return Palauttaa osoittimen listan ensimmäiseen alkioon
+SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
+    SUKUNIMI* pVasen = NULL;
+    SUKUNIMI* pOikea = NULL;
+    SUKUNIMI* pKeski = NULL;
+    SUKUNIMI* pLajiteltu = NULL;
+
+    if (pAlku == NULL || pAlku->pSeuraava == NULL) { // lista on NULL tai vain 1 alkion pituinen
+        return (pAlku);
+    }
+    pKeski = mergeSortLaskeva_etsiKeski(pAlku);
+    pVasen = pAlku;
+    pOikea = pKeski->pSeuraava;
+    pKeski->pSeuraava = NULL; // katkaistaan yhteys keskeltä
+
+    pVasen = lajitteleLaskeva(pAlku);
+    pOikea = lajitteleLaskeva(pOikea);
+
+    pLajiteltu = mergeSortLaskeva_yhdista(pVasen, pOikea);
+    return (pLajiteltu);
+}
+
+/// @brief Etsii slow, fast pointer tekniikalla listan keskikohdan
+/// @param pAlku
+/// @return Palauttaa osoittimen listan keskikohtaan
+static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
+    SUKUNIMI* slowPtr = pAlku;
+    SUKUNIMI* fastPtr = pAlku;
+
+    while ((fastPtr->pSeuraava != NULL) && (fastPtr->pSeuraava->pSeuraava != NULL)) {
+        slowPtr = slowPtr->pSeuraava;
+        fastPtr = fastPtr->pSeuraava->pSeuraava;
+    }
+    return (slowPtr);
+}
+
+/// @brief Yhdistää kaksi lajiteltua linkedlist puoliskoa laskevaan (descending) muotoon.
+/// @param pVasen
+/// @param pOikea
+/// @return Palauttaa osoittimen lajitellun yhdistetyn listan alkuun
+static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
+    SUKUNIMI* yhdistetty = NULL;
+
+    if (pVasen == NULL) {
+        yhdistetty = pOikea;
+    } else if (pOikea == NULL) {
+        yhdistetty = pVasen;
+    } else if (pVasen->iMaara > pOikea->iMaara) {
+        yhdistetty = pVasen;
+        yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pVasen->pSeuraava, pOikea);
+    } else if (pOikea->iMaara > pVasen->iMaara) {
+        yhdistetty = pOikea;
+        yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pOikea->pSeuraava, pVasen);
+    } else { // jos arvot samat niin aakkosten perusteella
+        if ( (strcmp(pVasen->aSukunimi, pOikea->aSukunimi)) > 0 ) { // vasen isompi
+            yhdistetty = pVasen;
+            yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pVasen->pSeuraava, pOikea);
+        } else { // oikea isompi tai duplikaatti
+            yhdistetty = pOikea;
+            yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pOikea->pSeuraava, pVasen);
+        }
+    }
+    return (yhdistetty);
+}
+
+/// @brief Lajittelee listan bubble sortilla nousevasti (pienin ensin)
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
+/// @return Palauttaa osoittimen listan alkuun
+SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
+    int iVaihtoTehty = 0;
+    SUKUNIMI *ptr = NULL;
+    char aApuNimi[LEN_SUKUNIMI];
+    int iApuMaara = 0;
+
+    if (pAlku == NULL || pAlku->pSeuraava == NULL) {
+        return pAlku;
+    }
+
+    do {
+        iVaihtoTehty = 0;
+        ptr = pAlku;
+
+        while (ptr->pSeuraava != NULL) {
+            int iVaihda = 0;
+
+            if (ptr->iMaara > ptr->pSeuraava->iMaara) {
+                iVaihda = 1;
+            } else if (ptr->iMaara == ptr->pSeuraava->iMaara) {
+                if (strcmp(ptr->aSukunimi, ptr->pSeuraava->aSukunimi) > 0) {
+                    iVaihda = 1;
+                }
+            }
+
+            if (iVaihda == 1) {
+                strcpy(aApuNimi, ptr->aSukunimi);
+                iApuMaara = ptr->iMaara;
+
+                strcpy(ptr->aSukunimi, ptr->pSeuraava->aSukunimi);
+                ptr->iMaara = ptr->pSeuraava->iMaara;
+
+                strcpy(ptr->pSeuraava->aSukunimi, aApuNimi);
+                ptr->pSeuraava->iMaara = iApuMaara;
+                iVaihtoTehty = 1;
+            }
+            ptr = ptr->pSeuraava;
+        }
+    } while (iVaihtoTehty == 1);
+
+    return pAlku;
+}
+
+
+SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
+    SUKUNIMI *uusi = varaaMuisti(); // varataan muisti uudelle structille
+    strcpy(uusi->aSukunimi, nimi);
+    uusi->iMaara = maara;
+    if (alku == NULL || kohta == 0) {
+        uusi->pSeuraava = alku; // uusi osoittaa vanhaan alkuun
+        uusi->pEdellinen = NULL; // uusi on uusi alku, joten edellinen on NULL
+
+        if (alku != NULL) {
+            alku->pEdellinen = uusi; // vanhan alkuun edellinen osoittaa uuteen alkupäähän
+        }
+        return uusi; // uusi on uusi alku, joten palautetaan se
+    }
+    SUKUNIMI *ptr = alku; // aloitetaan listan alusta
+    int i = 0;
+    while (ptr->pSeuraava != NULL && i < kohta - 1) { // kuljetaan listaa eteenpäin, kunnes saavutetaan haluttu kohta tai listan loppu
+        ptr = ptr->pSeuraava; // siirrytään seuraavaan alkioon
+        i++;
+    }
+    uusi->pSeuraava = ptr->pSeuraava; // uusi osoittaa siihen, mihin ptr osoitti ennen (eli seuraavaan alkioon)
+    uusi->pEdellinen = ptr; //
+    if (ptr->pSeuraava != NULL) { // jos ptr ei ole listan viimeinen alkio, asetetaan seuraavan alkion edellinen osoittamaan uuteen alkioon
+        ptr->pSeuraava->pEdellinen = uusi; // seuraavan alkion edellinen osoittaa uuteen alkioon
+    }
+    ptr->pSeuraava = uusi;
+    return alku;
 }
 
