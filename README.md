@@ -23,7 +23,6 @@
 ├── bin/                  # Build output (binary + object files)
 │   └── app
 ├── test/                 # Unit tests
-│   ├── test_hello.c
 │   ├── test_binarytree.c
 │   └── test_linkedlist.c
 ├── data/
@@ -36,17 +35,16 @@
 │   ├── verkko_iso.txt
 │   ├── verkko_pieni.txt
 │   └── readme.md
-├── doc/                  # Documentation (Doxygen config + generated HTML)
+├── doc/                  # Documentation (Doxygen config + generated HTML, LATEX)
+│   ├── html/
+│   ├── latex/
+│   ├── architecture.md
 │   ├── Doxyfile
-│   ├── readme.md
-│   └── html/
+│   └── readme.md
+│
 └── unity/
     └── Unity/
 ```
-
-> **Notes**
-> - `bin/` is generated—usually excluded from version control.
-> - Place configuration and design decisions in `doc/`.
 
 ---
 
@@ -77,16 +75,19 @@ make debug
 # Run
 ./bin/app
 
-# Run basic test
-make test
+# Run all unit tests
+make tests
 
 # Run binary tree tests (Unity)
 make test_binarytree
 
-# Memory check
+# Run linkedlist tree tests (Unity)
+make test_linkedlist
+
+# Memory check (valgrind)
 make memcheck
 
-# Clean
+# Clean bin/
 make clean
 ```
 
@@ -122,6 +123,7 @@ Aja testit:
 ```bash
 make test
 make test_binarytree
+make test_linkedlist
 ```
 
 Muistivuotojen tarkistus:
@@ -131,12 +133,11 @@ make memcheck
 ```
 
 `test_binarytree` käyttää Unity-testikirjastoa (`unity/Unity/src`).
+`test_linkedlist` käyttää Unity-testikirjastoa (`unity/Unity/src`).
 
 ---
 
 ## 🗂️ Version History
-
-> *(Update this table as you progress. Use semantic versioning if possible.)*
 
 | Version | Date       | Author      | Changes                                               |
 |--------:|------------|-------------|-------------------------------------------------------|
