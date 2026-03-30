@@ -145,6 +145,7 @@ make memcheck
 | 0.2.0   | 2026-03-16 | Tiimi-C     | Tehty uusi päävalikko ja binaaripuuhaku dfs ja bfs tyylillä. |
 | 0.3.0   | 2026-03-21 | Tiimi-C     | Tehty tasapainotettu binääripuu valintaan (2). |
 | 0.3.1   | 2026-03-21 | Tiimi-C     | Päivitetty README:n make-komennot, testikomennot ja Doxygen-ohjeistus. |
+| 0.4     | 2026-03-30 | Tiimi-C     | Linkitettyyn listaan lisää toimintoja (lajittelu, lisäys, poisto) |
 Tag releases:
 ```bash
 git tag -a v0.1.0 -m "Implemented the main menu and linked list"
