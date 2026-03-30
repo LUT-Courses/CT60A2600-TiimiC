@@ -109,7 +109,7 @@ doxygen doc/Doxyfile
 
 ## 📏 Coding Standards
 
-- **C standard**: C99 
+- **C standard**: C99
 - **Compiler flags**: `-Wall -pedantic`
 
 ---
@@ -167,6 +167,8 @@ git push origin v0.3.1
 - **Institution**: LUT University
 
 ---
+
+testi
 
 ## 📄 License
 
