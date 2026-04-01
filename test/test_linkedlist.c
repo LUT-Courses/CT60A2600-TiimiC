@@ -100,7 +100,7 @@ void TestiTiedostonLukeminen(void) // Testaa, että tiedosto luetaan oikein ja l
 
 void KirjoitusTesti(void)
 {
-    char nimet[5][50] = {"Eka", "Toka", "Kolmas", "Neljäs", "Viides"}; // testin nimet ja määrät, jotka kirjoitetaan tiedostoon
+    char nimet[5][50] = {"Eka", "TPassa", "Kolmas", "Neljäs", "Viides"}; // testin nimet ja määrät, jotka kirjoitetaan tiedostoon
     int luvut[5] = {100, 200, 300, 400, 500};
     int montako = 5;
 
@@ -312,6 +312,53 @@ void testaaNousevaJarjestys(void)
     vapautaMuisti(lista);
 }
 
+void TestiLisaaAlkuun(void)
+{
+    SUKUNIMI *lista = NULL;
+    lista = lisaaListaan(lista, 1, "A", 10); // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
+    lista = lisaaListaan(lista, 1, "B", 20);
+    TEST_ASSERT_EQUAL_INT(2, laskeSolmut(lista));    // tarkistetaan, että listassa on odotettu määrä solmuja
+    TEST_ASSERT_EQUAL_STRING("B", lista->aSukunimi); // tarkistetaan, että uusi solmu on lisätty listan alkuun, eli että ensimmäisellä solmulla on odotettu nimi ja määrä
+    TEST_ASSERT_EQUAL_INT(20, lista->iMaara);
+    TEST_ASSERT_EQUAL_STRING("A", lista->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_INT(10, lista->pSeuraava->iMaara);
+    TEST_ASSERT_TRUE(tarkistaLista(lista)); // tarkistetaan, että lista on linkitetty oikein
+    vapautaMuisti(lista);
+}
+
+void TestiLisaaLoppuun(void)
+{
+    SUKUNIMI *lista = NULL;
+    lista = lisaaListaan(lista, 1, "A", 10);  // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
+    lista = lisaaListaan(lista, 2, "B", 20);  // lisätään toinen solmu listaan, jPassa on samalla loppupiste
+    lista = lisaaListaan(lista, 10, "C", 30); //
+    TEST_ASSERT_EQUAL_INT(3, laskeSolmut(lista));
+    TEST_ASSERT_EQUAL_STRING("A", lista->aSukunimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä
+    TEST_ASSERT_EQUAL_STRING("B", lista->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->pSeuraava->aSukunimi);
+    TEST_ASSERT_NULL(lista->pSeuraava->pSeuraava->pSeuraava);
+    TEST_ASSERT_TRUE(tarkistaLista(lista));
+    vapautaMuisti(lista);
+}
+
+void TestiPoista(void)
+{
+    SUKUNIMI *lista = NULL;
+    lista = lisaaListaan(lista, 1, "A", 10); // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
+    lista = lisaaListaan(lista, 2, "B", 20); // lisätään toinen solmu listaan, jPassa on samalla loppupiste
+    lista = lisaaListaan(lista, 3, "C", 30);
+    lista = poistaAlkioNimi("B", lista);
+    TEST_ASSERT_EQUAL_INT(2, laskeSolmut(lista));    // tarkistetaan, että listassa on odotettu määrä solmuja poiston jälkeen
+    TEST_ASSERT_EQUAL_STRING("A", lista->aSukunimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä poiston jälkeen
+    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_INT(10, lista->iMaara);
+    TEST_ASSERT_EQUAL_INT(30, lista->pSeuraava->iMaara);
+    TEST_ASSERT_EQUAL_PTR(lista, lista->pSeuraava->pEdellinen);
+    TEST_ASSERT_NULL(lista->pSeuraava->pSeuraava);
+    TEST_ASSERT_TRUE(tarkistaLista(lista));
+    vapautaMuisti(lista);
+}
+
 void TestiLukuLajitteluKirjoitus() // integraatio testi 1
                                    // Testaa, että tiedosto luetaan, lajitellaan nousevaan järjestykseen ja kirjoitetaan odotetulla tavalla
 {
@@ -338,7 +385,7 @@ void TestiLukuLajitteluKirjoitus() // integraatio testi 1
     char rivi[100];
     fgets(rivi, 100, f);
 
-    printf("OK: eka rivi lajittelun jälkeen: %s", rivi);
+    printf("Pass: eka rivi lajittelun jälkeen: %s", rivi);
     fclose(f);
     lista = vapautaMuisti(lista); // vapautetaan muisti testin jälkeen
 }
@@ -395,7 +442,7 @@ void TestiPoisto()
     }
     if (loytyi == 0)
     {                                  // jos rivillä ei ole poistettua nimeä, poikkeama testissä
-        printf("OK: poisto toimii\n"); // jos rivillä ei ole poistettua nimeä, poikkeama testissä
+        printf("Pass: poisto toimii\n"); // jos rivillä ei ole poistettua nimeä, poikkeama testissä
     }
     else
     {
@@ -417,7 +464,7 @@ void TestiReverseKirjoitus()
 
     if (f != NULL)
     { // avataan kirjoitettu tiedosto tarkistaaksemme, että se on kirjoitettu odotetulla tavalla
-        printf("OK: reverse kirjoitus toimii\n");
+        printf("PASS: reverse kirjoitus toimii\n");
         fclose(f);
     }
     else
@@ -439,12 +486,15 @@ int main(void)
     RUN_TEST(TiedostonTyhjennysTesti);
     RUN_TEST(testaaLaskevaJarjestys);
     RUN_TEST(testaaNousevaJarjestys);
+    RUN_TEST(TestiLisaaAlkuun);
+    RUN_TEST(TestiLisaaLoppuun);
+    RUN_TEST(TestiPoista);
     printf("=== YKSIKKÖTESTIT VALMIS ===\n");
     printf("=== INTEGRAATIOTESTIT ===\n");
-    test_luku_lajittelu_kirjoitus();
-    test_lisays_ketju();
-    test_poisto_ketju();
-    test_reverse_kirjoitus();
-    printf("=== INTEGRAATIOTESTIT ===\n");
+    TestiLukuLajitteluKirjoitus();
+    TestiLisäys();
+    TestiPoisto();
+    TestiReverseKirjoitus();
+    printf("=== INTEGRAATIOTESTIT VALMIS ===\n");
     return UNITY_END();
 }
