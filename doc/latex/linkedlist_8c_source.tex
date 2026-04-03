@@ -153,7 +153,7 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00161}00161\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00162}00162\ \ \ \ \ pVasen\ =\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00163}00163\ \ \ \ \ pOikea\ =\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(pOikea);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00164}00164\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00164}00164\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00165}00165\ \ \ \ \ pLajiteltu\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pVasen,\ pOikea);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{return}\ (pLajiteltu);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00167}00167\ \}}
@@ -298,31 +298,32 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00324}00324\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00325}00325\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00326}\mbox{\hyperlink{linkedlist_8c_a1b23fd2e33e513d266e6fe4b687e80c4}{00326}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a1b23fd2e33e513d266e6fe4b687e80c4}{lisaaListaan}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *alku,\ \textcolor{keywordtype}{int}\ kohta,\ \textcolor{keywordtype}{char}\ nimi[],\ \textcolor{keywordtype}{int}\ maara)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00327}00327\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *uusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}();\ \textcolor{comment}{//\ varataan\ muisti\ uudelle\ structille}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00328}00328\ \ \ \ \ strcpy(uusi-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ nimi);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00329}00329\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ maara;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00330}00330\ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ ==\ NULL\ ||\ kohta\ ==\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ alku;\ \textcolor{comment}{//\ uusi\ osoittaa\ vanhaan\ alkuun}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ edellinen\ on\ NULL}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00333}00333\ \ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00334}00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ alku-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ vanhan\ alkuun\ edellinen\ osoittaa\ uuteen\ alkupäähän}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uusi;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ palautetaan\ se}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00338}00338\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00339}00339\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ alku;\ \textcolor{comment}{//\ aloitetaan\ listan\ alusta}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00340}00340\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL\ \&\&\ i\ <\ kohta\ -\/\ 1)\ \{\ \textcolor{comment}{//\ kuljetaan\ listaa\ eteenpäin,\ kunnes\ saavutetaan\ haluttu\ kohta\ tai\ listan\ loppu}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ siirrytään\ seuraavaan\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ i++;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00344}00344\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00345}00345\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ uusi\ osoittaa\ siihen,\ mihin\ ptr\ osoitti\ ennen\ (eli\ seuraavaan\ alkioon)}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00346}00346\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ ptr;\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00347}00347\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ \{\ \textcolor{comment}{//\ jos\ ptr\ ei\ ole\ listan\ viimeinen\ alkio,\ asetetaan\ seuraavan\ alkion\ edellinen\ osoittamaan\ uuteen\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ seuraavan\ alkion\ edellinen\ osoittaa\ uuteen\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00349}00349\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00350}00350\ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ uusi;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00351}00351\ \ \ \ \ \textcolor{keywordflow}{return}\ alku;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00352}00352\ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00327}00327\ \ \ \ \ kohta-\/-\/;\ \textcolor{comment}{//jotta\ indexi\ saadaan\ 0\ pohjaiseksi}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00328}00328\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *uusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}();\ \textcolor{comment}{//\ varataan\ muisti\ uudelle\ structille}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00329}00329\ \ \ \ \ strcpy(uusi-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ nimi);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00330}00330\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ maara;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00331}00331\ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ ==\ NULL\ ||\ kohta\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ alku;\ \textcolor{comment}{//\ uusi\ osoittaa\ vanhaan\ alkuun}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00333}00333\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ edellinen\ on\ NULL}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ alku-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ vanhan\ alkuun\ edellinen\ osoittaa\ uuteen\ alkupäähän}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uusi;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ palautetaan\ se}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00339}00339\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00340}00340\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ alku;\ \textcolor{comment}{//\ aloitetaan\ listan\ alusta}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00341}00341\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00342}00342\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL\ \&\&\ i\ <\ kohta\ -\/\ 1)\ \{\ \textcolor{comment}{//\ kuljetaan\ listaa\ eteenpäin,\ kunnes\ saavutetaan\ haluttu\ kohta\ tai\ listan\ loppu}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ siirrytään\ seuraavaan\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00345}00345\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00346}00346\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ uusi\ osoittaa\ siihen,\ mihin\ ptr\ osoitti\ ennen\ (eli\ seuraavaan\ alkioon)}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00347}00347\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ ptr;\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00348}00348\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ \{\ \textcolor{comment}{//\ jos\ ptr\ ei\ ole\ listan\ viimeinen\ alkio,\ asetetaan\ seuraavan\ alkion\ edellinen\ osoittamaan\ uuteen\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ seuraavan\ alkion\ edellinen\ osoittaa\ uuteen\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00350}00350\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00351}00351\ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ uusi;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00352}00352\ \ \ \ \ \textcolor{keywordflow}{return}\ alku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00353}00353\ \}}
 
 \end{DoxyCode}
