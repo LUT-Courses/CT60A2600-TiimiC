@@ -55,9 +55,9 @@ int linkedlistValikko(void) {
             int maara = 0;
             int kohta = 0;
         
-            printf("Anna mihin kohtaan listassa lisätään (0 = alku): ");
+            printf("Anna mihin kohtaan listassa lisätään (1 = alku): ");
             scanf("%d", &kohta);
-            printf("Anna lisättävä sukunimi: ");
+            printf("Anna lisättävä nimi: ");
             scanf("%s", nimi);
             printf("Anna määrä: ");
             scanf("%d", &maara);
@@ -96,7 +96,8 @@ static int valikko(void) {
     printf("3) Kirjoita tiedostoon nimet lopusta alkuun\n");
     printf("4) Tyhjennä tiedosto\n");
     printf("5) Lajittele lista arvon mukaan (nouseva, bubble sort)\n");
-    printf("6) Lajittele lista arvon mukaan (laskeva)\n");
+    printf("6) Lajittele lista arvon mukaan (laskeva, merge sort)\n");
+    printf("7) Lisää alkio (nimi ja arvo)\n");
     printf("8) Poista alkio (nimellä tai arvolla)\n");
     printf("0) Lopeta\n");
     printf("Anna valintasi: ");
