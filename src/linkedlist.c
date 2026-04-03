@@ -290,7 +290,7 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
 }
 
 /// @brief Poistaa alkion listasta arvon (määrä) perusteella
-/// @param aNimi
+/// @param iMaara
 /// @param pAlku
 /// @return Palauttaa osoittien listan alkuun
 SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
