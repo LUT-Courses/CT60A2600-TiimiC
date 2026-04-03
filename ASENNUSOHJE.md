@@ -42,6 +42,7 @@ Ennen aloitusta varmista, että sinulla on:
 - **git** (kloonaamista varten)
 - **(Valinnainen) valgrind** – muistivuotojen tarkistukseen
 - **(Valinnainen) doxygen** – dokumentaation luomiseen
+    - **(Valinnainen) graphviz** - luo graafisia kuvia doxygen dokumentaatioon
 
 ### Versioiden tarkistus
 
@@ -51,6 +52,7 @@ make --version
 git --version
 valgrind --version
 doxygen --version
+dot -V # graphvizin työkalu
 ```
 
 ---
@@ -369,7 +371,7 @@ Dokumentaatio luodaan `doc/html/`-kansioon. Avaa `doc/html/index.html` selaimess
 **Ratkaisu:** Asenna kääntäjä
 ```bash
 # Ubuntu
-sudo apt-get install build-essential
+sudo apt install build-essential
 
 # macOS
 brew install gcc
@@ -380,7 +382,7 @@ brew install gcc
 **Ratkaisu:** Asenna GNU Make
 ```bash
 # Ubuntu
-sudo apt-get install make
+sudo apt install make
 
 # macOS
 brew install make
