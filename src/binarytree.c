@@ -434,7 +434,7 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
     return(pJuuri);
 }
 /// @brief Rekursiivisesti toimiva alimman noden poistava funktio jos se mätsää arvon kanssa
-/// @param aNimi Kriteeri
+/// @param iArvo Kriteeri
 /// @param pJuuri Puun juuri
 BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
     int iTasapainoKerroin;

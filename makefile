@@ -18,12 +18,14 @@ debug:
 
 # Käännetään ja ajetaan testit
 # Kaikki testit
-tests:
+.PHONY: test
+test:
 	gcc -std=c99 -pedantic -Wall -Isrc -Iunity/Unity/src test/test_binarytree.c src/binarytree.c unity/Unity/src/unity.c -o bin/test_binarytree
 	gcc -std=c99 -pedantic -Wall -Isrc -Iunity/Unity/src test/test_linkedlist.c src/linkedlist.c unity/Unity/src/unity.c -o bin/test_linkedlist
 	./bin/test_binarytree
 	./bin/test_linkedlist
 
+# Binääripuun testit
 test_binarytree:
 	gcc -std=c99 -pedantic -Wall \
 	-Isrc -Iunity/Unity/src \
@@ -31,6 +33,7 @@ test_binarytree:
 	-o bin/test_binarytree
 	./bin/test_binarytree
 
+# Linked listin testit
 test_linkedlist:
 	gcc -std=c99 -pedantic -Wall \
 	-Isrc -Iunity/Unity/src \

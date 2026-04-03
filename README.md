@@ -1,15 +1,15 @@
 # C-project (C)
 
-> **Short description**: This project reads and writes a file according to instructions.
+> **Lyhyt kuvaus**: Linkitetyn listan ja binääripuun toteutus C-kielellä, sisältäen erilaisia toimintoja.
 
 ---
 
-## 📁 Project Structure
+## 📁 Projektin rakenne
 
 ```
 .
-├── makefile              # Build targets: build, test, clean, docs, etc.
-├── src/                  # C source files and headers
+├── makefile              # Rakentamisen tavoitteet: build, test, clean, docs, jne.
+├── src/                  # C-lähdekoodit ja otsikkotiedostot
 │   ├── main.c
 │   ├── linkedlist.c
 │   ├── linkedlist.h
@@ -20,9 +20,9 @@
 │       ├── linkedlistValikko.h
 │       ├── binaaripuuValikko.c
 │       └── binaaripuuValikko.h
-├── bin/                  # Build output (binary + object files)
+├── bin/                  # Rakentamisen tuotos (binääri + objektitiedostot)
 │   └── app
-├── test/                 # Unit tests
+├── test/                 # Yksikkötestit
 │   ├── test_binarytree.c
 │   └── test_linkedlist.c
 ├── data/
@@ -35,7 +35,7 @@
 │   ├── verkko_iso.txt
 │   ├── verkko_pieni.txt
 │   └── readme.md
-├── doc/                  # Documentation (Doxygen config + generated HTML, LATEX)
+├── doc/                  # Dokumentaatio (Doxygen-konfiguraatio + luodut HTML, LATEX)
 │   ├── html/
 │   ├── latex/
 │   ├── architecture.md
@@ -48,13 +48,13 @@
 
 ---
 
-## 🛠 Prerequisites
+## 🛠 Vaatimukset
 
-- **Compiler**: `gcc` (or `clang`)
+- **Kääntäjä**: `gcc` (tai `clang`)
 - **Make**: GNU Make
-- **(Optional)**: `valgrind`, `doxygen`
+- **(Valinnainen)**: `valgrind`, `doxygen`
 
-Check versions:
+Tarkista versiot:
 
 ```bash
 gcc --version
@@ -63,73 +63,73 @@ make --version
 
 ---
 
-## 🚀 Quick Start (Build / Run / Test)
+## 🚀 Pika-aloitus (Rakentaminen / Suorittaminen / Testaus)
 
 ```bash
-# Build (creates ./bin/app)
+# Rakentaminen (luo ./bin/app)
 make
 
-# Build debug version (-DDEBUG)
+# Rakentaminen debug-versiolla (-DDEBUG)
 make debug
 
-# Run
+# Suorittaminen
 ./bin/app
 
-# Run all unit tests
-make tests
+# Kaikkien yksikkötestien suorittaminen
+make test
 
-# Run binary tree tests (Unity)
+# Binääripuun testien suorittaminen (Unity)
 make test_binarytree
 
-# Run linkedlist tree tests (Unity)
+# Linkitetyn listan testien suorittaminen (Unity)
 make test_linkedlist
 
-# Memory check (valgrind)
+# Muistintarkistus (valgrind)
 make memcheck
 
-# Clean bin/
+# Puhdista bin/
 make clean
 ```
 
 ---
 
-## 📚 Documentation
+## 📚 Dokumentaatio
 
-- Doxygen config: `doc/Doxyfile`
+- Doxygen-konfiguraatio: `doc/Doxyfile`
 
 ```bash
-# Generate docs to doc/html/
+# Luo dokumentaatio doc/html/-kansioon
 make docs
 
-# Or directly:
+# Tai suoraan:
 doxygen doc/Doxyfile
 ```
 
 ---
 
-## 📏 Coding Standards
+## 📏 Koodauskäytännöt
 
-- **C standard**: C99
-- **Compiler flags**: `-Wall -pedantic`
+- **C-standardi**: C99
+- **Käääntäjän liput**: `-Wall -pedantic`
 
 ---
 
-## 🧪 Testing
+## 🧪 Testaus
 
 Projektin yksikkötestit sijaitsevat `test/`-kansiossa.
 
 Aja testit:
 
 ```bash
-make test
-make test_binarytree
-make test_linkedlist
+make test               # Kaikki testit
+make test_binarytree    # Binaaripuun testit
+make test_linkedlist    # Linkedlistin testit
 ```
 
 Muistivuotojen tarkistus:
 
 ```bash
-make memcheck
+make memcheck   # Ajaa käännetyn ohjelman valgrind työkalun kanssa
 ```
 
 `test_binarytree` käyttää Unity-testikirjastoa (`unity/Unity/src`).
@@ -137,40 +137,28 @@ make memcheck
 
 ---
 
-## 🗂️ Version History
-
-| Version | Date       | Author      | Changes                                               |
-|--------:|------------|-------------|-------------------------------------------------------|
+## 🗂️ Versiohistoria
+Tagit
+| Versio  | Päivämäärä | Tekijä      | Muutokset                                             |
+|---------|------------|-------------|-------------------------------------------------------|
 | 0.1.0   | 2026-03-09 | Tiimi-C     | Tehty päävalikko ja linkedlist molempiin suuntiin.    |
 | 0.2.0   | 2026-03-16 | Tiimi-C     | Tehty uusi päävalikko ja binaaripuuhaku dfs ja bfs tyylillä. |
 | 0.3.0   | 2026-03-21 | Tiimi-C     | Tehty tasapainotettu binääripuu valintaan (2). |
 | 0.3.1   | 2026-03-21 | Tiimi-C     | Päivitetty README:n make-komennot, testikomennot ja Doxygen-ohjeistus. |
 | 0.4     | 2026-03-30 | Tiimi-C     | Linkitettyyn listaan lisää toimintoja (lajittelu, lisäys, poisto) |
-Tag releases:
-```bash
-git tag -a v0.1.0 -m "Implemented the main menu and linked list"
-git push origin v0.1.0
-git tag -a v0.2.0 -m "New main menu and binary tree search"
-git push origin v0.2.0
-git tag -a v0.3.0 -m "Balanced binary tree option"
-git push origin v0.3.0
-git tag -a v0.3.1 -m "README, make targets, and Doxygen docs update"
-git push origin v0.3.1
-```
 
 ---
 
-## 👤 Author & Course
+## 👤 Tekijät ja kurssi
 
-- **Authors**: Eemil Lahti, Henri Penttinen, Sachin Nautiyal
-- **Course**: CT60A2600 Ohjelmakehitys C-kielellä
-- **Institution**: LUT University
+- **Tekijät**: Eemil Lahti, Henri Penttinen, Sachin Nautiyal
+- **Kurssi**: CT60A2600 Ohjelmakehitys C-kielellä
+- **Oppilaitos**: LUT-yliopisto
 
 ---
 
-testi
 
-## 📄 License
+## 📄 Lisenssi
 
-> *Private*
+> *Yksityinen*
 
