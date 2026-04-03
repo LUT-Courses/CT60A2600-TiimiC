@@ -143,7 +143,7 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
 
 // https://www.w3resource.com/c-programming-exercises/linked_list/c-linked_list-exercise-39.php
 /// @brief Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin)
-/// @param pAlku Osoitin listan ensimmäiseen alkioon 
+/// @param pAlku Osoitin listan ensimmäiseen alkioon
 /// @return Palauttaa osoittimen listan ensimmäiseen alkioon
 SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
     SUKUNIMI* pVasen = NULL;
@@ -161,7 +161,7 @@ SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
 
     pVasen = lajitteleLaskeva(pAlku);
     pOikea = lajitteleLaskeva(pOikea);
-    
+
     pLajiteltu = mergeSortLaskeva_yhdista(pVasen, pOikea);
     return (pLajiteltu);
 }
@@ -181,8 +181,8 @@ static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
 }
 
 /// @brief Yhdistää kaksi lajiteltua linkedlist puoliskoa laskevaan (descending) muotoon.
-/// @param pVasen  
-/// @param pOikea 
+/// @param pVasen
+/// @param pOikea
 /// @return Palauttaa osoittimen lajitellun yhdistetyn listan alkuun
 static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
     SUKUNIMI* yhdistetty = NULL;
@@ -290,8 +290,8 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
 }
 
 /// @brief Poistaa alkion listasta arvon (määrä) perusteella
-/// @param aNimi 
-/// @param pAlku 
+/// @param aNimi
+/// @param pAlku
 /// @return Palauttaa osoittien listan alkuun
 SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
     SUKUNIMI *ptr = pAlku;
@@ -324,13 +324,14 @@ SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
 }
 
 SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
+    kohta--; //jotta indexi saadaan 0 pohjaiseksi
     SUKUNIMI *uusi = varaaMuisti(); // varataan muisti uudelle structille
     strcpy(uusi->aSukunimi, nimi);
     uusi->iMaara = maara;
     if (alku == NULL || kohta == 0) {
         uusi->pSeuraava = alku; // uusi osoittaa vanhaan alkuun
         uusi->pEdellinen = NULL; // uusi on uusi alku, joten edellinen on NULL
- 
+
         if (alku != NULL) {
             alku->pEdellinen = uusi; // vanhan alkuun edellinen osoittaa uuteen alkupäähän
         }
