@@ -3,22 +3,22 @@
 
 #define LEN_SUKUNIMI 30
 
-typedef struct sukunimi {
-    char aSukunimi[LEN_SUKUNIMI];
+typedef struct listNode {
+    char aNimi[LEN_SUKUNIMI];
     int iMaara;
-    struct sukunimi *pSeuraava;
-    struct sukunimi *pEdellinen;
-} SUKUNIMI;
+    struct listNode *pSeuraava;
+    struct listNode *pEdellinen;
+} LISTNODE;
 
-SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku);
-SUKUNIMI* lueTiedosto(char aTiedostoNimi[]);
-void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]);
-void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]);
+LISTNODE* vapautaMuisti(LISTNODE *pAlku);
+LISTNODE* lueTiedosto(char aTiedostoNimi[]);
+void kirjoitaTiedostoAlkuLoppu(LISTNODE *pAlku, char aTiedostoNimi[]);
+void kirjoitaTiedostoLoppuAlku(LISTNODE *pAlku, char aTiedostoNimi[]);
 void tyhjennaTiedosto(char aTiedostoNimi[]);
-SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku);
-SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku);
-SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku);
-SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku);
-SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara);
+LISTNODE* lajitteleLaskeva(LISTNODE *pAlku);
+LISTNODE* lajitteleNouseva(LISTNODE *pAlku);
+LISTNODE* poistaAlkioNimi(char aNimi[], LISTNODE* pAlku);
+LISTNODE* poistaAlkioMaara(int iMaara, LISTNODE* pAlku);
+LISTNODE* lisaaListaan(LISTNODE *alku, int kohta, char nimi[], int maara);
 
 #endif // LINKEDLIST_H
