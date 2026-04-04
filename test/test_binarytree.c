@@ -12,7 +12,7 @@ void TiedostoTesti(void)
 
     BTREENODE *rootNodeNode = btree_lueTiedosto("data/sukunimet_2025.txt");
     TEST_ASSERT_NOT_NULL(rootNodeNode);                            // tarkistetaan, että puu on olemassa, eikä ole tyhjä
-    TEST_ASSERT_EQUAL_STRING("Haapaluoma", rootNodeNode->aSukunimi); // tarkistetaan, nimen, ja node index
+    TEST_ASSERT_EQUAL_STRING("Haapaluoma", rootNodeNode->aNimi); // tarkistetaan, nimen, ja node index
     rootNodeNode = btree_vapautaMuisti(rootNodeNode); //  tarkistaa että kaikki muisti vapautetaan oikein
 }
 
@@ -131,7 +131,7 @@ void test_avlKierto(void) // testataan, että vasen ja oikea kierto toimii odote
     for (i = 0; i < 3; i++) //  lisätään nodet puuhun, joka vaatii oikean kierron, jotta se pysyy tasapainossa
     {
         pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi");
+        strcpy(pUus->aNimi, "Testi");
         pUus->iMaara = iArvot[i];
         pUus->pVasenChild = NULL;
         pUus->pOikeaChild = NULL;
@@ -157,7 +157,7 @@ void test_avlKierto(void) // testataan, että vasen ja oikea kierto toimii odote
     {
         pUus = (BTREENODE *)
             malloc(sizeof(BTREENODE));    // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi"); // kopioidaan nimi uudelle nodelle
+        strcpy(pUus->aNimi, "Testi"); // kopioidaan nimi uudelle nodelle
         pUus->iMaara = iArvot2[i];        // asetetaan määrä uudelle nodelle
         pUus->pVasenChild = NULL;
         pUus->pOikeaChild = NULL;
@@ -177,7 +177,7 @@ void test_avlKierto(void) // testataan, että vasen ja oikea kierto toimii odote
     for (i = 0; i < 3; i++)
     {
         pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi");
+        strcpy(pUus->aNimi, "Testi");
         pUus->iMaara = iArvot3[i]; // asetetaan määrä uudelle nodelle
         pUus->pVasenChild = NULL;
         pUus->pOikeaChild = NULL;
@@ -202,7 +202,7 @@ void test_korkeusArvot(void) // testataan, että noden korkeus on oikein laskett
     for (i = 0; i < 7; i++)
     {
         pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi");
+        strcpy(pUus->aNimi, "Testi");
         pUus->iMaara = iArvot[i];
         pUus->pVasenChild = NULL;
         pUus->pOikeaChild = NULL;
@@ -228,7 +228,7 @@ void test_tasapaino(void) // testataan, että puu pysyy tasapainossa kiertojen j
     int i;
 
     pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-    strcpy(pUus->aSukunimi, "Testi");              // kopioidaan nimi uudelle nodelle
+    strcpy(pUus->aNimi, "Testi");              // kopioidaan nimi uudelle nodelle
     pUus->iMaara = 30;
     pUus->pVasenChild = NULL;
     pUus->pOikeaChild = NULL;              // alustetaan uudelle nodelle korkeus 1
@@ -237,7 +237,7 @@ void test_tasapaino(void) // testataan, että puu pysyy tasapainossa kiertojen j
     TEST_ASSERT_EQUAL_INT(0, tarkistaTasapaino(pJuuri));
 
     pUus = (BTREENODE *)malloc(sizeof(BTREENODE));
-    strcpy(pUus->aSukunimi, "Testi"); // kopioidaan nimi uudelle nodelle
+    strcpy(pUus->aNimi, "Testi"); // kopioidaan nimi uudelle nodelle
     pUus->iMaara = 20;                // asetetaan määrä uudelle nodelle
     pUus->pVasenChild = NULL;
     pUus->pOikeaChild = NULL;
@@ -246,7 +246,7 @@ void test_tasapaino(void) // testataan, että puu pysyy tasapainossa kiertojen j
     TEST_ASSERT_EQUAL_INT(1, tarkistaTasapaino(pJuuri)); //  tarkistetaan, että puu on tasapainossa ja että tasapainokerroin on odotettu
 
     pUus = (BTREENODE *)malloc(sizeof(BTREENODE));
-    strcpy(pUus->aSukunimi, "Testi");
+    strcpy(pUus->aNimi, "Testi");
     pUus->iMaara = 10;
     pUus->pVasenChild = NULL;
     pUus->pOikeaChild = NULL;
@@ -264,7 +264,7 @@ void test_tasapaino(void) // testataan, että puu pysyy tasapainossa kiertojen j
     for (i = 0; i < 3; i++) //  lisätään nodet puuhun, joka vaatii LR kierron, jotta se pysyy tasapainossa
     {
         pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi");
+        strcpy(pUus->aNimi, "Testi");
         pUus->iMaara = iArvot[i]; // asetetaan määrä uudelle nodelle
         pUus->pVasenChild = NULL; // alustetaan uudelle nodelle korkeus 1
         pUus->pOikeaChild = NULL; // alustetaan uudelle nodelle korkeus 1
@@ -292,7 +292,7 @@ void test_poistoJaTasapainotus(void) // testataan, että noden poisto toimii odo
     for (i = 0; i < 11; i++) // lisätään nodet puuhun, joka vaatii useita kiertoja, jotta se pysyy tasapainossa poiston jälkeen
     {
         pUus = (BTREENODE *)malloc(sizeof(BTREENODE)); // varataan muisti uudelle nodelle
-        strcpy(pUus->aSukunimi, "Testi");
+        strcpy(pUus->aNimi, "Testi");
         pUus->iMaara = iArvot[i];
         pUus->pVasenChild = NULL;
         pUus->pOikeaChild = NULL;

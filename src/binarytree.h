@@ -4,7 +4,7 @@
 #define LEN_SUKUNIMI 30
 
 typedef struct btreeNode {
-    char aSukunimi[LEN_SUKUNIMI];
+    char aNimi[LEN_SUKUNIMI];
     int iMaara;
     int iKorkeus;
     struct btreeNode *pVasenChild; // pointteri vasempaan lapseen
