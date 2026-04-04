@@ -6,21 +6,21 @@
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
 #define LEN_SUKUNIMI 30 // max sukunimi pituus
 
-/// @brief Apufunktio, varaa muisti uudelle structille (SUKUNIMI)
-static SUKUNIMI* varaaMuisti(void);
+/// @brief Apufunktio, varaa muisti uudelle structille (LISTNODE)
+static LISTNODE* varaaMuisti(void);
 
 // mergesort apufunktiot
-static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku);
-static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea);
+static LISTNODE* mergeSortLaskeva_etsiKeski(LISTNODE *pAlku);
+static LISTNODE* mergeSortLaskeva_yhdista(LISTNODE *pVasen, LISTNODE *pOikea);
 
 /// Luetaan tiedostosta sukunimi ja lisätään se uuteen sukunimi structiin.
 /// Samaan structiin lisätään pointteri seuraavaan ja edelliseen sukunimi structiin.
 /// Palauttaa osoittimen listan alkuu pAlku
-SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
+LISTNODE* lueTiedosto(char aTiedostoNimi[]) {
     FILE* Tiedosto = NULL;
-    SUKUNIMI *pAlku = NULL;
-    SUKUNIMI *pUusi = NULL;
-    SUKUNIMI *pViimeisin = NULL;
+    LISTNODE *pAlku = NULL;
+    LISTNODE *pUusi = NULL;
+    LISTNODE *pViimeisin = NULL;
     char aRivi[LEN_RIVI];
     char *p1 = NULL; // ptr sukunimelle tiedostosta
     char *p2 = NULL; // ptr määrälle tiedostosta
@@ -44,7 +44,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
         iMaara = atoi(p2);
         if (pViimeisin == NULL) {
             pUusi = varaaMuisti();
-            strcpy(pUusi->aSukunimi, p1);
+            strcpy(pUusi->aNimi, p1);
             pUusi->iMaara = iMaara;
             pUusi->pSeuraava = NULL;
             pUusi->pEdellinen = NULL;
@@ -52,7 +52,7 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
             pAlku = pViimeisin;
         } else {
             pUusi = varaaMuisti();
-            strcpy(pUusi->aSukunimi, p1);
+            strcpy(pUusi->aNimi, p1);
             pUusi->iMaara = iMaara;
             pViimeisin->pSeuraava = pUusi;
             pUusi->pEdellinen = pViimeisin;
@@ -64,11 +64,11 @@ SUKUNIMI* lueTiedosto(char aTiedostoNimi[]) {
     return (pAlku);
 }
 
-static SUKUNIMI* varaaMuisti() {
-    SUKUNIMI *pUusi = NULL;
+static LISTNODE* varaaMuisti(void) {
+    LISTNODE *pUusi = NULL;
 
     // muistin varauksen virheen käsittely
-    if ((pUusi = (SUKUNIMI*)malloc(sizeof(SUKUNIMI))) == NULL) {
+    if ((pUusi = (LISTNODE*)malloc(sizeof(LISTNODE))) == NULL) {
         perror("Muistin varaus epäonnistui, lopetetaan");
         exit(0);
     }
@@ -76,8 +76,8 @@ static SUKUNIMI* varaaMuisti() {
 }
 
 /// Vapauttaa muistin käymällä linked-list läpi alusta loppuun
-SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
-    SUKUNIMI *ptr = pAlku;
+LISTNODE* vapautaMuisti(LISTNODE *pAlku) {
+    LISTNODE *ptr = pAlku;
     while (ptr != NULL) {
         pAlku = ptr->pSeuraava;
         free(ptr);
@@ -87,9 +87,9 @@ SUKUNIMI* vapautaMuisti(SUKUNIMI *pAlku) {
 }
 
 /// Kirjoittaa tiedostoon kulkemalla listan alusta loppuun
-void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
+void kirjoitaTiedostoAlkuLoppu(LISTNODE *pAlku, char aTiedostoNimi[]) {
     FILE *Tiedosto = NULL;
-    SUKUNIMI *ptr = pAlku;
+    LISTNODE *ptr = pAlku;
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
@@ -98,7 +98,7 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
     }
 
     while (ptr != NULL) {
-        fprintf(Tiedosto, "%s,%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s,%d\n", ptr->aNimi, ptr->iMaara);
         ptr = ptr->pSeuraava;
     }
 
@@ -107,9 +107,9 @@ void kirjoitaTiedostoAlkuLoppu(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
 }
 /// Kulkee ensin listan loppuun ja sitten kirjoittaa
 /// nimet kulkien alkuun
-void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
+void kirjoitaTiedostoLoppuAlku(LISTNODE *pAlku, char aTiedostoNimi[]) {
     FILE *Tiedosto = NULL;
-    SUKUNIMI *ptr = pAlku;
+    LISTNODE *ptr = pAlku;
 
     Tiedosto = fopen(aTiedostoNimi, "w");
     if (Tiedosto == NULL) {
@@ -120,7 +120,7 @@ void kirjoitaTiedostoLoppuAlku(SUKUNIMI *pAlku, char aTiedostoNimi[]) {
         ptr = ptr->pSeuraava;
     }
     while (ptr != NULL) {
-        fprintf(Tiedosto, "%s,%d\n", ptr->aSukunimi, ptr->iMaara);
+        fprintf(Tiedosto, "%s,%d\n", ptr->aNimi, ptr->iMaara);
         ptr = ptr->pEdellinen;
     }
 
@@ -145,11 +145,11 @@ void tyhjennaTiedosto(char aTiedostoNimi[]) {
 /// @brief Lajittelee listan rekursiivisesti arvon mukaan laskevasti (isoin ensin)
 /// @param pAlku Osoitin listan ensimmäiseen alkioon
 /// @return Palauttaa osoittimen listan ensimmäiseen alkioon
-SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
-    SUKUNIMI* pVasen = NULL;
-    SUKUNIMI* pOikea = NULL;
-    SUKUNIMI* pKeski = NULL;
-    SUKUNIMI* pLajiteltu = NULL;
+LISTNODE* lajitteleLaskeva(LISTNODE *pAlku) {
+    LISTNODE* pVasen = NULL;
+    LISTNODE* pOikea = NULL;
+    LISTNODE* pKeski = NULL;
+    LISTNODE* pLajiteltu = NULL;
 
     if (pAlku == NULL || pAlku->pSeuraava == NULL) { // lista on NULL tai vain 1 alkion pituinen
         return (pAlku);
@@ -169,9 +169,9 @@ SUKUNIMI* lajitteleLaskeva(SUKUNIMI *pAlku) {
 /// @brief Etsii slow, fast pointer tekniikalla listan keskikohdan
 /// @param pAlku
 /// @return Palauttaa osoittimen listan keskikohtaan
-static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
-    SUKUNIMI* slowPtr = pAlku;
-    SUKUNIMI* fastPtr = pAlku;
+static LISTNODE* mergeSortLaskeva_etsiKeski(LISTNODE *pAlku) {
+    LISTNODE* slowPtr = pAlku;
+    LISTNODE* fastPtr = pAlku;
 
     while ((fastPtr->pSeuraava != NULL) && (fastPtr->pSeuraava->pSeuraava != NULL)) {
         slowPtr = slowPtr->pSeuraava;
@@ -184,8 +184,8 @@ static SUKUNIMI* mergeSortLaskeva_etsiKeski(SUKUNIMI *pAlku) {
 /// @param pVasen
 /// @param pOikea
 /// @return Palauttaa osoittimen lajitellun yhdistetyn listan alkuun
-static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
-    SUKUNIMI* yhdistetty = NULL;
+static LISTNODE* mergeSortLaskeva_yhdista(LISTNODE *pVasen, LISTNODE *pOikea) {
+    LISTNODE* yhdistetty = NULL;
 
     if (pVasen == NULL) {
         yhdistetty = pOikea;
@@ -198,7 +198,7 @@ static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
         yhdistetty = pOikea;
         yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pOikea->pSeuraava, pVasen);
     } else { // jos arvot samat niin aakkosten perusteella
-        if ( (strcmp(pVasen->aSukunimi, pOikea->aSukunimi)) > 0 ) { // vasen isompi
+        if ( (strcmp(pVasen->aNimi, pOikea->aNimi)) > 0 ) { // vasen isompi
             yhdistetty = pVasen;
             yhdistetty->pSeuraava = mergeSortLaskeva_yhdista(pVasen->pSeuraava, pOikea);
         } else { // oikea isompi tai duplikaatti
@@ -212,9 +212,9 @@ static SUKUNIMI* mergeSortLaskeva_yhdista(SUKUNIMI *pVasen, SUKUNIMI *pOikea) {
 /// @brief Lajittelee listan bubble sortilla nousevasti (pienin ensin)
 /// @param pAlku Osoitin listan ensimmäiseen alkioon
 /// @return Palauttaa osoittimen listan alkuun
-SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
+LISTNODE* lajitteleNouseva(LISTNODE *pAlku) {
     int iVaihtoTehty = 0;
-    SUKUNIMI *ptr = NULL;
+    LISTNODE *ptr = NULL;
     char aApuNimi[LEN_SUKUNIMI];
     int iApuMaara = 0;
 
@@ -232,19 +232,19 @@ SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
             if (ptr->iMaara > ptr->pSeuraava->iMaara) {
                 iVaihda = 1;
             } else if (ptr->iMaara == ptr->pSeuraava->iMaara) {
-                if (strcmp(ptr->aSukunimi, ptr->pSeuraava->aSukunimi) > 0) {
+                if (strcmp(ptr->aNimi, ptr->pSeuraava->aNimi) > 0) {
                     iVaihda = 1;
                 }
             }
 
             if (iVaihda == 1) {
-                strcpy(aApuNimi, ptr->aSukunimi);
+                strcpy(aApuNimi, ptr->aNimi);
                 iApuMaara = ptr->iMaara;
 
-                strcpy(ptr->aSukunimi, ptr->pSeuraava->aSukunimi);
+                strcpy(ptr->aNimi, ptr->pSeuraava->aNimi);
                 ptr->iMaara = ptr->pSeuraava->iMaara;
 
-                strcpy(ptr->pSeuraava->aSukunimi, aApuNimi);
+                strcpy(ptr->pSeuraava->aNimi, aApuNimi);
                 ptr->pSeuraava->iMaara = iApuMaara;
                 iVaihtoTehty = 1;
             }
@@ -259,12 +259,12 @@ SUKUNIMI* lajitteleNouseva(SUKUNIMI *pAlku) {
 /// @param aNimi Poistettavan alkion nimi
 /// @param pAlku Osoitin listan ensimmäiseen alkioon
 /// @return Palauttaa osoittimen listan alkuun
-SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
-    SUKUNIMI *ptr = pAlku;
+LISTNODE* poistaAlkioNimi(char aNimi[], LISTNODE* pAlku) {
+    LISTNODE *ptr = pAlku;
     int iPoistettu = 0;
 
     while (ptr != NULL) {
-        if ( strcmp(aNimi, ptr->aSukunimi) == 0 ) {
+        if ( strcmp(aNimi, ptr->aNimi) == 0 ) {
             if (ptr->pEdellinen == NULL) { // poistetaan listan ensimmäinen
                 pAlku = ptr->pSeuraava;
                 if (pAlku != NULL) { // varomääre jos listassa onkin vain yksi alkio
@@ -276,7 +276,7 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
                 ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
                 ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
             }
-            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
+            printf("'%s,%d' poistettu.\n", ptr->aNimi, ptr->iMaara);
             free(ptr);
             iPoistettu = 1;
             break; // poistetaan vain ensimmäinen vastaan tuleva
@@ -293,8 +293,8 @@ SUKUNIMI* poistaAlkioNimi(char aNimi[], SUKUNIMI* pAlku) {
 /// @param iMaara
 /// @param pAlku
 /// @return Palauttaa osoittien listan alkuun
-SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
-    SUKUNIMI *ptr = pAlku;
+LISTNODE* poistaAlkioMaara(int iMaara, LISTNODE* pAlku) {
+    LISTNODE *ptr = pAlku;
     int iPoistettu = 0;
 
     while (ptr != NULL) {
@@ -310,7 +310,7 @@ SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
                 ptr->pEdellinen->pSeuraava = ptr->pSeuraava; // poistetaan listan keskeltä
                 ptr->pSeuraava->pEdellinen = ptr->pEdellinen;
             }
-            printf("'%s,%d' poistettu.\n", ptr->aSukunimi, ptr->iMaara);
+            printf("'%s,%d' poistettu.\n", ptr->aNimi, ptr->iMaara);
             free(ptr);
             iPoistettu = 1;
             break; // poistetaan vain ensimmäinen vastaan tuleva
@@ -323,10 +323,10 @@ SUKUNIMI* poistaAlkioMaara(int iMaara, SUKUNIMI* pAlku) {
     return (pAlku);
 }
 
-SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
+LISTNODE* lisaaListaan(LISTNODE *alku, int kohta, char nimi[], int maara) {
     kohta--; //jotta indexi saadaan 0 pohjaiseksi
-    SUKUNIMI *uusi = varaaMuisti(); // varataan muisti uudelle structille
-    strcpy(uusi->aSukunimi, nimi);
+    LISTNODE *uusi = varaaMuisti(); // varataan muisti uudelle structille
+    strcpy(uusi->aNimi, nimi);
     uusi->iMaara = maara;
     if (alku == NULL || kohta == 0) {
         uusi->pSeuraava = alku; // uusi osoittaa vanhaan alkuun
@@ -337,7 +337,7 @@ SUKUNIMI* lisaaListaan(SUKUNIMI *alku, int kohta, char nimi[], int maara) {
         }
         return uusi; // uusi on uusi alku, joten palautetaan se
     }
-    SUKUNIMI *ptr = alku; // aloitetaan listan alusta
+    LISTNODE *ptr = alku; // aloitetaan listan alusta
     int i = 0;
     while (ptr->pSeuraava != NULL && i < kohta - 1) { // kuljetaan listaa eteenpäin, kunnes saavutetaan haluttu kohta tai listan loppu
         ptr = ptr->pSeuraava; // siirrytään seuraavaan alkioon

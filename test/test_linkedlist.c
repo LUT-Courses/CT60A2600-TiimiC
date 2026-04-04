@@ -31,10 +31,10 @@ void luoTiedosto(char tiedostonNimi[], char nimet[][50], int luvut[], int maara)
     fclose(tiedosto);
 }
 
-int laskeSolmut(SUKUNIMI *alku) // Laskee listan solmujen määrän
+int laskeSolmut(LISTNODE *alku) // Laskee listan solmujen määrän
 {
     int laskuri = 0;
-    SUKUNIMI *ptr = alku;
+    LISTNODE *ptr = alku;
     while (ptr != NULL) // kuljetaan listaa läpi ja lasketaan solmut
     {
         laskuri++;
@@ -43,13 +43,13 @@ int laskeSolmut(SUKUNIMI *alku) // Laskee listan solmujen määrän
     return laskuri;
 }
 
-int tarkistaLista(SUKUNIMI *alku) // Tarkistaa, että listan solmut on linkitetty oikein sekä eteen- että taaksepäin
+int tarkistaLista(LISTNODE *alku) // Tarkistaa, että listan solmut on linkitetty oikein sekä eteen- että taaksepäin
 {
     if (alku == NULL) // tyhjä lista on aina oikein linkitetty
         return 1;
 
-    SUKUNIMI *ptr = alku;
-    SUKUNIMI *edellinen = NULL;
+    LISTNODE *ptr = alku;
+    LISTNODE *edellinen = NULL;
 
     while (ptr != NULL) // kuljetaan listaa läpi eteenpäin ja tarkistetaan linkit
     {
@@ -59,7 +59,7 @@ int tarkistaLista(SUKUNIMI *alku) // Tarkistaa, että listan solmut on linkitett
         ptr = ptr->pSeuraava; // siirrytään seuraavaan solmuun
     }
 
-    SUKUNIMI *viimeinen = edellinen; // viimeinen solmu on edellisen jälkeen
+    LISTNODE *viimeinen = edellinen; // viimeinen solmu on edellisen jälkeen
     ptr = viimeinen;                 // aloitetaan kulkeminen taaksepäin viimeisestä solmusta
     edellinen = NULL;
     while (ptr != NULL)
@@ -80,15 +80,15 @@ void TestiTiedostonLukeminen(void) // Testaa, että tiedosto luetaan oikein ja l
     int montako = 3;                                        // testattavien nimien ja määrien määrä
 
     luoTiedosto(TEST_TIEDOSTO, nimet, luvut, montako); // luodaan testitiedosto
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO);
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO);
 
     TEST_ASSERT_NOT_NULL(lista);
     TEST_ASSERT_EQUAL_INT(montako, laskeSolmut(lista)); // tarkistetaan, että listassa on odotettu määrä solmuja
 
-    SUKUNIMI *ptr = lista;
+    LISTNODE *ptr = lista;
     for (int i = 0; i < montako; i++) // tarkistetaan, että nimet ja määrät on luettu oikein ja solmut on linkitetty oikeassa järjestyksessä
     {
-        TEST_ASSERT_EQUAL_STRING(nimet[i], ptr->aSukunimi);
+        TEST_ASSERT_EQUAL_STRING(nimet[i], ptr->aNimi);
         TEST_ASSERT_EQUAL_INT(luvut[i], ptr->iMaara);
         ptr = ptr->pSeuraava;
     }
@@ -105,7 +105,7 @@ void KirjoitusTesti(void)
     int montako = 5;
 
     luoTiedosto(TEST_TIEDOSTO, nimet, luvut, montako); // luodaan testitiedosto
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO);      // luetaan tiedosto linked-listaksi
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO);      // luetaan tiedosto linked-listaksi
 
     kirjoitaTiedostoAlkuLoppu(lista, TEST_TULOSTIEDOSTO); // kirjoitetaan lista tiedostoon alusta loppuun
 
@@ -147,13 +147,13 @@ void TestiMuistinHallinta(void) //  Testaa, että muisti vapautetaan oikein ja e
     int luvut[3] = {111, 222, 333};
 
     luoTiedosto(TEST_TIEDOSTO, nimet, luvut, 3); //  luodaan testitiedosto
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO);
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO);
     TEST_ASSERT_NOT_NULL(lista);
 
     lista = vapautaMuisti(lista);
     TEST_ASSERT_NULL(lista);
 
-    SUKUNIMI *tyhjaLista = NULL;
+    LISTNODE *tyhjaLista = NULL;
     tyhjaLista = vapautaMuisti(tyhjaLista);
     TEST_ASSERT_NULL(tyhjaLista);
 
@@ -180,7 +180,7 @@ void TestaaTapaukset(void) // Testaa erilaisia tapauksia, kuten sama nimi useamm
     fprintf(tiedosto, "Sukunimi;Maara\n");
     fclose(tiedosto);
 
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO);
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO);
     TEST_ASSERT_NULL(lista);
 
     char yksNimi[1][50] = {"Ainoa"}; // testin nimi ja määrä, jotka kirjoitetaan tiedostoon
@@ -190,7 +190,7 @@ void TestaaTapaukset(void) // Testaa erilaisia tapauksia, kuten sama nimi useamm
     lista = lueTiedosto(TEST_TIEDOSTO); // luetaan tiedosto linked-listaksi
     TEST_ASSERT_NOT_NULL(lista);
     TEST_ASSERT_EQUAL_INT(1, laskeSolmut(lista));
-    TEST_ASSERT_EQUAL_STRING("Ainoa", lista->aSukunimi); // tarkistetaan, että nimi ja määrä on odotettu
+    TEST_ASSERT_EQUAL_STRING("Ainoa", lista->aNimi); // tarkistetaan, että nimi ja määrä on odotettu
     TEST_ASSERT_EQUAL_INT(999, lista->iMaara);
     TEST_ASSERT_NULL(lista->pEdellinen); // tarkistetaan, että edellinen solmu on NULL, koska listalla on vain yksi solmu
     TEST_ASSERT_NULL(lista->pSeuraava);  // tarkistetaan, että seuraava solmu on NULL, koska listalla on vain yksi solmu
@@ -212,10 +212,10 @@ void TestaaTapaukset(void) // Testaa erilaisia tapauksia, kuten sama nimi useamm
     TEST_ASSERT_EQUAL_INT(3, laskeSolmut(lista)); // tarkistetaan, että listassa on odotettu määrä solmuja
 
     int samaMaara = 0;
-    SUKUNIMI *ptr = lista;
+    LISTNODE *ptr = lista;
     while (ptr != NULL) // kuljetaan listaa läpi ja lasketaan, kuinka monta kertaa sama nimi esiintyy
     {
-        if (strcmp(ptr->aSukunimi, "Sama") == 0) // tarkistetaan, että nimi on "Sama"
+        if (strcmp(ptr->aNimi, "Sama") == 0) // tarkistetaan, että nimi on "Sama"
             samaMaara++;
         ptr = ptr->pSeuraava;
     }
@@ -262,7 +262,7 @@ void TiedostonTyhjennysTesti(void) // Testaa, että tyhjennaTiedosto-funktio toi
     TEST_ASSERT_EQUAL_INT(EOF, ekaMerkki); // tarkistetaan, että tiedostossa ei ole rivejä tyhjennyksen jälkeen
     fclose(tiedosto);
 
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO); // tarkistetaan, että tyhjennettyä tiedostoa voidaan lukea ilman ongelmia, eli että lista on NULL
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO); // tarkistetaan, että tyhjennettyä tiedostoa voidaan lukea ilman ongelmia, eli että lista on NULL
     TEST_ASSERT_NULL(lista);
 }
 
@@ -273,17 +273,17 @@ void testaaLaskevaJarjestys(void)
     int iRivit = 5;
 
     luoTiedosto(TEST_TIEDOSTO, aNimi, aMaara, iRivit);
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
 
     lista = lajitteleLaskeva(lista);
 
     int aOdotettuMaara[5] = {40, 30, 20, 10, 10};
     char aOdotettuNimi[5][10] = {"D", "E", "A", "C", "B"};
-    SUKUNIMI *ptr = lista;
+    LISTNODE *ptr = lista;
     for (int i = 0; i < iRivit; i++)
     { // käydään lista läpi ja verrataan odotetut arvot toteutuneisiin arvoihin
         TEST_ASSERT_EQUAL_INT(aOdotettuMaara[i], ptr->iMaara);
-        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aSukunimi);
+        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aNimi);
         ptr = ptr->pSeuraava;
     }
     vapautaMuisti(lista);
@@ -296,17 +296,17 @@ void testaaNousevaJarjestys(void)
     int iRivit = 5;
 
     luoTiedosto(TEST_TIEDOSTO, aNimi, aMaara, iRivit);
-    SUKUNIMI *lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
+    LISTNODE *lista = lueTiedosto(TEST_TIEDOSTO); // luetaan testitiedosto ja luodaan lista
 
     lista = lajitteleNouseva(lista);
 
     int aOdotettuMaara[5] = {10, 10, 20, 30, 40};
     char aOdotettuNimi[5][10] = {"B", "C", "A", "E", "D"};
-    SUKUNIMI *ptr = lista;
+    LISTNODE *ptr = lista;
     for (int i = 0; i < iRivit; i++)
     { // käydään lista läpi ja verrataan odotetut arvot toteutuneisiin arvoihin
         TEST_ASSERT_EQUAL_INT(aOdotettuMaara[i], ptr->iMaara);
-        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aSukunimi);
+        TEST_ASSERT_EQUAL_STRING(aOdotettuNimi[i], ptr->aNimi);
         ptr = ptr->pSeuraava;
     }
     vapautaMuisti(lista);
@@ -314,13 +314,13 @@ void testaaNousevaJarjestys(void)
 
 void TestiLisaaAlkuun(void)
 {
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
     lista = lisaaListaan(lista, 1, "A", 10); // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
     lista = lisaaListaan(lista, 1, "B", 20);
     TEST_ASSERT_EQUAL_INT(2, laskeSolmut(lista));    // tarkistetaan, että listassa on odotettu määrä solmuja
-    TEST_ASSERT_EQUAL_STRING("B", lista->aSukunimi); // tarkistetaan, että uusi solmu on lisätty listan alkuun, eli että ensimmäisellä solmulla on odotettu nimi ja määrä
+    TEST_ASSERT_EQUAL_STRING("B", lista->aNimi); // tarkistetaan, että uusi solmu on lisätty listan alkuun, eli että ensimmäisellä solmulla on odotettu nimi ja määrä
     TEST_ASSERT_EQUAL_INT(20, lista->iMaara);
-    TEST_ASSERT_EQUAL_STRING("A", lista->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_STRING("A", lista->pSeuraava->aNimi);
     TEST_ASSERT_EQUAL_INT(10, lista->pSeuraava->iMaara);
     TEST_ASSERT_TRUE(tarkistaLista(lista)); // tarkistetaan, että lista on linkitetty oikein
     vapautaMuisti(lista);
@@ -328,14 +328,14 @@ void TestiLisaaAlkuun(void)
 
 void TestiLisaaLoppuun(void)
 {
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
     lista = lisaaListaan(lista, 1, "A", 10);  // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
     lista = lisaaListaan(lista, 2, "B", 20);  // lisätään toinen solmu listaan, jPassa on samalla loppupiste
     lista = lisaaListaan(lista, 10, "C", 30); //
     TEST_ASSERT_EQUAL_INT(3, laskeSolmut(lista));
-    TEST_ASSERT_EQUAL_STRING("A", lista->aSukunimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä
-    TEST_ASSERT_EQUAL_STRING("B", lista->pSeuraava->aSukunimi);
-    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_STRING("A", lista->aNimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä
+    TEST_ASSERT_EQUAL_STRING("B", lista->pSeuraava->aNimi);
+    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->pSeuraava->aNimi);
     TEST_ASSERT_NULL(lista->pSeuraava->pSeuraava->pSeuraava);
     TEST_ASSERT_TRUE(tarkistaLista(lista));
     vapautaMuisti(lista);
@@ -343,14 +343,14 @@ void TestiLisaaLoppuun(void)
 
 void TestiPoista(void)
 {
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
     lista = lisaaListaan(lista, 1, "A", 10); // lisätään ensimmäinen solmu listaan, jPassa on samalla alkupiste
     lista = lisaaListaan(lista, 2, "B", 20); // lisätään toinen solmu listaan, jPassa on samalla loppupiste
     lista = lisaaListaan(lista, 3, "C", 30);
     lista = poistaAlkioNimi("B", lista);
     TEST_ASSERT_EQUAL_INT(2, laskeSolmut(lista));    // tarkistetaan, että listassa on odotettu määrä solmuja poiston jälkeen
-    TEST_ASSERT_EQUAL_STRING("A", lista->aSukunimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä poiston jälkeen
-    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->aSukunimi);
+    TEST_ASSERT_EQUAL_STRING("A", lista->aNimi); // tarkistetaan, että ensimmäisellä solmulla on odotettu nimi ja määrä poiston jälkeen
+    TEST_ASSERT_EQUAL_STRING("C", lista->pSeuraava->aNimi);
     TEST_ASSERT_EQUAL_INT(10, lista->iMaara);
     TEST_ASSERT_EQUAL_INT(30, lista->pSeuraava->iMaara);
     TEST_ASSERT_EQUAL_PTR(lista, lista->pSeuraava->pEdellinen);
@@ -362,7 +362,7 @@ void TestiPoista(void)
 void TestiLukuLajitteluKirjoitus() // integraatio testi 1
                                    // Testaa, että tiedosto luetaan, lajitellaan nousevaan järjestykseen ja kirjoitetaan odotetulla tavalla
 {
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
     lista = lueTiedosto("data/miehet_15.txt");
 
     if (lista == NULL) // tarkistetaan, että tiedosto on luettu onnistuneesti
@@ -393,7 +393,7 @@ void TestiLukuLajitteluKirjoitus() // integraatio testi 1
 void TestiLisäys()
 { // integraatio testi 2
   // Testaa, että listaan voidaan lisätä uusi solmu odotetulla tavalla ja että lista kirjoitetaan odotetulla tavalla
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
 
     lista = lueTiedosto("data/miehet_15.txt");
 
@@ -421,7 +421,7 @@ void TestiLisäys()
 void TestiPoisto()
 { // integraatio testi 3
   // Testaa, että listasta voidaan poistaa solmu odotetulla tavalla ja että lista kirjoitetaan odotetulla tavalla
-    SUKUNIMI *lista = NULL;
+    LISTNODE *lista = NULL;
 
     lista = lueTiedosto("data/miehet_15.txt");
 
@@ -456,7 +456,7 @@ void TestiPoisto()
 void TestiReverseKirjoitus()
 { // integraatio testi 4
     // Testaa, että lista kirjoitetaan odotetulla tavalla lopusta alkuun
-    SUKUNIMI *lista = lueTiedosto("data/miehet_15.txt");
+    LISTNODE *lista = lueTiedosto("data/miehet_15.txt");
 
     kirjoitaTiedostoLoppuAlku(lista, "testOut4.txt");
 

@@ -18,7 +18,7 @@ int linkedlistValikko(void) {
     char aTiedostoNimi[40];
     char aNimi[LEN_SUKUNIMI];
     int iMaara = 0;
-    SUKUNIMI *pAlku = NULL; // alustetaan pointerit NULL
+    LISTNODE *pAlku = NULL; // alustetaan pointerit NULL
 
     do {
         iValinta = valikko();
