@@ -5,7 +5,7 @@
 #include "linkedlistValikko.h"
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
-#define LEN_SUKUNIMI 30 // max sukunimi pituus
+#define LEN_NIMI 30 // max sukunimi pituus
 
 /// @brief Apufunktio joka tulostaa toiminnot ja antaa käyttäjän valita (0-5)
 static int valikko(void);
@@ -16,7 +16,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]);
 int linkedlistValikko(void) {
     int iValinta = -1;
     char aTiedostoNimi[40];
-    char aNimi[LEN_SUKUNIMI];
+    char aNimi[LEN_NIMI];
     int iMaara = 0;
     LISTNODE *pAlku = NULL; // alustetaan pointerit NULL
 
@@ -51,7 +51,7 @@ int linkedlistValikko(void) {
             printf("Lista lajiteltu laskevasti.\n");
             printf("\n");
         } else if (iValinta == 7) {
-            char nimi[LEN_SUKUNIMI];
+            char nimi[LEN_NIMI];
             int maara = 0;
             int kohta = 0;
         
@@ -110,7 +110,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
     if (strstr(aSyote, "luettavan") != NULL) {
         strcpy(aTiedostoNimi, "data/miehet_15.txt");
     } else { // kirjoitustiedosto
-        strcpy(aTiedostoNimi, "debug.txt");
+        strcpy(aTiedostoNimi, "debug_lista.txt");
     }
     printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
     #else

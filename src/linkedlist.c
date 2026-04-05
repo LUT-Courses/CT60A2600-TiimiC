@@ -4,7 +4,7 @@
 #include "linkedlist.h"
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
-#define LEN_SUKUNIMI 30 // max sukunimi pituus
+#define LEN_NIMI 30 // max sukunimi pituus
 
 /// @brief Apufunktio, varaa muisti uudelle structille (LISTNODE)
 static LISTNODE* varaaMuisti(void);
@@ -215,7 +215,7 @@ static LISTNODE* mergeSortLaskeva_yhdista(LISTNODE *pVasen, LISTNODE *pOikea) {
 LISTNODE* lajitteleNouseva(LISTNODE *pAlku) {
     int iVaihtoTehty = 0;
     LISTNODE *ptr = NULL;
-    char aApuNimi[LEN_SUKUNIMI];
+    char aApuNimi[LEN_NIMI];
     int iApuMaara = 0;
 
     if (pAlku == NULL || pAlku->pSeuraava == NULL) {
@@ -323,6 +323,12 @@ LISTNODE* poistaAlkioMaara(int iMaara, LISTNODE* pAlku) {
     return (pAlku);
 }
 
+/// @brief Lisää uuden alkion linkitettyyn listaan määritettyyn kohtaan
+/// @param alku Osoitin listan ensimmäiseen alkioon (NULL jos lista on tyhjä)
+/// @param kohta Positio jossa alkio lisätään (1 = listan alku)
+/// @param nimi Lisättävän alkion nimi (merkkijono)
+/// @param maara Lisättävän alkion määrä(arvo) (kokonaisluku)
+/// @return Palauttaa osoittimen listan alkuun (joka voi muuttua jos lisätään alkuun)
 LISTNODE* lisaaListaan(LISTNODE *alku, int kohta, char nimi[], int maara) {
     kohta--; //jotta indexi saadaan 0 pohjaiseksi
     LISTNODE *uusi = varaaMuisti(); // varataan muisti uudelle structille

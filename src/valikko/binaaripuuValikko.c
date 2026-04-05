@@ -14,7 +14,7 @@ int binaaripuuValikko(void) {
     int iValinta = -1;
     int iArvo = 0;
     char aTiedostoNimi[40];
-    char aNimi[LEN_SUKUNIMI];
+    char aNimi[LEN_NIMI];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
     do {
@@ -93,7 +93,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
     if (strstr(aSyote, "luettavan") != NULL) {
         strcpy(aTiedostoNimi, "data/miehet_15.txt");
     } else { // kirjoitustiedosto
-        strcpy(aTiedostoNimi, "debug.txt");
+        strcpy(aTiedostoNimi, "debug_puu.txt");
     }
     printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
     #else
