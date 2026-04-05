@@ -57,7 +57,7 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         }
         
         pUusi = varaaMuisti();
-        strcpy(pUusi->aSukunimi, p1);
+        strcpy(pUusi->aNimi, p1);
         pUusi->iMaara = atoi(p2);
         pUusi->pVasenChild = NULL;
         pUusi->pOikeaChild = NULL;
@@ -78,9 +78,9 @@ BTREENODE* btree_lueTiedosto(char aTiedostoNimi[]) {
         pJuuri->pVasenChild = lisaaPuuhun(pJuuri->pVasenChild, pUusi);
     } else if (pUusi->iMaara > pJuuri->iMaara) {
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
-    } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla
+    } else if (strcmp(pUusi->aNimi, pJuuri->aNimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla
         pJuuri->pVasenChild = lisaaPuuhun(pJuuri->pVasenChild, pUusi);
-    } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
+    } else if ( (strcmp(pUusi->aNimi, pJuuri->aNimi) > 0 )||(strcmp(pUusi->aNimi, pJuuri->aNimi) == 0 ) )  { // duplikaatit oikealle
         pJuuri->pOikeaChild = lisaaPuuhun(pJuuri->pOikeaChild, pUusi);
     }
     return (pJuuri);
@@ -132,9 +132,9 @@ static int dfsHaku(FILE *Tiedosto, int iArvo, BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return (0); }
     // nykyinen node
-    fprintf(Tiedosto, "%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    fprintf(Tiedosto, "%s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
     if (pJuuri->iMaara == iArvo) {
-        printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+        printf("Löydetty: %s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
         return (1); }
 
     // Vasen child
@@ -171,10 +171,10 @@ void btree_bfsHakuNimellaKirjoita(char aTiedostoNimi[], char aNimi[], BTREENODE 
 
     while (pAlku != NULL) {
         pNykyinen = jonostaPoista(&pAlku, &pLoppu);
-        fprintf(Tiedosto, "%s,%d\n", pNykyinen->aSukunimi, pNykyinen->iMaara);
+        fprintf(Tiedosto, "%s,%d\n", pNykyinen->aNimi, pNykyinen->iMaara);
 
-        if (strcmp(pNykyinen->aSukunimi, aNimi) == 0) {
-            printf("Löydetty: %s,%d\n", pNykyinen->aSukunimi, pNykyinen->iMaara);
+        if (strcmp(pNykyinen->aNimi, aNimi) == 0) {
+            printf("Löydetty: %s,%d\n", pNykyinen->aNimi, pNykyinen->iMaara);
             iLoydetty = 1;
             break;
         }
@@ -247,7 +247,7 @@ void btree_tulostaPuu(BTREENODE *pJuuri) {
     if (pJuuri == NULL) {
         return;
     }
-    printf("%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    printf("%s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
     btree_tulostaPuu(pJuuri->pVasenChild);
     btree_tulostaPuu(pJuuri->pOikeaChild);
     return;
@@ -269,7 +269,7 @@ static void btree_kirjoitaSyvyys(BTREENODE *pJuuri, FILE *Tiedosto) {
     if (pJuuri == NULL) {
         return;
     }
-    fprintf(Tiedosto, "%s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+    fprintf(Tiedosto, "%s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
     btree_kirjoitaSyvyys(pJuuri->pVasenChild, Tiedosto);
     
     btree_kirjoitaSyvyys(pJuuri->pOikeaChild, Tiedosto);
@@ -290,9 +290,9 @@ BTREENODE* lisaaPuuhunAVL(BTREENODE *pJuuri, BTREENODE *pUusi) {
         pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi); 
     } else if (pUusi->iMaara > pJuuri->iMaara) { // uuden noden määrä isompi, menee oikea
         pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
-    } else if (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla (ensin tulevan vasemmalle)
+    } else if (strcmp(pUusi->aNimi, pJuuri->aNimi) < 0) { // jos sama maara nimiä niin verrataan aakkosilla (ensin tulevan vasemmalle)
         pJuuri->pVasenChild = lisaaPuuhunAVL(pJuuri->pVasenChild, pUusi);
-    } else if ( (strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) > 0 )||(strcmp(pUusi->aSukunimi, pJuuri->aSukunimi) == 0 ) )  { // duplikaatit oikealle
+    } else if ( (strcmp(pUusi->aNimi, pJuuri->aNimi) > 0 )||(strcmp(pUusi->aNimi, pJuuri->aNimi) == 0 ) )  { // duplikaatit oikealle
         pJuuri->pOikeaChild = lisaaPuuhunAVL(pJuuri->pOikeaChild, pUusi);
     }
     paivitaKorkeus(pJuuri); // päivitetään nykyisen noden korkeus
@@ -400,12 +400,12 @@ BTREENODE* btree_poistaNodePohjaNimi(char aNimi[], BTREENODE* pJuuri) {
     if (pJuuri == NULL) {
         return (NULL); }
 
-    //printf("[DEBUG] Tarkistetaan: %s vs %s ", pJuuri->aSukunimi, aNimi);
-    //printf("%s, %s\n",pJuuri->pVasenChild->aSukunimi, pJuuri->pOikeaChild->aSukunimi);
+    //printf("[DEBUG] Tarkistetaan: %s vs %s ", pJuuri->aNimi, aNimi);
+    //printf("%s, %s\n",pJuuri->pVasenChild->aNimi, pJuuri->pOikeaChild->aNimi);
     
-    if (strcmp(pJuuri->aSukunimi, aNimi) == 0) {
+    if (strcmp(pJuuri->aNimi, aNimi) == 0) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
-            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            printf("Löydetty: %s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
             free(pJuuri); // vapautetaan muisti
             return (NULL);
         }
@@ -443,7 +443,7 @@ BTREENODE* btree_poistaNodePohjaArvo(int iArvo, BTREENODE* pJuuri) {
 
     if (pJuuri->iMaara == iArvo) {
         if (pJuuri->pVasenChild == NULL && pJuuri->pOikeaChild == NULL) { // tarkistetaan onko pohjimmaisin (ei childeja)
-            printf("Löydetty: %s,%d\n", pJuuri->aSukunimi, pJuuri->iMaara);
+            printf("Löydetty: %s,%d\n", pJuuri->aNimi, pJuuri->iMaara);
             free(pJuuri); // vapautetaan muisti
             return (NULL);
         }
