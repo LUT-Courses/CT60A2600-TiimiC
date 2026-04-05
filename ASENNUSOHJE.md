@@ -22,14 +22,12 @@ Tämä dokumentti opastaa sinua projektin asentamisesta, kääntämisestä ja k�
 Tämä C-projekti implementoi kaksi keskeistä tietorakennetta:
 
 ### **Linkitetty lista (Doubly Linked List)**
-- Kahteen suuntaan linkitetty lista sukunimille ja niiden määrille
+- Kahteen suuntaan linkitetty lista nimille ja niiden määrille
 - Toiminnot: tiedoston lukeminen/kirjoitus, lajittelu (nouseva/laskeva), lisääminen, poistaminen
-- Käytetään bubble sort -algoritmia lajitteluun
 
 ### **Binääripuu (Binary Search Tree)**
 - Tasapainotettu binäärihakupuu
 - Toiminnot: tiedoston lukeminen/kirjoitus, syvyyshaku (DFS), leveyhaku (BFS), poistaminen
-- Tulee muistista vapautettua ohjelman lopuksi
 
 ---
 
@@ -57,7 +55,7 @@ dot -V # graphvizin työkalu
 
 ---
 
-## � Pikaopas
+## 🔥 Pikaopas
 
 Tässä tärkeimmät komennot:
 
@@ -67,7 +65,7 @@ Tässä tärkeimmät komennot:
 git clone --recurse-submodules git@github.com:LUT-Courses/CT60A2600-TiimiC.git
 
 # Vaihtoehto B: HTTPS-tunnistautuminen
-git clone --recurse-submodules https://github.com/LUT-Courses/CT60A2600-TiimiC.git 
+git clone --recurse-submodules https://käyttäjänimi@github.com/LUT-Courses/CT60A2600-TiimiC.git 
 
 cd CT60A2600-TiimiC
 
@@ -88,7 +86,7 @@ Lisätiedot: Katso [Kloonaus ja asennus](#kloonaus-ja-asennus) tai [Vianmäärit
 
 ---
 
-## �💾 Kloonaus ja asennus
+## 💾 Kloonaus ja asennus
 
 ### 1. Kloonaa repositorio (sisältää Unityn)
 
@@ -386,7 +384,7 @@ sudo apt install make
 
 # macOS
 brew install make
-
+```
 
 ### Ongelma: Testit epäonnistuvat
 
