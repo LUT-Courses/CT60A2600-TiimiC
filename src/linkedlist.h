@@ -1,10 +1,10 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#define LEN_SUKUNIMI 30
+#define LEN_NIMI 30
 
 typedef struct listNode {
-    char aNimi[LEN_SUKUNIMI];
+    char aNimi[LEN_NIMI];
     int iMaara;
     struct listNode *pSeuraava;
     struct listNode *pEdellinen;

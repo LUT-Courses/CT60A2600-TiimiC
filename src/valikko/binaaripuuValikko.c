@@ -14,7 +14,7 @@ int binaaripuuValikko(void) {
     int iValinta = -1;
     int iArvo = 0;
     char aTiedostoNimi[40];
-    char aNimi[LEN_SUKUNIMI];
+    char aNimi[LEN_NIMI];
     BTREENODE *pJuuri = NULL; // alustetaan puun juuri NULL
     
     do {

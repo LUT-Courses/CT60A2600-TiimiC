@@ -1,10 +1,10 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-#define LEN_SUKUNIMI 30
+#define LEN_NIMI 30
 
 typedef struct btreeNode {
-    char aNimi[LEN_SUKUNIMI];
+    char aNimi[LEN_NIMI];
     int iMaara;
     int iKorkeus;
     struct btreeNode *pVasenChild; // pointteri vasempaan lapseen

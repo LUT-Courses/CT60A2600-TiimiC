@@ -4,7 +4,7 @@
 #include "linkedlist.h"
 
 #define LEN_RIVI 40 // max rivi pituus tiedostossa
-#define LEN_SUKUNIMI 30 // max sukunimi pituus
+#define LEN_NIMI 30 // max sukunimi pituus
 
 /// @brief Apufunktio, varaa muisti uudelle structille (LISTNODE)
 static LISTNODE* varaaMuisti(void);
@@ -215,7 +215,7 @@ static LISTNODE* mergeSortLaskeva_yhdista(LISTNODE *pVasen, LISTNODE *pOikea) {
 LISTNODE* lajitteleNouseva(LISTNODE *pAlku) {
     int iVaihtoTehty = 0;
     LISTNODE *ptr = NULL;
-    char aApuNimi[LEN_SUKUNIMI];
+    char aApuNimi[LEN_NIMI];
     int iApuMaara = 0;
 
     if (pAlku == NULL || pAlku->pSeuraava == NULL) {
