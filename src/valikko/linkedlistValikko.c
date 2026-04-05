@@ -110,7 +110,7 @@ static void kysyTiedostoNimi(char aTiedostoNimi[], char aSyote[]) {
     if (strstr(aSyote, "luettavan") != NULL) {
         strcpy(aTiedostoNimi, "data/miehet_15.txt");
     } else { // kirjoitustiedosto
-        strcpy(aTiedostoNimi, "debug.txt");
+        strcpy(aTiedostoNimi, "debug_lista.txt");
     }
     printf("[DEBUG] %s%s\n", aSyote, aTiedostoNimi);
     #else
