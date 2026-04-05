@@ -65,7 +65,7 @@ Tässä tärkeimmät komennot:
 git clone --recurse-submodules git@github.com:LUT-Courses/CT60A2600-TiimiC.git
 
 # Vaihtoehto B: HTTPS-tunnistautuminen
-git clone --recurse-submodules https://github.com/LUT-Courses/CT60A2600-TiimiC.git 
+git clone --recurse-submodules https://käyttäjänimi@github.com/LUT-Courses/CT60A2600-TiimiC.git 
 
 cd CT60A2600-TiimiC
 
