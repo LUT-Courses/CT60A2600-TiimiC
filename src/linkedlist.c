@@ -323,6 +323,12 @@ LISTNODE* poistaAlkioMaara(int iMaara, LISTNODE* pAlku) {
     return (pAlku);
 }
 
+/// @brief Lisää uuden alkion linkitettyyn listaan määritettyyn kohtaan
+/// @param alku Osoitin listan ensimmäiseen alkioon (NULL jos lista on tyhjä)
+/// @param kohta Positio jossa alkio lisätään (1 = listan alku)
+/// @param nimi Lisättävän alkion nimi (merkkijono)
+/// @param maara Lisättävän alkion määrä(arvo) (kokonaisluku)
+/// @return Palauttaa osoittimen listan alkuun (joka voi muuttua jos lisätään alkuun)
 LISTNODE* lisaaListaan(LISTNODE *alku, int kohta, char nimi[], int maara) {
     kohta--; //jotta indexi saadaan 0 pohjaiseksi
     LISTNODE *uusi = varaaMuisti(); // varataan muisti uudelle structille
