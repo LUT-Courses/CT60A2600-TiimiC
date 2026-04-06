@@ -55,7 +55,7 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ pUusi\ =\ \mbox{\hyperlink{binarytree_8c_a09525fb5b36993e1523143ebf90c0c5a}{varaaMuisti}}();}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ p1);}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ p1);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}}\ =\ atoi(p2);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}}\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}}\ =\ NULL;}
@@ -76,9 +76,9 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ pJuuri-\/>pVasenChild\ =\ lisaaPuuhun(pJuuri-\/>pVasenChild,\ pUusi);}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \}\ else\ if\ (pUusi-\/>iMaara\ >\ pJuuri-\/>iMaara)\ \{}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ pJuuri-\/>pOikeaChild\ =\ lisaaPuuhun(pJuuri-\/>pOikeaChild,\ pUusi);}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \}\ else\ if\ (strcmp(pUusi-\/>aSukunimi,\ pJuuri-\/>aSukunimi)\ <\ 0)\ \{\ //\ jos\ sama\ maara\ nimiä\ niin\ verrataan\ aakkosilla}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \}\ else\ if\ (strcmp(pUusi-\/>aNimi,\ pJuuri-\/>aNimi)\ <\ 0)\ \{\ //\ jos\ sama\ maara\ nimiä\ niin\ verrataan\ aakkosilla}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ pJuuri-\/>pVasenChild\ =\ lisaaPuuhun(pJuuri-\/>pVasenChild,\ pUusi);}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \}\ else\ if\ (\ (strcmp(pUusi-\/>aSukunimi,\ pJuuri-\/>aSukunimi)\ >\ 0\ )||(strcmp(pUusi-\/>aSukunimi,\ pJuuri-\/>aSukunimi)\ ==\ 0\ )\ )\ \ \{\ //\ duplikaatit\ oikealle}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \}\ else\ if\ (\ (strcmp(pUusi-\/>aNimi,\ pJuuri-\/>aNimi)\ >\ 0\ )||(strcmp(pUusi-\/>aNimi,\ pJuuri-\/>aNimi)\ ==\ 0\ )\ )\ \ \{\ //\ duplikaatit\ oikealle}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ pJuuri-\/>pOikeaChild\ =\ lisaaPuuhun(pJuuri-\/>pOikeaChild,\ pUusi);}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \}}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00086}00086\ \textcolor{comment}{\ \ \ \ return\ (pJuuri);}}
@@ -125,9 +125,9 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (0);\ \}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ nykyinen\ node}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00135}00135\ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00135}00135\ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}}\ ==\ iArvo)\ \{}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1);\ \}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00139}00139\ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ Vasen\ child}}
@@ -160,10 +160,10 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00171}00171\ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{while}\ (pAlku\ !=\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ pNykyinen\ =\ \mbox{\hyperlink{binarytree_8c_ace98d3281dfee4e458379e3dcd7c933f}{jonostaPoista}}(\&pAlku,\ \&pLoppu);}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00175}00175\ }
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ aNimi)\ ==\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ aNimi)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pNykyinen-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ iLoydetty\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \}}
@@ -234,7 +234,7 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00249}00249\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00250}00250\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00250}00250\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00251}00251\ \ \ \ \ \mbox{\hyperlink{binarytree_8c_a4a476611311f961967c6b360bb7593a9}{btree\_tulostaPuu}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00252}00252\ \ \ \ \ \mbox{\hyperlink{binarytree_8c_a4a476611311f961967c6b360bb7593a9}{btree\_tulostaPuu}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00253}00253\ \ \ \ \ \textcolor{keywordflow}{return};}
@@ -254,7 +254,7 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00271}00271\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00272}00272\ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00272}00272\ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00273}00273\ \ \ \ \ \mbox{\hyperlink{binarytree_8c_a2b8d5577b536ebfe0e72b185e55f671f}{btree\_kirjoitaSyvyys}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}},\ Tiedosto);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00274}00274\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00275}00275\ \ \ \ \ \mbox{\hyperlink{binarytree_8c_a2b8d5577b536ebfe0e72b185e55f671f}{btree\_kirjoitaSyvyys}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}},\ Tiedosto);}
@@ -271,9 +271,9 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}}\ =\ \mbox{\hyperlink{binarytree_8c_a9e3333cd50b3e847d4a95edc29e55b9c}{lisaaPuuhunAVL}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}},\ pUusi);\ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00291}00291\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pUusi-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}}\ >\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}})\ \{\ \textcolor{comment}{//\ uuden\ noden\ määrä\ isompi,\ menee\ oikea}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}}\ =\ \mbox{\hyperlink{binarytree_8c_a9e3333cd50b3e847d4a95edc29e55b9c}{lisaaPuuhunAVL}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}},\ pUusi);}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00293}00293\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}})\ <\ 0)\ \{\ \textcolor{comment}{//\ jos\ sama\ maara\ nimiä\ niin\ verrataan\ aakkosilla\ (ensin\ tulevan\ vasemmalle)}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00293}00293\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}})\ <\ 0)\ \{\ \textcolor{comment}{//\ jos\ sama\ maara\ nimiä\ niin\ verrataan\ aakkosilla\ (ensin\ tulevan\ vasemmalle)}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}}\ =\ \mbox{\hyperlink{binarytree_8c_a9e3333cd50b3e847d4a95edc29e55b9c}{lisaaPuuhunAVL}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}},\ pUusi);}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00295}00295\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ (strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}})\ >\ 0\ )||(strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}})\ ==\ 0\ )\ )\ \ \{\ \textcolor{comment}{//\ duplikaatit\ oikealle}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00295}00295\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ (strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}})\ >\ 0\ )||(strcmp(pUusi-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}})\ ==\ 0\ )\ )\ \ \{\ \textcolor{comment}{//\ duplikaatit\ oikealle}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}}\ =\ \mbox{\hyperlink{binarytree_8c_a9e3333cd50b3e847d4a95edc29e55b9c}{lisaaPuuhunAVL}}(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}},\ pUusi);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00297}00297\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00298}00298\ \ \ \ \ \mbox{\hyperlink{binarytree_8c_af3599c38937214370da0636fb463149e}{paivitaKorkeus}}(pJuuri);\ \textcolor{comment}{//\ päivitetään\ nykyisen\ noden\ korkeus}}
@@ -368,12 +368,12 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00400}00400\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);\ \}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00402}00402\ }
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00403}00403\ \ \ \ \ \textcolor{comment}{//printf("{}[DEBUG]\ Tarkistetaan:\ \%s\ vs\ \%s\ "{},\ pJuuri-\/>aSukunimi,\ aNimi);}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00404}00404\ \ \ \ \ \textcolor{comment}{//printf("{}\%s,\ \%s\(\backslash\)n"{},pJuuri-\/>pVasenChild-\/>aSukunimi,\ pJuuri-\/>pOikeaChild-\/>aSukunimi);}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00403}00403\ \ \ \ \ \textcolor{comment}{//printf("{}[DEBUG]\ Tarkistetaan:\ \%s\ vs\ \%s\ "{},\ pJuuri-\/>aNimi,\ aNimi);}}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00404}00404\ \ \ \ \ \textcolor{comment}{//printf("{}\%s,\ \%s\(\backslash\)n"{},pJuuri-\/>pVasenChild-\/>aNimi,\ pJuuri-\/>pOikeaChild-\/>aNimi);}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00405}00405\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00406}00406\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ aNimi)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00406}00406\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ aNimi)\ ==\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}}\ ==\ NULL\ \&\&\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ tarkistetaan\ onko\ pohjimmaisin\ (ei\ childeja)}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ free(pJuuri);\ \textcolor{comment}{//\ vapautetaan\ muisti}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \}}
@@ -408,7 +408,7 @@
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00443}00443\ }
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00444}00444\ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}}\ ==\ iArvo)\ \{}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pJuuri-\/>\mbox{\hyperlink{structbtreeNode_ae6464b8ffbe237b2465dc6db19afb749}{pVasenChild}}\ ==\ NULL\ \&\&\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a42eca438d0663be01dd3270407f8160a}{pOikeaChild}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ tarkistetaan\ onko\ pohjimmaisin\ (ei\ childeja)}}
-\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a38058c50258b5cb4a3d696e2b12ccbc3}{aSukunimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Löydetty:\ \%s,\%d\(\backslash\)n"{}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a756ef645c08b0e537c3344c98bcb0c7e}{aNimi}},\ pJuuri-\/>\mbox{\hyperlink{structbtreeNode_a2ec00dcf9c521e44e70b237bd5406ee1}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ free(pJuuri);\ \textcolor{comment}{//\ vapautetaan\ muisti}}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
 \DoxyCodeLine{\Hypertarget{binarytree_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \}}

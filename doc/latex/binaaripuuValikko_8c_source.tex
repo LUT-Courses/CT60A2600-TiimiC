@@ -16,7 +16,7 @@
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ iValinta\ =\ -\/1;}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ iArvo\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{char}\ aTiedostoNimi[40];}
-\DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{char}\ aNimi[\mbox{\hyperlink{binarytree_8h_aac38d06fc83e76745b2104b189ca3d9c}{LEN\_SUKUNIMI}}];}
+\DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{char}\ aNimi[\mbox{\hyperlink{binarytree_8h_af892cbd14d835cd05ae2b8c5bf73d9c7}{LEN\_NIMI}}];}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{structbtreeNode}{BTREENODE}}\ *pJuuri\ =\ NULL;\ \textcolor{comment}{//\ alustetaan\ puun\ juuri\ NULL}}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00019}00019\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
@@ -95,7 +95,7 @@
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (strstr(aSyote,\ \textcolor{stringliteral}{"{}luettavan"{}})\ !=\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ strcpy(aTiedostoNimi,\ \textcolor{stringliteral}{"{}data/miehet\_15.txt"{}});}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00095}00095\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ kirjoitustiedosto}}
-\DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ strcpy(aTiedostoNimi,\ \textcolor{stringliteral}{"{}debug.txt"{}});}
+\DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ strcpy(aTiedostoNimi,\ \textcolor{stringliteral}{"{}debug\_puu.txt"{}});}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00097}00097\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00098}00098\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[DEBUG]\ \%s\%s\(\backslash\)n"{}},\ aSyote,\ aTiedostoNimi);}
 \DoxyCodeLine{\Hypertarget{binaaripuuValikko_8c_source_l00099}00099\ \textcolor{preprocessor}{\ \ \ \ \#else}}

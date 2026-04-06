@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tarkistakorkeus_0',['tarkistaKorkeus',['../binarytree_8c.html#a48b738efd665bfd0fad57bfd53a3d51d',1,'binarytree.c']]],
-  ['tarkistatasapaino_1',['tarkistaTasapaino',['../binarytree_8c.html#a5fbf2d3ff268bfd0b0150f6124628551',1,'binarytree.c']]],
-  ['tyhjennatiedosto_2',['tyhjennatiedosto',['../linkedlist_8c.html#a89168600b76d2d8444d4ad67965d6a29',1,'tyhjennaTiedosto(char aTiedostoNimi[]):&#160;linkedlist.c'],['../linkedlist_8h.html#a89168600b76d2d8444d4ad67965d6a29',1,'tyhjennaTiedosto(char aTiedostoNimi[]):&#160;linkedlist.c']]]
+  ['valikko_0',['valikko',['../binaaripuuValikko_8c.html#a667165b6bc26391019d05a4727721499',1,'valikko(void):&#160;binaaripuuValikko.c'],['../linkedlistValikko_8c.html#a667165b6bc26391019d05a4727721499',1,'valikko(void):&#160;linkedlistValikko.c']]],
+  ['vapautamuisti_1',['vapautamuisti',['../linkedlist_8c.html#a559f156cf32938c5039497626578cc56',1,'vapautaMuisti(LISTNODE *pAlku):&#160;linkedlist.c'],['../linkedlist_8h.html#a559f156cf32938c5039497626578cc56',1,'vapautaMuisti(LISTNODE *pAlku):&#160;linkedlist.c']]],
+  ['varaamuisti_2',['varaamuisti',['../binarytree_8c.html#a09525fb5b36993e1523143ebf90c0c5a',1,'varaaMuisti(void):&#160;binarytree.c'],['../linkedlist_8c.html#a3f30387d1d18c03fc042559baf2ef3c1',1,'varaaMuisti(void):&#160;linkedlist.c']]]
 ];

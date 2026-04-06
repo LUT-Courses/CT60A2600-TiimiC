@@ -8,19 +8,19 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{linkedlist_8h}{linkedlist.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00005}00005\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00006}\mbox{\hyperlink{linkedlist_8c_ade2116ebf2d9e7c910cb6c439eb00f93}{00006}}\ \textcolor{preprocessor}{\#define\ LEN\_RIVI\ 40\ }\textcolor{comment}{//\ max\ rivi\ pituus\ tiedostossa}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00007}\mbox{\hyperlink{linkedlist_8c_aac38d06fc83e76745b2104b189ca3d9c}{00007}}\ \textcolor{preprocessor}{\#define\ LEN\_SUKUNIMI\ 30\ }\textcolor{comment}{//\ max\ sukunimi\ pituus}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00007}\mbox{\hyperlink{linkedlist_8c_af892cbd14d835cd05ae2b8c5bf73d9c7}{00007}}\ \textcolor{preprocessor}{\#define\ LEN\_NIMI\ 30\ }\textcolor{comment}{//\ max\ sukunimi\ pituus}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00010}00010\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00010}00010\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{varaaMuisti}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00011}00011\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00012}00012\ \textcolor{comment}{//\ mergesort\ apufunktiot}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00013}00013\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a25cb277563185b5c6f786670787359c4}{mergeSortLaskeva\_etsiKeski}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00014}00014\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pVasen,\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pOikea);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00013}00013\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a1450e1e277c16a74953564b82c7c9e30}{mergeSortLaskeva\_etsiKeski}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00014}00014\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pVasen,\ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pOikea);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00019}\mbox{\hyperlink{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04}{00019}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a54d4a9ee0a55ea13a24b9afea0918b04}{lueTiedosto}}(\textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00019}\mbox{\hyperlink{linkedlist_8c_ad69bd63eb046856c21891721fff0bfef}{00019}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_ad69bd63eb046856c21891721fff0bfef}{lueTiedosto}}(\textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00020}00020\ \ \ \ \ FILE*\ Tiedosto\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pUusi\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pViimeisin\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pUusi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pViimeisin\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{char}\ aRivi[\mbox{\hyperlink{linkedlist_8c_ade2116ebf2d9e7c910cb6c439eb00f93}{LEN\_RIVI}}];}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{char}\ *p1\ =\ NULL;\ \textcolor{comment}{//\ ptr\ sukunimelle\ tiedostosta}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{char}\ *p2\ =\ NULL;\ \textcolor{comment}{//\ ptr\ määrälle\ tiedostosta}}
@@ -43,20 +43,20 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ iMaara\ =\ atoi(p2);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pViimeisin\ ==\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}();}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ p1);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ iMaara;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{varaaMuisti}}();}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ p1);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ =\ iMaara;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ pViimeisin\ =\ pUusi;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ pViimeisin;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}();}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ p1);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ iMaara;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ pViimeisin-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ pUusi;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ pViimeisin;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{varaaMuisti}}();}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(pUusi-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ p1);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ =\ iMaara;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ pViimeisin-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ pUusi;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ pViimeisin;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ pUusi-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ pViimeisin\ =\ pUusi;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00062}00062\ \ \ \ \ \}}
@@ -64,30 +64,30 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ (pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00065}00065\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00066}00066\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00067}\mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{00067}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}()\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pUusi\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00067}\mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{00067}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{varaaMuisti}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pUusi\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00069}00069\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ muistin\ varauksen\ virheen\ käsittely}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ ((pUusi\ =\ (\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}})))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ ((pUusi\ =\ (\mbox{\hyperlink{structlistNode}{LISTNODE}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structlistNode}{LISTNODE}})))\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Muistin\ varaus\ epäonnistui,\ lopetetaan"{}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ exit(0);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00074}00074\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{return}\ (pUusi);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00076}00076\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00077}00077\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00079}\mbox{\hyperlink{linkedlist_8c_a41db76f1f5dabb51b314183f13742247}{00079}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a41db76f1f5dabb51b314183f13742247}{vapautaMuisti}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00079}\mbox{\hyperlink{linkedlist_8c_a559f156cf32938c5039497626578cc56}{00079}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a559f156cf32938c5039497626578cc56}{vapautaMuisti}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ free(ptr);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00085}00085\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ (pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00087}00087\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00090}\mbox{\hyperlink{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17}{00090}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlist_8c_a6d5590e3b03032cc4b0de02146473d17}{kirjoitaTiedostoAlkuLoppu}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku,\ \textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00090}\mbox{\hyperlink{linkedlist_8c_a361af822d78479e4d87974b2cc70cc3d}{00090}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlist_8c_a361af822d78479e4d87974b2cc70cc3d}{kirjoitaTiedostoAlkuLoppu}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku,\ \textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00091}00091\ \ \ \ \ FILE\ *Tiedosto\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00093}00093\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00094}00094\ \ \ \ \ Tiedosto\ =\ fopen(aTiedostoNimi,\ \textcolor{stringliteral}{"{}w"{}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (Tiedosto\ ==\ NULL)\ \{}
@@ -96,28 +96,28 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00098}00098\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00099}00099\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}});}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00103}00103\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00104}00104\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00105}00105\ \ \ \ \ fclose(Tiedosto);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00107}00107\ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00110}\mbox{\hyperlink{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlist_8c_a10613413e58c950dd74dfecaebcb2cb1}{kirjoitaTiedostoLoppuAlku}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku,\ \textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00110}\mbox{\hyperlink{linkedlist_8c_a93ed3c7fa64e602865388904e9bb50ad}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linkedlist_8c_a93ed3c7fa64e602865388904e9bb50ad}{kirjoitaTiedostoLoppuAlku}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku,\ \textcolor{keywordtype}{char}\ aTiedostoNimi[])\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00111}00111\ \ \ \ \ FILE\ *Tiedosto\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00113}00113\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00114}00114\ \ \ \ \ Tiedosto\ =\ fopen(aTiedostoNimi,\ \textcolor{stringliteral}{"{}w"{}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (Tiedosto\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Tiedoston\ avaaminen\ epäonnistui,\ lopetetaan"{}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ exit(0);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00118}00118\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{while}\ (\ (ptr\ !=\ NULL)\ \&\&\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ )\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{while}\ (\ (ptr\ !=\ NULL)\ \&\&\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL)\ )\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00121}00121\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}});}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ fprintf(Tiedosto,\ \textcolor{stringliteral}{"{}\%s,\%d\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00125}00125\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00126}00126\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00127}00127\ \ \ \ \ fclose(Tiedosto);}
@@ -137,70 +137,70 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00142}00142\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00143}00143\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00144}00144\ \textcolor{comment}{//\ https://www.w3resource.com/c-\/programming-\/exercises/linked\_list/c-\/linked\_list-\/exercise-\/39.php}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00148}\mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{00148}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pVasen\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pOikea\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pKeski\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pLajiteltu\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00148}\mbox{\hyperlink{linkedlist_8c_af68c7557ae4dd7a6dfb7cae87f667f02}{00148}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_af68c7557ae4dd7a6dfb7cae87f667f02}{lajitteleLaskeva}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pVasen\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pOikea\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pKeski\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pLajiteltu\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00153}00153\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ ==\ NULL\ ||\ pAlku-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ lista\ on\ NULL\ tai\ vain\ 1\ alkion\ pituinen}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ ==\ NULL\ ||\ pAlku-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ lista\ on\ NULL\ tai\ vain\ 1\ alkion\ pituinen}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00156}00156\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00157}00157\ \ \ \ \ pKeski\ =\ \mbox{\hyperlink{linkedlist_8c_a25cb277563185b5c6f786670787359c4}{mergeSortLaskeva\_etsiKeski}}(pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00157}00157\ \ \ \ \ pKeski\ =\ \mbox{\hyperlink{linkedlist_8c_a1450e1e277c16a74953564b82c7c9e30}{mergeSortLaskeva\_etsiKeski}}(pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00158}00158\ \ \ \ \ pVasen\ =\ pAlku;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00159}00159\ \ \ \ \ pOikea\ =\ pKeski-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00160}00160\ \ \ \ \ pKeski-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ NULL;\ \textcolor{comment}{//\ katkaistaan\ yhteys\ keskeltä}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00159}00159\ \ \ \ \ pOikea\ =\ pKeski-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00160}00160\ \ \ \ \ pKeski-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ NULL;\ \textcolor{comment}{//\ katkaistaan\ yhteys\ keskeltä}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00161}00161\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00162}00162\ \ \ \ \ pVasen\ =\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(pAlku);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00163}00163\ \ \ \ \ pOikea\ =\ \mbox{\hyperlink{linkedlist_8c_a0524f02838eb801951dfd3e3b7a7077f}{lajitteleLaskeva}}(pOikea);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00162}00162\ \ \ \ \ pVasen\ =\ \mbox{\hyperlink{linkedlist_8c_af68c7557ae4dd7a6dfb7cae87f667f02}{lajitteleLaskeva}}(pAlku);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00163}00163\ \ \ \ \ pOikea\ =\ \mbox{\hyperlink{linkedlist_8c_af68c7557ae4dd7a6dfb7cae87f667f02}{lajitteleLaskeva}}(pOikea);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00164}00164\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00165}00165\ \ \ \ \ pLajiteltu\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pVasen,\ pOikea);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00165}00165\ \ \ \ \ pLajiteltu\ =\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(pVasen,\ pOikea);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{return}\ (pLajiteltu);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00167}00167\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00168}00168\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00172}\mbox{\hyperlink{linkedlist_8c_a25cb277563185b5c6f786670787359c4}{00172}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a25cb277563185b5c6f786670787359c4}{mergeSortLaskeva\_etsiKeski}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00173}00173\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ slowPtr\ =\ pAlku;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ fastPtr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00172}\mbox{\hyperlink{linkedlist_8c_a1450e1e277c16a74953564b82c7c9e30}{00172}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a1450e1e277c16a74953564b82c7c9e30}{mergeSortLaskeva\_etsiKeski}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00173}00173\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ slowPtr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ fastPtr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00175}00175\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00176}00176\ \ \ \ \ \textcolor{keywordflow}{while}\ ((fastPtr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ \&\&\ (fastPtr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL))\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ slowPtr\ =\ slowPtr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ fastPtr\ =\ fastPtr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00176}00176\ \ \ \ \ \textcolor{keywordflow}{while}\ ((fastPtr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL)\ \&\&\ (fastPtr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL))\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ slowPtr\ =\ slowPtr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ fastPtr\ =\ fastPtr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00179}00179\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{return}\ (slowPtr);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00181}00181\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00182}00182\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00187}\mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{00187}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pVasen,\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pOikea)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ yhdistetty\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00187}\mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{00187}}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pVasen,\ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pOikea)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ yhdistetty\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00189}00189\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{if}\ (pVasen\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ yhdistetty\ =\ pOikea;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00192}00192\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pOikea\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ yhdistetty\ =\ pVasen;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00194}00194\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pVasen-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ >\ pOikea-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00194}00194\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pVasen-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ >\ pOikea-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}})\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ yhdistetty\ =\ pVasen;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pVasen-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}},\ pOikea);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00197}00197\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pOikea-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ >\ pVasen-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(pVasen-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}},\ pOikea);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00197}00197\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pOikea-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ >\ pVasen-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}})\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ yhdistetty\ =\ pOikea;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pOikea-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}},\ pVasen);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(pOikea-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}},\ pVasen);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00200}00200\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ jos\ arvot\ samat\ niin\ aakkosten\ perusteella}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (strcmp(pVasen-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ pOikea-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}}))\ >\ 0\ )\ \{\ \textcolor{comment}{//\ vasen\ isompi}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (strcmp(pVasen-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ pOikea-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}}))\ >\ 0\ )\ \{\ \textcolor{comment}{//\ vasen\ isompi}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty\ =\ pVasen;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pVasen-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}},\ pOikea);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(pVasen-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}},\ pOikea);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ oikea\ isompi\ tai\ duplikaatti}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty\ =\ pOikea;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_ae2bf49bb5d2416ce7429b0f3ff94360b}{mergeSortLaskeva\_yhdista}}(pOikea-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}},\ pVasen);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ yhdistetty-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ \mbox{\hyperlink{linkedlist_8c_a2fb7981eead4651d9f4c4341e1fe7bae}{mergeSortLaskeva\_yhdista}}(pOikea-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}},\ pVasen);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00208}00208\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{return}\ (yhdistetty);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00210}00210\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00211}00211\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00215}\mbox{\hyperlink{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348}{00215}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_aff2d084bc8fa70a7971fa69122bf5348}{lajitteleNouseva}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00215}\mbox{\hyperlink{linkedlist_8c_a131451d0d5bda01c7cc58c65084d35f2}{00215}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a131451d0d5bda01c7cc58c65084d35f2}{lajitteleNouseva}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *pAlku)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordtype}{int}\ iVaihtoTehty\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00218}00218\ \ \ \ \ \textcolor{keywordtype}{char}\ aApuNimi[\mbox{\hyperlink{linkedlist_8c_aac38d06fc83e76745b2104b189ca3d9c}{LEN\_SUKUNIMI}}];}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00218}00218\ \ \ \ \ \textcolor{keywordtype}{char}\ aApuNimi[\mbox{\hyperlink{linkedlist_8c_af892cbd14d835cd05ae2b8c5bf73d9c7}{LEN\_NIMI}}];}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00219}00219\ \ \ \ \ \textcolor{keywordtype}{int}\ iApuMaara\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00220}00220\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ ==\ NULL\ ||\ pAlku-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ ==\ NULL\ ||\ pAlku-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00223}00223\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00224}00224\ }
@@ -208,58 +208,58 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ iVaihtoTehty\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00228}00228\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iVaihda\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00231}00231\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ >\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ >\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}})\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iVaihda\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ ==\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}})\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}})\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ ==\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}})\ >\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iVaihda\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00239}00239\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iVaihda\ ==\ 1)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(aApuNimi,\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}});}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iApuMaara\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(aApuNimi,\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iApuMaara\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00243}00243\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}});}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00246}00246\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ aApuNimi);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ iApuMaara;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ aApuNimi);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ =\ iApuMaara;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iVaihtoTehty\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00253}00253\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (iVaihtoTehty\ ==\ 1);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00254}00254\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00255}00255\ \ \ \ \ \textcolor{keywordflow}{return}\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00256}00256\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00257}00257\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00262}\mbox{\hyperlink{linkedlist_8c_a32f63a9340932c737be92d62c8a72636}{00262}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a32f63a9340932c737be92d62c8a72636}{poistaAlkioNimi}}(\textcolor{keywordtype}{char}\ aNimi[],\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pAlku)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00263}00263\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00262}\mbox{\hyperlink{linkedlist_8c_a81dac4c4665d0f62e1ba6774dc7bdc37}{00262}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a81dac4c4665d0f62e1ba6774dc7bdc37}{poistaAlkioNimi}}(\textcolor{keywordtype}{char}\ aNimi[],\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00263}00263\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00264}00264\ \ \ \ \ \textcolor{keywordtype}{int}\ iPoistettu\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00265}00265\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ strcmp(aNimi,\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}})\ ==\ 0\ )\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ ensimmäinen}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ strcmp(aNimi,\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}})\ ==\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ ensimmäinen}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ !=\ NULL)\ \{\ \textcolor{comment}{//\ varomääre\ jos\ listassa\ onkin\ vain\ yksi\ alkio}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ \ ja\ poistettaessa\ ensimmäinen\ alkio\ se\ menee\ tyhjäksi}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ \ ja\ poistettaessa\ ensimmäinen\ alkio\ se\ menee\ tyhjäksi}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ viimeinen}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ viimeinen}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ poistetaan\ listan\ keskeltä}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};\ \textcolor{comment}{//\ poistetaan\ listan\ keskeltä}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s,\%d'\ poistettu.\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s,\%d'\ poistettu.\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ free(ptr);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ iPoistettu\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ poistetaan\ vain\ ensimmäinen\ vastaan\ tuleva}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00285}00285\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00286}00286\ \ \ \ \ \textcolor{keywordflow}{if}\ (iPoistettu\ ==\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s'\ ei\ löytynyt\ osumaa.\(\backslash\)n"{}},\ aNimi);}
@@ -267,29 +267,29 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{return}\ (pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00290}00290\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00291}00291\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00296}\mbox{\hyperlink{linkedlist_8c_a4b1ff657bd93116aee9b743edfa2a892}{00296}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a4b1ff657bd93116aee9b743edfa2a892}{poistaAlkioMaara}}(\textcolor{keywordtype}{int}\ iMaara,\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ pAlku)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ pAlku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00296}\mbox{\hyperlink{linkedlist_8c_a35b4a81c4765ee825d79013241999726}{00296}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a35b4a81c4765ee825d79013241999726}{poistaAlkioMaara}}(\textcolor{keywordtype}{int}\ iMaara,\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ pAlku)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ pAlku;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00298}00298\ \ \ \ \ \textcolor{keywordtype}{int}\ iPoistettu\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00299}00299\ }
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iMaara\ ==\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}})\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ ensimmäinen}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iMaara\ ==\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}})\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ ensimmäinen}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pAlku\ !=\ NULL)\ \{\ \textcolor{comment}{//\ varomääre\ jos\ listassa\ onkin\ vain\ yksi\ alkio}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ \ ja\ poistettaessa\ ensimmäinen\ alkio\ se\ menee\ tyhjäksi}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pAlku-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ \ ja\ poistettaessa\ ensimmäinen\ alkio\ se\ menee\ tyhjäksi}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ viimeinen}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ ==\ NULL)\ \{\ \textcolor{comment}{//\ poistetaan\ listan\ viimeinen}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ poistetaan\ listan\ keskeltä}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};\ \textcolor{comment}{//\ poistetaan\ listan\ keskeltä}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s,\%d'\ poistettu.\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ ptr-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}});}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s,\%d'\ poistettu.\(\backslash\)n"{}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ ptr-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}});}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ free(ptr);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ iPoistettu\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ poistetaan\ vain\ ensimmäinen\ vastaan\ tuleva}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00319}00319\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00320}00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (iPoistettu\ ==\ 0)\ \{}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%d'\ ei\ löytynyt\ osumaa.\(\backslash\)n"{}},\ iMaara);}
@@ -297,33 +297,33 @@
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00323}00323\ \ \ \ \ \textcolor{keywordflow}{return}\ (pAlku);}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00324}00324\ \}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00325}00325\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00326}\mbox{\hyperlink{linkedlist_8c_a1b23fd2e33e513d266e6fe4b687e80c4}{00326}}\ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}*\ \mbox{\hyperlink{linkedlist_8c_a1b23fd2e33e513d266e6fe4b687e80c4}{lisaaListaan}}(\mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *alku,\ \textcolor{keywordtype}{int}\ kohta,\ \textcolor{keywordtype}{char}\ nimi[],\ \textcolor{keywordtype}{int}\ maara)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00327}00327\ \ \ \ \ kohta-\/-\/;\ \textcolor{comment}{//jotta\ indexi\ saadaan\ 0\ pohjaiseksi}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00328}00328\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *uusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f19fb62798007ff7274e8dc0ae47601}{varaaMuisti}}();\ \textcolor{comment}{//\ varataan\ muisti\ uudelle\ structille}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00329}00329\ \ \ \ \ strcpy(uusi-\/>\mbox{\hyperlink{structsukunimi_ad3032325f205459c0df5294c9473b700}{aSukunimi}},\ nimi);}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00330}00330\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a67932cc392a3a4be498dcfd4e23b9f2f}{iMaara}}\ =\ maara;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00331}00331\ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ ==\ NULL\ ||\ kohta\ ==\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ alku;\ \textcolor{comment}{//\ uusi\ osoittaa\ vanhaan\ alkuun}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00333}00333\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ edellinen\ on\ NULL}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00334}00334\ }
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ alku-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ vanhan\ alkuun\ edellinen\ osoittaa\ uuteen\ alkupäähän}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uusi;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ palautetaan\ se}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00339}00339\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00340}00340\ \ \ \ \ \mbox{\hyperlink{structsukunimi}{SUKUNIMI}}\ *ptr\ =\ alku;\ \textcolor{comment}{//\ aloitetaan\ listan\ alusta}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00341}00341\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00342}00342\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL\ \&\&\ i\ <\ kohta\ -\/\ 1)\ \{\ \textcolor{comment}{//\ kuljetaan\ listaa\ eteenpäin,\ kunnes\ saavutetaan\ haluttu\ kohta\ tai\ listan\ loppu}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ siirrytään\ seuraavaan\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00332}\mbox{\hyperlink{linkedlist_8c_a15fff376c25dc92ca485f07b832cec8b}{00332}}\ \mbox{\hyperlink{structlistNode}{LISTNODE}}*\ \mbox{\hyperlink{linkedlist_8c_a15fff376c25dc92ca485f07b832cec8b}{lisaaListaan}}(\mbox{\hyperlink{structlistNode}{LISTNODE}}\ *alku,\ \textcolor{keywordtype}{int}\ kohta,\ \textcolor{keywordtype}{char}\ nimi[],\ \textcolor{keywordtype}{int}\ maara)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00333}00333\ \ \ \ \ kohta-\/-\/;\ \textcolor{comment}{//jotta\ indexi\ saadaan\ 0\ pohjaiseksi}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00334}00334\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *uusi\ =\ \mbox{\hyperlink{linkedlist_8c_a3f30387d1d18c03fc042559baf2ef3c1}{varaaMuisti}}();\ \textcolor{comment}{//\ varataan\ muisti\ uudelle\ structille}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00335}00335\ \ \ \ \ strcpy(uusi-\/>\mbox{\hyperlink{structlistNode_a9bff2dfca40844c6919a53f0e14c0390}{aNimi}},\ nimi);}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00336}00336\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structlistNode_a43da4cf531a939d5500058ddee4de794}{iMaara}}\ =\ maara;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ ==\ NULL\ ||\ kohta\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ alku;\ \textcolor{comment}{//\ uusi\ osoittaa\ vanhaan\ alkuun}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ uusi-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ NULL;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ edellinen\ on\ NULL}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alku\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ alku-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ vanhan\ alkuun\ edellinen\ osoittaa\ uuteen\ alkupäähän}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uusi;\ \textcolor{comment}{//\ uusi\ on\ uusi\ alku,\ joten\ palautetaan\ se}}
 \DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00345}00345\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00346}00346\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}};\ \textcolor{comment}{//\ uusi\ osoittaa\ siihen,\ mihin\ ptr\ osoitti\ ennen\ (eli\ seuraavaan\ alkioon)}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00347}00347\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ ptr;\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00348}00348\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ !=\ NULL)\ \{\ \textcolor{comment}{//\ jos\ ptr\ ei\ ole\ listan\ viimeinen\ alkio,\ asetetaan\ seuraavan\ alkion\ edellinen\ osoittamaan\ uuteen\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}-\/>\mbox{\hyperlink{structsukunimi_ac5cec30ada84e0f3d8a01d4bb159c043}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ seuraavan\ alkion\ edellinen\ osoittaa\ uuteen\ alkioon}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00350}00350\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00351}00351\ \ \ \ \ ptr-\/>\mbox{\hyperlink{structsukunimi_a95bbf0737205ce5c8ab9f8f5a5c52aa6}{pSeuraava}}\ =\ uusi;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00352}00352\ \ \ \ \ \textcolor{keywordflow}{return}\ alku;}
-\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00353}00353\ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00346}00346\ \ \ \ \ \mbox{\hyperlink{structlistNode}{LISTNODE}}\ *ptr\ =\ alku;\ \textcolor{comment}{//\ aloitetaan\ listan\ alusta}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00347}00347\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00348}00348\ \ \ \ \ \textcolor{keywordflow}{while}\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL\ \&\&\ i\ <\ kohta\ -\/\ 1)\ \{\ \textcolor{comment}{//\ kuljetaan\ listaa\ eteenpäin,\ kunnes\ saavutetaan\ haluttu\ kohta\ tai\ listan\ loppu}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ ptr\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};\ \textcolor{comment}{//\ siirrytään\ seuraavaan\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00351}00351\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00352}00352\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}};\ \textcolor{comment}{//\ uusi\ osoittaa\ siihen,\ mihin\ ptr\ osoitti\ ennen\ (eli\ seuraavaan\ alkioon)}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00353}00353\ \ \ \ \ uusi-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ ptr;\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00354}00354\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ !=\ NULL)\ \{\ \textcolor{comment}{//\ jos\ ptr\ ei\ ole\ listan\ viimeinen\ alkio,\ asetetaan\ seuraavan\ alkion\ edellinen\ osoittamaan\ uuteen\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}-\/>\mbox{\hyperlink{structlistNode_a657a68fe62d29fdf8d235c8bf627c198}{pEdellinen}}\ =\ uusi;\ \textcolor{comment}{//\ seuraavan\ alkion\ edellinen\ osoittaa\ uuteen\ alkioon}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00356}00356\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00357}00357\ \ \ \ \ ptr-\/>\mbox{\hyperlink{structlistNode_ad1ccd3d55179ac2fa420e2cc974c736a}{pSeuraava}}\ =\ uusi;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00358}00358\ \ \ \ \ \textcolor{keywordflow}{return}\ alku;}
+\DoxyCodeLine{\Hypertarget{linkedlist_8c_source_l00359}00359\ \}}
 
 \end{DoxyCode}
