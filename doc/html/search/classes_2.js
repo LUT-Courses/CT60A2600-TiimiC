@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sukunimi_0',['sukunimi',['../structsukunimi.html',1,'']]]
+  ['queuenode_0',['queueNode',['../structqueueNode.html',1,'']]]
 ];

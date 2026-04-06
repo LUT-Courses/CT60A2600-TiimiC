@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['asukunimi_0',['asukunimi',['../structbtreeNode.html#a38058c50258b5cb4a3d696e2b12ccbc3',1,'btreeNode::aSukunimi'],['../structsukunimi.html#ad3032325f205459c0df5294c9473b700',1,'sukunimi::aSukunimi']]]
+  ['animi_0',['animi',['../structbtreeNode.html#a756ef645c08b0e537c3344c98bcb0c7e',1,'btreeNode::aNimi'],['../structlistNode.html#a9bff2dfca40844c6919a53f0e14c0390',1,'listNode::aNimi']]]
 ];

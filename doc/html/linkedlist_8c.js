@@ -1,18 +1,18 @@
 var linkedlist_8c =
 [
+    [ "LEN_NIMI", "linkedlist_8c.html#af892cbd14d835cd05ae2b8c5bf73d9c7", null ],
     [ "LEN_RIVI", "linkedlist_8c.html#ade2116ebf2d9e7c910cb6c439eb00f93", null ],
-    [ "LEN_SUKUNIMI", "linkedlist_8c.html#aac38d06fc83e76745b2104b189ca3d9c", null ],
-    [ "kirjoitaTiedostoAlkuLoppu", "linkedlist_8c.html#a6d5590e3b03032cc4b0de02146473d17", null ],
-    [ "kirjoitaTiedostoLoppuAlku", "linkedlist_8c.html#a10613413e58c950dd74dfecaebcb2cb1", null ],
-    [ "lajitteleLaskeva", "linkedlist_8c.html#a0524f02838eb801951dfd3e3b7a7077f", null ],
-    [ "lajitteleNouseva", "linkedlist_8c.html#aff2d084bc8fa70a7971fa69122bf5348", null ],
-    [ "lisaaListaan", "linkedlist_8c.html#a1b23fd2e33e513d266e6fe4b687e80c4", null ],
-    [ "lueTiedosto", "linkedlist_8c.html#a54d4a9ee0a55ea13a24b9afea0918b04", null ],
-    [ "mergeSortLaskeva_etsiKeski", "linkedlist_8c.html#a25cb277563185b5c6f786670787359c4", null ],
-    [ "mergeSortLaskeva_yhdista", "linkedlist_8c.html#ae2bf49bb5d2416ce7429b0f3ff94360b", null ],
-    [ "poistaAlkioMaara", "linkedlist_8c.html#a4b1ff657bd93116aee9b743edfa2a892", null ],
-    [ "poistaAlkioNimi", "linkedlist_8c.html#a32f63a9340932c737be92d62c8a72636", null ],
+    [ "kirjoitaTiedostoAlkuLoppu", "linkedlist_8c.html#a361af822d78479e4d87974b2cc70cc3d", null ],
+    [ "kirjoitaTiedostoLoppuAlku", "linkedlist_8c.html#a93ed3c7fa64e602865388904e9bb50ad", null ],
+    [ "lajitteleLaskeva", "linkedlist_8c.html#af68c7557ae4dd7a6dfb7cae87f667f02", null ],
+    [ "lajitteleNouseva", "linkedlist_8c.html#a131451d0d5bda01c7cc58c65084d35f2", null ],
+    [ "lisaaListaan", "linkedlist_8c.html#a15fff376c25dc92ca485f07b832cec8b", null ],
+    [ "lueTiedosto", "linkedlist_8c.html#ad69bd63eb046856c21891721fff0bfef", null ],
+    [ "mergeSortLaskeva_etsiKeski", "linkedlist_8c.html#a1450e1e277c16a74953564b82c7c9e30", null ],
+    [ "mergeSortLaskeva_yhdista", "linkedlist_8c.html#a2fb7981eead4651d9f4c4341e1fe7bae", null ],
+    [ "poistaAlkioMaara", "linkedlist_8c.html#a35b4a81c4765ee825d79013241999726", null ],
+    [ "poistaAlkioNimi", "linkedlist_8c.html#a81dac4c4665d0f62e1ba6774dc7bdc37", null ],
     [ "tyhjennaTiedosto", "linkedlist_8c.html#a89168600b76d2d8444d4ad67965d6a29", null ],
-    [ "vapautaMuisti", "linkedlist_8c.html#a41db76f1f5dabb51b314183f13742247", null ],
-    [ "varaaMuisti", "linkedlist_8c.html#a3f19fb62798007ff7274e8dc0ae47601", null ]
+    [ "vapautaMuisti", "linkedlist_8c.html#a559f156cf32938c5039497626578cc56", null ],
+    [ "varaaMuisti", "linkedlist_8c.html#a3f30387d1d18c03fc042559baf2ef3c1", null ]
 ];

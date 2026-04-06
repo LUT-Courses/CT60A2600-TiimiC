@@ -1,7 +1,7 @@
 var binarytree_8h =
 [
     [ "btreeNode", "structbtreeNode.html", "structbtreeNode" ],
-    [ "LEN_SUKUNIMI", "binarytree_8h.html#aac38d06fc83e76745b2104b189ca3d9c", null ],
+    [ "LEN_NIMI", "binarytree_8h.html#af892cbd14d835cd05ae2b8c5bf73d9c7", null ],
     [ "BTREENODE", "binarytree_8h.html#a31e41e7241395517f95ef5447b694915", null ],
     [ "btree_bfsHakuNimellaKirjoita", "binarytree_8h.html#ada17fc6271a6ce7a0b69aa728dda7712", null ],
     [ "btree_dfsHakuKirjoita", "binarytree_8h.html#ae7788e7aec2c0632757a615018a4a81f", null ],
